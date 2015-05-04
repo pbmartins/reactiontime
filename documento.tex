@@ -1,0 +1,147 @@
+\documentclass[a4paper,11pt,onecolumn]{report}
+\usepackage[T1]{fontenc} % Fontes T1
+\usepackage[utf8]{inputenc} % Input UTF8
+\usepackage[backend=biber, style=ieee]{biblatex} % para usar bibliografia
+\usepackage{csquotes}
+\usepackage[portuguese]{babel} %Usar língua inglesa
+\usepackage{blindtext} % Gerar texto automáticamente
+\usepackage[printonlyused]{acronym}
+\usepackage{hyperref} % para autoref
+\usepackage{graphicx}
+\usepackage{minted}
+\usepackage{indentfirst}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+\bibliography{bibliografia}
+\addbibresource{bibliografia.bib}
+
+
+\begin{document}
+%%
+% Definições
+%
+\def\titulo{Temporizador de Reação}
+\def\data{03/05/2015}
+\def\autores{Pedro Martins, Pedro Santos}
+\def\autorescontactos{pbmartins@ua.pt, pedroamaralsantos@ua.pt}
+\def\versao{1}
+\def\departamento{Departamento de Eletrónica Telecomunicações e Informática}
+\def\empresa{Universidade de Aveiro}
+\def\logotipo{ua.pdf}
+%
+%% CAPA %%
+%
+\begin{titlepage}
+
+\begin{center}
+%
+\vspace*{50mm}
+%
+{\Huge \titulo}\\ 
+%
+\vspace{10mm}
+%
+{\Large \empresa}\\
+%
+\vspace{10mm}
+%
+{\LARGE \autores}\\ 
+%
+%
+\vspace{30mm}
+%
+\begin{figure}[h]
+\center
+\includegraphics{\logotipo}
+\end{figure}
+%
+\vspace{30mm}
+\end{center}
+%
+\begin{flushright}
+\versao
+\end{flushright}
+\end{titlepage}
+
+%
+%
+%%  Página de Título %%
+%
+%
+\title{%
+{\Huge\textbf{\titulo}}\\
+{\Large \departamento\\ \empresa}
+}
+%
+\author{%
+    \autores \\
+    \autorescontactos
+}
+%
+\date{\data}
+%
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RESUMO
+%
+%
+\pagenumbering{roman}
+
+\begin{abstract}
+RESUMO
+ 
+\end{abstract}
+
+\renewcommand{\abstractname}{Agradecimentos}
+\begin{abstract}
+É deixada uma palavra de agradecimento ao professor João Paula Barraca pelas dúvidas esclarecidas.
+\end{abstract}
+
+
+\tableofcontents
+\listoftables
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introdução}
+\label{chap.introducao}
+
+INTRODUÇÃO
+
+\chapter{Metodologia}
+\label{chap.metodologia}
+METODOLOGIA
+
+\chapter{Análise}
+\label{chap.analise}
+
+ANÁLISE
+
+\chapter{Conclusões}
+\label{chap.conclusao}
+CONCLUSÃO
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Acrónimos}
+\begin{acronym}
+\acro{ua}[UA]{Universidade de Aveiro}
+\acro{miect}[MIECT]{Mestrado Integrado em Engenharia de Computadores e Telemática}
+\acro{dbms}[DBMS]{Database Management System}
+
+\end{acronym}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\printbibliography
+
+\end{document}
