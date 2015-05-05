@@ -108,7 +108,7 @@ Foi-nos proposto a criação de um mini-projeto na disciplina de Laboratórios d
 \chapter{Análise}
 \label{chap.analise}
 
-\section{Especificações do Sistema}\ac{fpga}
+\section{Especificações do Sistema}
 O mini-projeto em análise consiste na implementação de um temporizador de reação. A ideia pode traduzir-se como, depois de aceso um LED, medir o tempo que o utilizador demora a carregar num botão, registando o tempo entre ambos. Apenas serão aceites dois botões, um para fazer \textit{Reset} ao sistema em qualquer ponto do seu funcionamento, e outro para o início do jogo e que também servirá como o botão que o utilizador tem de pressionar para calcular o tempo de reação.
 
 Assim que o utilizador carrega inicialmente no botão de iniciar o jogo, é gerado um número aleatório entre 5 e 60 (e validado), que será o tempo, em segundos, que demorará o LED a acender desde que se iniciou o jogo. De seguida, é utilizado um "semáforo de partida", onde a cada segundo, 3 LED vermelhos se apagam até que começa a contar o tempo até que o LED indicador se acenda.
