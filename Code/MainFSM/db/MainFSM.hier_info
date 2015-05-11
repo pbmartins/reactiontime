@@ -1,0 +1,18 @@
+|MainFSM
+input => ~NO_FANOUT~
+reset => ~NO_FANOUT~
+valid => ~NO_FANOUT~
+timeExp => ~NO_FANOUT~
+clk => ~NO_FANOUT~
+final => ~NO_FANOUT~
+newTime << newTime.DB_MAX_OUTPUT_PORT_TYPE
+ledCounter_En << ledCounter_En.DB_MAX_OUTPUT_PORT_TYPE
+counter_En << counter_En.DB_MAX_OUTPUT_PORT_TYPE
+hex_En << <GND>
+hex_Error << hex_Error.DB_MAX_OUTPUT_PORT_TYPE
+stOut[0] << <GND>
+stOut[1] << <GND>
+stOut[2] << <GND>
+ledGreen_En << ledGreen_En.DB_MAX_OUTPUT_PORT_TYPE
+
+

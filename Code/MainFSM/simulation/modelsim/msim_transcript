@@ -1,0 +1,64 @@
+# do MainFSM_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim LE vmap 10.3c Lib Mapping Utility 2014.09 Sep 20 2014
+# vmap -modelsim_quiet work rtl_work 
+# Copying /home/pedro/altera/14.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied /home/pedro/altera/14.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {/home/pedro/reactiontime/Code/MainFSM/MainFSM.vhd}
+# Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 16:24:19 on May 10,2015
+# vcom -reportprogress 300 -93 -work work /home/pedro/reactiontime/Code/MainFSM/MainFSM.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity MainFSM
+# -- Compiling architecture Behav of MainFSM
+# ** Error: /home/pedro/reactiontime/Code/MainFSM/MainFSM.vhd(23): Nonresolved signal 'NS' has multiple sources.
+#   Drivers:
+#     /home/pedro/reactiontime/Code/MainFSM/MainFSM.vhd(25):Process clock_proc
+#        Driven at:
+#           /home/pedro/reactiontime/Code/MainFSM/MainFSM.vhd(28)
+#     /home/pedro/reactiontime/Code/MainFSM/MainFSM.vhd(34):Process main_proc
+#        Driven at:
+#           /home/pedro/reactiontime/Code/MainFSM/MainFSM.vhd(46)
+# ** Error: /home/pedro/reactiontime/Code/MainFSM/MainFSM.vhd(116): VHDL Compiler exiting
+# End time: 16:24:19 on May 10,2015, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# ** Error: /home/pedro/altera/14.1/modelsim_ase/linuxaloem/vcom failed.
+# Error in macro ./MainFSM_run_msim_rtl_vhdl.do line 8
+# /home/pedro/altera/14.1/modelsim_ase/linuxaloem/vcom failed.
+#     while executing
+# "vcom -93 -work work {/home/pedro/reactiontime/Code/MainFSM/MainFSM.vhd}"
+# 
+# stdin: <EOF>
+vcom -reportprogress 300 -work work /home/pedro/reactiontime/Code/MainFSM/MainFSM_Tb.vhd
+# Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 16:24:25 on May 10,2015
+# vcom -reportprogress 300 -work work /home/pedro/reactiontime/Code/MainFSM/MainFSM_Tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity MainFSM_Tb
+# -- Compiling architecture Stimulus of MainFSM_Tb
+# -- Loading entity MainFSM
+# End time: 16:24:25 on May 10,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.mainfsm_tb(stimulus)
+# vsim -i -l msim_transcript -do "MainFSM_run_msim_rtl_vhdl.do" 
+# Start time: 16:24:31 on May 10,2015
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.mainfsm_tb(stimulus)
+# ** Error: (vsim-3170) Could not find '/home/pedro/reactiontime/Code/MainFSM/simulation/modelsim/rtl_work.mainfsm(behav)'.
+# Error loading design
