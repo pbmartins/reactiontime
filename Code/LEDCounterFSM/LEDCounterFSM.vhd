@@ -1,17 +1,17 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
-entity  LEDCounterFSM is
-	port(reset		: in  std_logic;
-		  clk			: in  std_logic;
-		  enable  	: in  std_logic;
-		  Final  	: out std_logic;
+entity LEDCounterFSM is
+	port(reset		     : in  std_logic;
+		  clk			     : in  std_logic;
+		  enable  	     : in  std_logic;
+		  Final  	     : out std_logic;
 		  ledRed1_enable : out std_logic;
 		  ledRed2_enable : out std_logic;
 		  ledRed3_enable : out std_logic;
-end  LEDCounterFSM;
+end LEDCounterFSM;
 
-architecture Behavioral of  LEDCounterFSM is
+architecture Behavioral of LEDCounterFSM is
 
 	type TState is (A, B, C, D, E);
 	signal s_currentState, s_nextState : TState;
@@ -28,14 +28,14 @@ begin
 		end if;
 	end process;
 
-	comb_proc : process(s_currentState,enable, laprst)
+	comb_proc : process(s_currentState, enable, laprst)
 	begin
+		ledRed0_enable <= '0';
+		ledRed1_enable <= '0';
+		ledRed2_enable <= '0';
+		Final <= '0';
 		case (s_currentState) is
 		when A =>
-			Final <= '0';
-			ledRed0_enable <= '0';
-			ledRed1_enable <= '0';
-			ledRed2_enable <= '0';
 			if (enable = '1') then
 				s_nextState <= B;
 			else
@@ -43,7 +43,6 @@ begin
 			end if;
 
 		when B =>
-			Final   <= '0';
 			ledRed0_enable <= '1';
 			ledRed1_enable <= '1';
 			ledRed2_enable <= '1';
@@ -54,10 +53,8 @@ begin
 			end if;
 
 		when C =>
-			Final   <= '0';
 			ledRed0_enable <= '1';
 			ledRed1_enable <= '1';
-			ledRed2_enable <= '0';
 			if (enable = '1') then
 			   s_nextState <= D;
 			else
@@ -65,27 +62,16 @@ begin
 			end if;
 
 		when D =>
-			Final   <= '0';
 			ledRed0_enable <= '1';
-			ledRed1_enable <= '0';
-			ledRed2_enable <= '0';
 			if (enable = '1') then
 		      s_nextState <= E;
 			else
 				s_nextState <= A;
-		end if;
+			end if;
 			
-			
-			when E =>
-			  Final   <= '1';
-			  ledRed1_enable <= '0';
-			  ledRed2_enable <= '0';
-			  ledRed3_enable <= '0';
-			
-			
-			
+		when E =>
+			 Final <= '1';
 		end case;
-
 	end process;
 
 end Behavioral;
