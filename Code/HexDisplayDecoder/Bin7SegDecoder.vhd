@@ -19,7 +19,8 @@ begin
 						"0000000" when "1000",   --8
 						"0010000" when "1001",   --9
 						"1000000" when "0000",   --0
+						"0100011" when "1101",   --o
 						"0000110" when "1110",   --E
 						"0101111" when "1111",   --r
-						"0100011" when others;   --o
+						"0111111" when others;   --null
 end Behavioral;
