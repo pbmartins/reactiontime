@@ -22,5 +22,5 @@ begin
 						"0100011" when "1101",   --o
 						"0000110" when "1110",   --E
 						"0101111" when "1111",   --r
-						"1111111" when others;   --null
+						"0111111" when others;   --null
 end Behavioral;

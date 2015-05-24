@@ -16,8 +16,8 @@ end HexDisplay;
 architecture Structural of HexDisplay is
 	signal s_registerOut	: std_logic_vector(23 downto 0);
 begin
-	s_registerOut <= "110011101111111111011111" when (error = '1') else
-	                 "110011001100110011001100" when (enable = '0') else
+	s_registerOut <= "11101111111111011111" when (error = '1') else
+	                 "11001100110011001100" when (enable = '0') else
 						  count;
 	
 	disp_0_decoder : entity WORK.Bin7SegDecoder(Behavioral)
