@@ -4,8 +4,9 @@ use IEEE.NUMERIC_STD.all;
 
 entity ReactionTime is
 	port (KEY      : in std_logic_vector(1 downto 0);
+			SW       : in std_logic_vector(1 downto 0);
 			CLOCK_50 : in std_logic;
-			LEDR     : out std_logic_vector(2 downto 0);
+			LEDR     : out std_logic_vector(6 downto 0);
 			LEDG     : out std_logic_vector(0 downto 0);
 			HEX0, HEX1, HEX2, HEX3, HEX4, HEX5 : out std_logic_vector(6 downto 0));
 end ReactionTime;
@@ -17,26 +18,28 @@ architecture Shell of ReactionTime is
 	signal s_count : std_logic_vector(23 downto 0);
 begin
 	-- Debounce Units --
-	key0_debounce : entity work.DebounceUnit(Behavioral)
-		generic map(clkFrekHz => 50000,
-						blindmSec => 100,
-						inPol		 => '0',
-						outPol	 => '1')
-		port map(reset			 => key1,
-					Clk	   	 => CLOCK_50,
-					dirtyIn		 => KEY(0),
-					pulsedOut	 => key0);
+	--key0_debounce : entity work.DebounceUnit(Behavioral)
+	--	generic map(clkFrekHz => 50000,
+	--					blindmSec => 100,
+	--					inPol		 => '0',
+	--					outPol	 => '1')
+	--	port map(reset			 => key1,
+		--			Clk	   	 => CLOCK_50,
+		--			dirtyIn		 => SW(0),
+		--			pulsedOut	 => key0);
 					
-	key1_debounce : entity work.DebounceUnit(Behavioral)
-		generic map(clkFrekHz => 50000,
-						blindmSec => 100,
-						inPol		 => '0',
-						outPol	 => '1')
-		port map(reset			 => key1,
-					Clk		    => CLOCK_50,
-					dirtyIn		 => KEY(1),
-					pulsedOut	 => key1);
+	--key1_debounce : entity work.DebounceUnit(Behavioral)
+	--	generic map(clkFrekHz => 50000,
+		--				blindmSec => 100,
+		--				inPol		 => '0',
+		--				outPol	 => '1')
+		--port map(reset			 => key1,
+		--			Clk		    => CLOCK_50,
+		--			dirtyIn		 => SW(1),
+		--			pulsedOut	 => key1);
 					
+	key0 <= SW(0);
+	key1 <= SW(1);
 	-- Random Generator --
 	clkdivider_50000hz : entity work.FreqDivider(Behavioral)
 		generic map(K         => 1000)
@@ -60,7 +63,7 @@ begin
 		port map(clk          => clk1hz,
 					reset        => key1,
 					newTime      => s_newTime,
-					timerVal     => rnd_number,
+					timerVal     => "001010",
 					timeExp      => s_timeExp);
 			
 	-- Main FSM --		
@@ -69,19 +72,20 @@ begin
 		port map(clkIn        => CLOCK_50,
 					clkOut       => clk2hz);
 					
-					
+	LEDR(6) <= clk2hz;				
 	main_fsm : entity work.MainFSM(Behav)
 		port map(clk          => clk2hz,
 					reset        => key1,
 					input        => key0,
 					newTime      => s_newTime,
 					timeExp      => s_timeExp,
-					valid        => s_validOut,
+					valid        => '1',
 					ledCounter_En=> s_ledCounterEN,
 					final        => s_final,
 					counter_En   => s_counterEN,
 					ledGreen_En  => LEDG(0),
 					hex_En       => s_hexEN,
+					stOut        => LEDR(5 downto 3),
 					hex_Error    => s_hexERROR);
 					
 	-- Led Counter --

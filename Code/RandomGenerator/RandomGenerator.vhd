@@ -20,7 +20,7 @@ begin
 								
 	en_proc : process(s_valid, input)
 	begin
-		s_en <= s_valid or input;
+		s_en <= s_valid xor input;
 	end process;
 								
 	shiftreg : entity work.ShiftRegisterN(Behavioral)
@@ -36,6 +36,6 @@ begin
 								dataOut => dataOut,
 								validOut => s_valid);
 								
-	validOut <= not s_valid;
+	validOut <= s_valid;
 
 end Shell;

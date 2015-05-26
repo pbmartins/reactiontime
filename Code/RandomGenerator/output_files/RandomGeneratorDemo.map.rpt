@@ -1,0 +1,416 @@
+Analysis & Synthesis report for RandomGeneratorDemo
+Tue May 26 12:23:03 2015
+Quartus II 64-Bit Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Parameter Settings for User Entity Instance: FreqDivider:clkdivider_50000hz
+ 12. Parameter Settings for User Entity Instance: RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen
+ 13. Parameter Settings for User Entity Instance: RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg
+ 14. Parameter Settings for User Entity Instance: RandomGenerator:rnd_generator|CheckRangeN:checkrng
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2014 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue May 26 12:23:03 2015      ;
+; Quartus II 64-Bit Version          ; 13.1.4 Build 182 03/12/2014 SJ Web Edition ;
+; Revision Name                      ; RandomGeneratorDemo                        ;
+; Top-level Entity Name              ; RandomGeneratorDemo                        ;
+; Family                             ; Cyclone IV E                               ;
+; Total logic elements               ; 244                                        ;
+;     Total combinational functions  ; 243                                        ;
+;     Dedicated logic registers      ; 102                                        ;
+; Total registers                    ; 102                                        ;
+; Total pins                         ; 10                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                          ;
++----------------------------------------------------------------------------+---------------------+---------------------+
+; Option                                                                     ; Setting             ; Default Value       ;
++----------------------------------------------------------------------------+---------------------+---------------------+
+; Device                                                                     ; EP4CE115F29C7       ;                     ;
+; Top-level entity name                                                      ; RandomGeneratorDemo ; RandomGeneratorDemo ;
+; Family name                                                                ; Cyclone IV E        ; Cyclone IV GX       ;
+; Use smart compilation                                                      ; Off                 ; Off                 ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                  ; On                  ;
+; Enable compact report table                                                ; Off                 ; Off                 ;
+; Restructure Multiplexers                                                   ; Auto                ; Auto                ;
+; Create Debugging Nodes for IP Cores                                        ; Off                 ; Off                 ;
+; Preserve fewer node names                                                  ; On                  ; On                  ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                 ; Off                 ;
+; Verilog Version                                                            ; Verilog_2001        ; Verilog_2001        ;
+; VHDL Version                                                               ; VHDL_1993           ; VHDL_1993           ;
+; State Machine Processing                                                   ; Auto                ; Auto                ;
+; Safe State Machine                                                         ; Off                 ; Off                 ;
+; Extract Verilog State Machines                                             ; On                  ; On                  ;
+; Extract VHDL State Machines                                                ; On                  ; On                  ;
+; Ignore Verilog initial constructs                                          ; Off                 ; Off                 ;
+; Iteration limit for constant Verilog loops                                 ; 5000                ; 5000                ;
+; Iteration limit for non-constant Verilog loops                             ; 250                 ; 250                 ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                  ; On                  ;
+; Infer RAMs from Raw Logic                                                  ; On                  ; On                  ;
+; Parallel Synthesis                                                         ; On                  ; On                  ;
+; DSP Block Balancing                                                        ; Auto                ; Auto                ;
+; NOT Gate Push-Back                                                         ; On                  ; On                  ;
+; Power-Up Don't Care                                                        ; On                  ; On                  ;
+; Remove Redundant Logic Cells                                               ; Off                 ; Off                 ;
+; Remove Duplicate Registers                                                 ; On                  ; On                  ;
+; Ignore CARRY Buffers                                                       ; Off                 ; Off                 ;
+; Ignore CASCADE Buffers                                                     ; Off                 ; Off                 ;
+; Ignore GLOBAL Buffers                                                      ; Off                 ; Off                 ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                 ; Off                 ;
+; Ignore LCELL Buffers                                                       ; Off                 ; Off                 ;
+; Ignore SOFT Buffers                                                        ; On                  ; On                  ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                 ; Off                 ;
+; Optimization Technique                                                     ; Balanced            ; Balanced            ;
+; Carry Chain Length                                                         ; 70                  ; 70                  ;
+; Auto Carry Chains                                                          ; On                  ; On                  ;
+; Auto Open-Drain Pins                                                       ; On                  ; On                  ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                 ; Off                 ;
+; Auto ROM Replacement                                                       ; On                  ; On                  ;
+; Auto RAM Replacement                                                       ; On                  ; On                  ;
+; Auto DSP Block Replacement                                                 ; On                  ; On                  ;
+; Auto Shift Register Replacement                                            ; Auto                ; Auto                ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto                ; Auto                ;
+; Auto Clock Enable Replacement                                              ; On                  ; On                  ;
+; Strict RAM Replacement                                                     ; Off                 ; Off                 ;
+; Allow Synchronous Control Signals                                          ; On                  ; On                  ;
+; Force Use of Synchronous Clear Signals                                     ; Off                 ; Off                 ;
+; Auto RAM Block Balancing                                                   ; On                  ; On                  ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                 ; Off                 ;
+; Auto Resource Sharing                                                      ; Off                 ; Off                 ;
+; Allow Any RAM Size For Recognition                                         ; Off                 ; Off                 ;
+; Allow Any ROM Size For Recognition                                         ; Off                 ; Off                 ;
+; Allow Any Shift Register Size For Recognition                              ; Off                 ; Off                 ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                  ; On                  ;
+; Ignore translate_off and synthesis_off directives                          ; Off                 ; Off                 ;
+; Timing-Driven Synthesis                                                    ; On                  ; On                  ;
+; Report Parameter Settings                                                  ; On                  ; On                  ;
+; Report Source Assignments                                                  ; On                  ; On                  ;
+; Report Connectivity Checks                                                 ; On                  ; On                  ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                 ; Off                 ;
+; Synchronization Register Chain Length                                      ; 2                   ; 2                   ;
+; PowerPlay Power Optimization                                               ; Normal compilation  ; Normal compilation  ;
+; HDL message level                                                          ; Level2              ; Level2              ;
+; Suppress Register Optimization Related Messages                            ; Off                 ; Off                 ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000                ; 5000                ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000                ; 5000                ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                 ; 100                 ;
+; Clock MUX Protection                                                       ; On                  ; On                  ;
+; Auto Gated Clock Conversion                                                ; Off                 ; Off                 ;
+; Block Design Naming                                                        ; Auto                ; Auto                ;
+; SDC constraint protection                                                  ; Off                 ; Off                 ;
+; Synthesis Effort                                                           ; Auto                ; Auto                ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                  ; On                  ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                 ; Off                 ;
+; Analysis & Synthesis Message Level                                         ; Medium              ; Medium              ;
+; Disable Register Merging Across Hierarchies                                ; Auto                ; Auto                ;
+; Resource Aware Inference For Block RAM                                     ; On                  ; On                  ;
+; Synthesis Seed                                                             ; 1                   ; 1                   ;
++----------------------------------------------------------------------------+---------------------+---------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                  ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+---------+
+; FreqDivider.vhd                  ; yes             ; User VHDL File  ; C:/VHDL/projeto/reactiontime/Code/RandomGenerator/FreqDivider.vhd             ;         ;
+; ShiftRegisterN.vhd               ; yes             ; User VHDL File  ; C:/VHDL/projeto/reactiontime/Code/RandomGenerator/ShiftRegisterN.vhd          ;         ;
+; RandomGeneratorDemo.vhd          ; yes             ; User VHDL File  ; C:/VHDL/projeto/reactiontime/Code/RandomGenerator/RandomGeneratorDemo.vhd     ;         ;
+; RandomGenerator.vhd              ; yes             ; User VHDL File  ; C:/VHDL/projeto/reactiontime/Code/RandomGenerator/RandomGenerator.vhd         ;         ;
+; pseudo_random_generator.vhd      ; yes             ; User VHDL File  ; C:/VHDL/projeto/reactiontime/Code/RandomGenerator/pseudo_random_generator.vhd ;         ;
+; CheckRangeN.vhd                  ; yes             ; User VHDL File  ; C:/VHDL/projeto/reactiontime/Code/RandomGenerator/CheckRangeN.vhd             ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                         ;
++---------------------------------------------+---------------------------------------+
+; Resource                                    ; Usage                                 ;
++---------------------------------------------+---------------------------------------+
+; Estimated Total logic elements              ; 244                                   ;
+;                                             ;                                       ;
+; Total combinational functions               ; 243                                   ;
+; Logic element usage by number of LUT inputs ;                                       ;
+;     -- 4 input functions                    ; 160                                   ;
+;     -- 3 input functions                    ; 39                                    ;
+;     -- <=2 input functions                  ; 44                                    ;
+;                                             ;                                       ;
+; Logic elements by mode                      ;                                       ;
+;     -- normal mode                          ; 213                                   ;
+;     -- arithmetic mode                      ; 30                                    ;
+;                                             ;                                       ;
+; Total registers                             ; 102                                   ;
+;     -- Dedicated logic registers            ; 102                                   ;
+;     -- I/O registers                        ; 0                                     ;
+;                                             ;                                       ;
+; I/O pins                                    ; 10                                    ;
+; Embedded Multiplier 9-bit elements          ; 0                                     ;
+; Maximum fan-out node                        ; FreqDivider:clkdivider_50000hz|clkOut ;
+; Maximum fan-out                             ; 71                                    ;
+; Total fan-out                               ; 1066                                  ;
+; Average fan-out                             ; 2.92                                  ;
++---------------------------------------------+---------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                     ;
++-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node              ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                ; Library Name ;
++-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------+
+; |RandomGeneratorDemo                    ; 243 (0)           ; 102 (0)      ; 0           ; 0            ; 0       ; 0         ; 10   ; 0            ; |RandomGeneratorDemo                                                               ; work         ;
+;    |FreqDivider:clkdivider_50000hz|     ; 50 (50)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RandomGeneratorDemo|FreqDivider:clkdivider_50000hz                                ; work         ;
+;    |RandomGenerator:rnd_generator|      ; 193 (2)           ; 70 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RandomGeneratorDemo|RandomGenerator:rnd_generator                                 ; work         ;
+;       |CheckRangeN:checkrng|            ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RandomGeneratorDemo|RandomGenerator:rnd_generator|CheckRangeN:checkrng            ; work         ;
+;       |ShiftRegisterN:shiftreg|         ; 5 (5)             ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RandomGeneratorDemo|RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg         ; work         ;
+;       |pseudo_random_generator:rnd_gen| ; 178 (178)         ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RandomGeneratorDemo|RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen ; work         ;
++-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                                   ;
++---------------------------------------------------------------+--------------------------------------------------------------+------------------------+
+; Latch Name                                                    ; Latch Enable Signal                                          ; Free of Timing Hazards ;
++---------------------------------------------------------------+--------------------------------------------------------------+------------------------+
+; RandomGenerator:rnd_generator|CheckRangeN:checkrng|dataOut[0] ; RandomGenerator:rnd_generator|CheckRangeN:checkrng|process_0 ; yes                    ;
+; RandomGenerator:rnd_generator|CheckRangeN:checkrng|dataOut[1] ; RandomGenerator:rnd_generator|CheckRangeN:checkrng|process_0 ; yes                    ;
+; RandomGenerator:rnd_generator|CheckRangeN:checkrng|dataOut[2] ; RandomGenerator:rnd_generator|CheckRangeN:checkrng|process_0 ; yes                    ;
+; RandomGenerator:rnd_generator|CheckRangeN:checkrng|dataOut[3] ; RandomGenerator:rnd_generator|CheckRangeN:checkrng|process_0 ; yes                    ;
+; RandomGenerator:rnd_generator|CheckRangeN:checkrng|dataOut[4] ; RandomGenerator:rnd_generator|CheckRangeN:checkrng|process_0 ; yes                    ;
+; RandomGenerator:rnd_generator|CheckRangeN:checkrng|dataOut[5] ; RandomGenerator:rnd_generator|CheckRangeN:checkrng|process_0 ; yes                    ;
+; Number of user-specified and inferred latches = 6             ;                                                              ;                        ;
++---------------------------------------------------------------+--------------------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 102   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 6     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                      ;
++-------------------------------------------------------------------------+---------+
+; Inverted Register                                                       ; Fan out ;
++-------------------------------------------------------------------------+---------+
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[3]  ; 9       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[2]  ; 9       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[0]  ; 10      ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[1]  ; 9       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[5]  ; 8       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[6]  ; 10      ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[24] ; 6       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[27] ; 9       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[37] ; 11      ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[31] ; 9       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[46] ; 8       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[53] ; 8       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[23] ; 9       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[7]  ; 8       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[8]  ; 5       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[10] ; 8       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[11] ; 8       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[15] ; 11      ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[14] ; 8       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[16] ; 9       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[17] ; 7       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[19] ; 6       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[21] ; 7       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[32] ; 8       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[33] ; 10      ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[34] ; 9       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[38] ; 7       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[42] ; 10      ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[40] ; 9       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[48] ; 7       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[49] ; 8       ;
+; RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen|state[56] ; 9       ;
+; Total number of inverted registers = 32                                 ;         ;
++-------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FreqDivider:clkdivider_50000hz ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; k              ; 1000  ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen ;
++----------------+------------------------------------------------------------------+------------------------+
+; Parameter Name ; Value                                                            ; Type                   ;
++----------------+------------------------------------------------------------------+------------------------+
+; n_output_bits  ; 6                                                                ; Signed Integer         ;
+; seed           ; 0000000100100011010001010110011110001001101010111100110111101111 ; Unsigned Binary        ;
++----------------+------------------------------------------------------------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; size           ; 6     ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RandomGenerator:rnd_generator|CheckRangeN:checkrng ;
++----------------+-------+------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                   ;
++----------------+-------+------------------------------------------------------------------------+
+; size           ; 6     ; Signed Integer                                                         ;
++----------------+-------+------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
+    Info: Processing started: Tue May 26 12:23:00 2015
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RandomGeneratorDemo -c RandomGeneratorDemo
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file freqdivider.vhd
+    Info (12022): Found design unit 1: FreqDivider-Behavioral
+    Info (12023): Found entity 1: FreqDivider
+Info (12021): Found 2 design units, including 1 entities, in source file shiftregistern.vhd
+    Info (12022): Found design unit 1: ShiftRegisterN-Behavioral
+    Info (12023): Found entity 1: ShiftRegisterN
+Info (12021): Found 2 design units, including 1 entities, in source file randomgenerator_tb.vhd
+    Info (12022): Found design unit 1: RandomGenerator_Tb-Stimulus
+    Info (12023): Found entity 1: RandomGenerator_Tb
+Info (12021): Found 2 design units, including 1 entities, in source file randomgeneratordemo.vhd
+    Info (12022): Found design unit 1: RandomGeneratorDemo-Shell
+    Info (12023): Found entity 1: RandomGeneratorDemo
+Info (12021): Found 2 design units, including 1 entities, in source file randomgenerator.vhd
+    Info (12022): Found design unit 1: RandomGenerator-Shell
+    Info (12023): Found entity 1: RandomGenerator
+Info (12021): Found 2 design units, including 1 entities, in source file pseudo_random_generator.vhd
+    Info (12022): Found design unit 1: pseudo_random_generator-v1
+    Info (12023): Found entity 1: pseudo_random_generator
+Info (12021): Found 2 design units, including 1 entities, in source file checkrangen.vhd
+    Info (12022): Found design unit 1: CheckRangeN-Behavioral
+    Info (12023): Found entity 1: CheckRangeN
+Info (12127): Elaborating entity "RandomGeneratorDemo" for the top level hierarchy
+Info (12129): Elaborating entity "FreqDivider" using architecture "A:behavioral" for hierarchy "FreqDivider:clkdivider_50000hz"
+Info (12129): Elaborating entity "RandomGenerator" using architecture "A:shell" for hierarchy "RandomGenerator:rnd_generator"
+Info (12129): Elaborating entity "pseudo_random_generator" using architecture "A:v1" for hierarchy "RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen"
+Info (12129): Elaborating entity "ShiftRegisterN" using architecture "A:behavioral" for hierarchy "RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg"
+Info (12129): Elaborating entity "CheckRangeN" using architecture "A:behavioral" for hierarchy "RandomGenerator:rnd_generator|CheckRangeN:checkrng"
+Warning (10631): VHDL Process Statement warning at CheckRangeN.vhd(14): inferring latch(es) for signal or variable "dataOut", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "dataOut[0]" at CheckRangeN.vhd(14)
+Info (10041): Inferred latch for "dataOut[1]" at CheckRangeN.vhd(14)
+Info (10041): Inferred latch for "dataOut[2]" at CheckRangeN.vhd(14)
+Info (10041): Inferred latch for "dataOut[3]" at CheckRangeN.vhd(14)
+Info (10041): Inferred latch for "dataOut[4]" at CheckRangeN.vhd(14)
+Info (10041): Inferred latch for "dataOut[5]" at CheckRangeN.vhd(14)
+Warning (13012): Latch RandomGenerator:rnd_generator|CheckRangeN:checkrng|dataOut[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg|dataOut[0]
+Warning (13012): Latch RandomGenerator:rnd_generator|CheckRangeN:checkrng|dataOut[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg|dataOut[1]
+Warning (13012): Latch RandomGenerator:rnd_generator|CheckRangeN:checkrng|dataOut[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg|dataOut[2]
+Warning (13012): Latch RandomGenerator:rnd_generator|CheckRangeN:checkrng|dataOut[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg|dataOut[3]
+Warning (13012): Latch RandomGenerator:rnd_generator|CheckRangeN:checkrng|dataOut[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg|dataOut[4]
+Warning (13012): Latch RandomGenerator:rnd_generator|CheckRangeN:checkrng|dataOut[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg|dataOut[5]
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[0]"
+Info (21057): Implemented 254 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 7 output pins
+    Info (21061): Implemented 244 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 517 megabytes
+    Info: Processing ended: Tue May 26 12:23:03 2015
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
+
+

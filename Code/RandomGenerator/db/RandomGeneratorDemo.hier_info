@@ -1,0 +1,190 @@
+|RandomGeneratorDemo
+CLOCK_50 => freqdivider:clkdivider_50000hz.clkIn
+KEY[0] => ~NO_FANOUT~
+SW[0] => randomgenerator:rnd_generator.input
+LEDG[0] << randomgenerator:rnd_generator.validOut
+LEDR[0] << randomgenerator:rnd_generator.dataOut[0]
+LEDR[1] << randomgenerator:rnd_generator.dataOut[1]
+LEDR[2] << randomgenerator:rnd_generator.dataOut[2]
+LEDR[3] << randomgenerator:rnd_generator.dataOut[3]
+LEDR[4] << randomgenerator:rnd_generator.dataOut[4]
+LEDR[5] << randomgenerator:rnd_generator.dataOut[5]
+
+
+|RandomGeneratorDemo|FreqDivider:clkdivider_50000hz
+clkIn => clkOut~reg0.CLK
+clkIn => s_counter[0].CLK
+clkIn => s_counter[1].CLK
+clkIn => s_counter[2].CLK
+clkIn => s_counter[3].CLK
+clkIn => s_counter[4].CLK
+clkIn => s_counter[5].CLK
+clkIn => s_counter[6].CLK
+clkIn => s_counter[7].CLK
+clkIn => s_counter[8].CLK
+clkIn => s_counter[9].CLK
+clkIn => s_counter[10].CLK
+clkIn => s_counter[11].CLK
+clkIn => s_counter[12].CLK
+clkIn => s_counter[13].CLK
+clkIn => s_counter[14].CLK
+clkIn => s_counter[15].CLK
+clkIn => s_counter[16].CLK
+clkIn => s_counter[17].CLK
+clkIn => s_counter[18].CLK
+clkIn => s_counter[19].CLK
+clkIn => s_counter[20].CLK
+clkIn => s_counter[21].CLK
+clkIn => s_counter[22].CLK
+clkIn => s_counter[23].CLK
+clkIn => s_counter[24].CLK
+clkIn => s_counter[25].CLK
+clkIn => s_counter[26].CLK
+clkIn => s_counter[27].CLK
+clkIn => s_counter[28].CLK
+clkIn => s_counter[29].CLK
+clkIn => s_counter[30].CLK
+clkOut <= clkOut~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RandomGeneratorDemo|RandomGenerator:rnd_generator
+clk => pseudo_random_generator:rnd_gen.clk
+clk => shiftregistern:shiftreg.clk
+input => s_en.IN1
+validOut <= checkrangen:checkrng.validOut
+dataOut[0] <= checkrangen:checkrng.dataOut[0]
+dataOut[1] <= checkrangen:checkrng.dataOut[1]
+dataOut[2] <= checkrangen:checkrng.dataOut[2]
+dataOut[3] <= checkrangen:checkrng.dataOut[3]
+dataOut[4] <= checkrangen:checkrng.dataOut[4]
+dataOut[5] <= checkrangen:checkrng.dataOut[5]
+
+
+|RandomGeneratorDemo|RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen
+clk => state[0].CLK
+clk => state[1].CLK
+clk => state[2].CLK
+clk => state[3].CLK
+clk => state[4].CLK
+clk => state[5].CLK
+clk => state[6].CLK
+clk => state[7].CLK
+clk => state[8].CLK
+clk => state[9].CLK
+clk => state[10].CLK
+clk => state[11].CLK
+clk => state[12].CLK
+clk => state[13].CLK
+clk => state[14].CLK
+clk => state[15].CLK
+clk => state[16].CLK
+clk => state[17].CLK
+clk => state[18].CLK
+clk => state[19].CLK
+clk => state[20].CLK
+clk => state[21].CLK
+clk => state[22].CLK
+clk => state[23].CLK
+clk => state[24].CLK
+clk => state[25].CLK
+clk => state[26].CLK
+clk => state[27].CLK
+clk => state[28].CLK
+clk => state[29].CLK
+clk => state[30].CLK
+clk => state[31].CLK
+clk => state[32].CLK
+clk => state[33].CLK
+clk => state[34].CLK
+clk => state[35].CLK
+clk => state[36].CLK
+clk => state[37].CLK
+clk => state[38].CLK
+clk => state[39].CLK
+clk => state[40].CLK
+clk => state[41].CLK
+clk => state[42].CLK
+clk => state[43].CLK
+clk => state[44].CLK
+clk => state[45].CLK
+clk => state[46].CLK
+clk => state[47].CLK
+clk => state[48].CLK
+clk => state[49].CLK
+clk => state[50].CLK
+clk => state[51].CLK
+clk => state[52].CLK
+clk => state[53].CLK
+clk => state[54].CLK
+clk => state[55].CLK
+clk => state[56].CLK
+clk => state[57].CLK
+clk => state[58].CLK
+clk => state[59].CLK
+clk => state[60].CLK
+clk => state[61].CLK
+clk => state[62].CLK
+clk => state[63].CLK
+rnd[0] <= state[0].DB_MAX_OUTPUT_PORT_TYPE
+rnd[1] <= state[1].DB_MAX_OUTPUT_PORT_TYPE
+rnd[2] <= state[2].DB_MAX_OUTPUT_PORT_TYPE
+rnd[3] <= state[3].DB_MAX_OUTPUT_PORT_TYPE
+rnd[4] <= state[4].DB_MAX_OUTPUT_PORT_TYPE
+rnd[5] <= state[5].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RandomGeneratorDemo|RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg
+clk => dataOut[0]~reg0.CLK
+clk => dataOut[1]~reg0.CLK
+clk => dataOut[2]~reg0.CLK
+clk => dataOut[3]~reg0.CLK
+clk => dataOut[4]~reg0.CLK
+clk => dataOut[5]~reg0.CLK
+enable => dataOut[0]~reg0.ENA
+enable => dataOut[1]~reg0.ENA
+enable => dataOut[2]~reg0.ENA
+enable => dataOut[3]~reg0.ENA
+enable => dataOut[4]~reg0.ENA
+enable => dataOut[5]~reg0.ENA
+dataIn[0] => dataOut[0]~reg0.DATAIN
+dataIn[1] => dataOut[1]~reg0.DATAIN
+dataIn[2] => dataOut[2]~reg0.DATAIN
+dataIn[3] => dataOut[3]~reg0.DATAIN
+dataIn[4] => dataOut[4]~reg0.DATAIN
+dataIn[5] => dataOut[5]~reg0.DATAIN
+dataOut[0] <= dataOut[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[1] <= dataOut[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[2] <= dataOut[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[3] <= dataOut[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[4] <= dataOut[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[5] <= dataOut[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RandomGeneratorDemo|RandomGenerator:rnd_generator|CheckRangeN:checkrng
+validOut <= process_0.DB_MAX_OUTPUT_PORT_TYPE
+dataIn[0] => LessThan0.IN12
+dataIn[0] => LessThan1.IN12
+dataIn[0] => dataOut[0]$latch.DATAIN
+dataIn[1] => LessThan0.IN11
+dataIn[1] => LessThan1.IN11
+dataIn[1] => dataOut[1]$latch.DATAIN
+dataIn[2] => LessThan0.IN10
+dataIn[2] => LessThan1.IN10
+dataIn[2] => dataOut[2]$latch.DATAIN
+dataIn[3] => LessThan0.IN9
+dataIn[3] => LessThan1.IN9
+dataIn[3] => dataOut[3]$latch.DATAIN
+dataIn[4] => LessThan0.IN8
+dataIn[4] => LessThan1.IN8
+dataIn[4] => dataOut[4]$latch.DATAIN
+dataIn[5] => LessThan0.IN7
+dataIn[5] => LessThan1.IN7
+dataIn[5] => dataOut[5]$latch.DATAIN
+dataOut[0] <= dataOut[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[1] <= dataOut[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[2] <= dataOut[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[3] <= dataOut[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[4] <= dataOut[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[5] <= dataOut[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -49,7 +49,7 @@ begin
 			if (input = '1') then
 				NS <= A;
 			else
-				NS <= A;
+				NS <= B;
 			end if;
 		
 		when B =>
@@ -72,22 +72,16 @@ begin
 			if (input = '1') then
 				NS <= H;
 			else
-				if (timeExp <= '1') then
-					NS <= G;
-				else
-					NS <= E;
-				end if;
+				NS <= E;
 			end if;
 			
 		when E =>
 			if (input = '1') then
-				if (timeExp = '1') then
-					NS <= F;
-				else
-					NS <= E;
-				end if;
-			else
 				NS <= H;
+			elsif (timeExp = '1') then
+				NS <= F;
+			else
+				NS <= E;
 			end if;
 			
 		when F =>
