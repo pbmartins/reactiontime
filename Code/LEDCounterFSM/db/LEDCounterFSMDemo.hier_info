@@ -1,0 +1,18 @@
+|LEDCounterFSM
+reset => s_currentState.OUTPUTSELECT
+reset => s_currentState.OUTPUTSELECT
+reset => s_currentState.OUTPUTSELECT
+reset => s_currentState.OUTPUTSELECT
+reset => s_currentState.OUTPUTSELECT
+clk => s_currentState~1.DATAIN
+enable => Selector2.IN1
+enable => Selector0.IN1
+enable => Selector4.IN1
+enable => Selector6.IN2
+enable => s_nextState.A_113.DATAIN
+final << final.DB_MAX_OUTPUT_PORT_TYPE
+ledRed0 << ledRed0.DB_MAX_OUTPUT_PORT_TYPE
+ledRed1 << ledRed1.DB_MAX_OUTPUT_PORT_TYPE
+ledRed2 << ledRed2.DB_MAX_OUTPUT_PORT_TYPE
+
+

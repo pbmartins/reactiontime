@@ -11,7 +11,7 @@ entity ReactionTime is
 end ReactionTime;
 
 architecture Shell of ReactionTime is
-	signal key0, key1, clk50000hz, clk1hz, clk2hz, clk100hz : std_logic;
+	signal key0, key1, clk50000hz, clk1hz, clk100hz : std_logic;
 	signal s_validOut, s_newTime, s_timeExp, s_ledCounterEN, s_final, s_counterEN, s_hexEN, s_hexERROR : std_logic;
 	signal rnd_number : std_logic_vector(5 downto 0);
 	signal s_count : std_logic_vector(23 downto 0);
@@ -63,15 +63,10 @@ begin
 					timerVal     => rnd_number,
 					timeExp      => s_timeExp);
 			
-	-- Main FSM --		
-	clkdivider_2hz : entity work.FreqDivider(Behavioral)
-		generic map(K         => 25000000)
-		port map(clkIn        => CLOCK_50,
-					clkOut       => clk2hz);
-					
-					
+	-- Main FSM --
+
 	main_fsm : entity work.MainFSM(Behav)
-		port map(clk          => clk2hz,
+		port map(clk          => CLOCK_50,
 					reset        => key1,
 					input        => key0,
 					newTime      => s_newTime,
