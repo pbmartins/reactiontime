@@ -1,0 +1,113 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
+Slack : -3.171
+TNS   : -62.492
+
+Type  : Slow 1200mV 85C Model Setup 'FreqDivider:clkdivider_50000hz|clkOut'
+Slack : -2.261
+TNS   : -120.115
+
+Type  : Slow 1200mV 85C Model Setup 'RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg|dataOut[0]'
+Slack : 0.047
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg|dataOut[0]'
+Slack : -1.457
+TNS   : -5.734
+
+Type  : Slow 1200mV 85C Model Hold 'FreqDivider:clkdivider_50000hz|clkOut'
+Slack : -0.710
+TNS   : -3.005
+
+Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
+Slack : 0.003
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -44.120
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'FreqDivider:clkdivider_50000hz|clkOut'
+Slack : -1.285
+TNS   : -89.950
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg|dataOut[0]'
+Slack : 0.317
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -2.776
+TNS   : -52.744
+
+Type  : Slow 1200mV 0C Model Setup 'FreqDivider:clkdivider_50000hz|clkOut'
+Slack : -1.959
+TNS   : -103.801
+
+Type  : Slow 1200mV 0C Model Setup 'RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg|dataOut[0]'
+Slack : 0.014
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg|dataOut[0]'
+Slack : -1.245
+TNS   : -4.953
+
+Type  : Slow 1200mV 0C Model Hold 'FreqDivider:clkdivider_50000hz|clkOut'
+Slack : -0.638
+TNS   : -2.963
+
+Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.077
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -44.120
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'FreqDivider:clkdivider_50000hz|clkOut'
+Slack : -1.285
+TNS   : -89.950
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg|dataOut[0]'
+Slack : 0.422
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -1.061
+TNS   : -15.150
+
+Type  : Fast 1200mV 0C Model Setup 'FreqDivider:clkdivider_50000hz|clkOut'
+Slack : -0.617
+TNS   : -26.571
+
+Type  : Fast 1200mV 0C Model Setup 'RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg|dataOut[0]'
+Slack : 0.403
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg|dataOut[0]'
+Slack : -0.775
+TNS   : -3.344
+
+Type  : Fast 1200mV 0C Model Hold 'FreqDivider:clkdivider_50000hz|clkOut'
+Slack : -0.482
+TNS   : -1.857
+
+Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
+Slack : -0.215
+TNS   : -0.215
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -36.995
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'FreqDivider:clkdivider_50000hz|clkOut'
+Slack : -1.000
+TNS   : -70.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg|dataOut[0]'
+Slack : 0.238
+TNS   : 0.000
+
+------------------------------------------------------------

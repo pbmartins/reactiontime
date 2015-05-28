@@ -17,6 +17,7 @@ begin
 					port map(clk      => clk,
 								rnd      => s_rnd);
 								
+<<<<<<< HEAD
 	fsm : entity work.RandomGeneratorFSM(Behavioral)
 					port map(clk      => clk,
 								reset    => '0',
@@ -24,5 +25,26 @@ begin
 								dataIn   => s_rnd,
 								validOut => validOut,
 								dataOut  => dataOut);
+=======
+	en_proc : process(s_valid, input)
+	begin
+		s_en <= s_valid xor input;
+	end process;
+								
+	shiftreg : entity work.ShiftRegisterN(Behavioral)
+					generic map(size => 6)
+					port map(clk => clk,
+								enable => s_en,
+								dataIn => s_rnd,
+								dataOut => s_out);
+								
+	checkrng : entity work.CheckRangeN(Behavioral)
+					generic map(size => 6)
+					port map(dataIn => s_out,
+								dataOut => dataOut,
+								validOut => s_valid);
+								
+	validOut <= s_valid;
+>>>>>>> 091c751577d09a2b8c143c15844432ac16b196c4
 
 end Shell;
