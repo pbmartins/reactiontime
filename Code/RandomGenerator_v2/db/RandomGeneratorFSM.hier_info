@@ -1,0 +1,28 @@
+|RandomGeneratorFSM
+clk => PS~1.DATAIN
+reset => PS.OUTPUTSELECT
+reset => PS.OUTPUTSELECT
+reset => PS.OUTPUTSELECT
+dataIn[0] => dataOut.DATAB
+dataIn[0] => s_dataIn[0].DATAIN
+dataIn[1] => dataOut.DATAB
+dataIn[1] => s_dataIn[1].DATAIN
+dataIn[2] => dataOut.DATAB
+dataIn[2] => s_dataIn[2].DATAIN
+dataIn[3] => dataOut.DATAB
+dataIn[3] => s_dataIn[3].DATAIN
+dataIn[4] => dataOut.DATAB
+dataIn[4] => s_dataIn[4].DATAIN
+dataIn[5] => dataOut.DATAB
+dataIn[5] => s_dataIn[5].DATAIN
+input => Selector0.IN2
+input => NS.A.DATAB
+validOut <= validOut.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[0] <= dataOut.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[1] <= dataOut.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[2] <= dataOut.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[3] <= dataOut.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[4] <= dataOut.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[5] <= dataOut.DB_MAX_OUTPUT_PORT_TYPE
+
+

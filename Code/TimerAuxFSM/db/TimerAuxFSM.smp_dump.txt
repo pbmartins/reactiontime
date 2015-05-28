@@ -1,4 +1,11 @@
 
+State Machine - |TimerAuxFSM|NS
+Name NS.D NS.C NS.B NS.A 
+NS.A 0 0 0 0 
+NS.B 0 0 1 1 
+NS.C 0 1 0 1 
+NS.D 1 0 0 1 
+
 State Machine - |TimerAuxFSM|PS
 Name PS.D PS.C PS.B PS.A 
 PS.A 0 0 0 0 

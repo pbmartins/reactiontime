@@ -1,0 +1,92 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/pedro/reactiontime/Code/RandomGenerator/simulation/modelsim
+Erandomgeneratorfsm
+Z1 w1432826519
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8/home/pedro/reactiontime/Code/RandomGenerator/RandomGeneratorFSM.vhd
+Z6 F/home/pedro/reactiontime/Code/RandomGenerator/RandomGeneratorFSM.vhd
+l0
+L5
+VX1X>C>cT7zN:56QkzX<^z3
+!s100 cXB4@dAJokG2gKo3HmW950
+Z7 OV;C;10.3c;59
+31
+Z8 !s110 1432826998
+!i10b 1
+Z9 !s108 1432826998.200220
+Z10 !s90 -reportprogress|300|-93|-work|work|/home/pedro/reactiontime/Code/RandomGenerator/RandomGeneratorFSM.vhd|
+Z11 !s107 /home/pedro/reactiontime/Code/RandomGenerator/RandomGeneratorFSM.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1
+Abehavioral
+R2
+R3
+R4
+Z14 DEx4 work 18 randomgeneratorfsm 0 22 X1X>C>cT7zN:56QkzX<^z3
+l18
+L14
+VG@GAI4XSdHDAanWmjZH3C1
+!s100 O7KU]Sda`g3nU@E`;FMWo3
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Erandomgeneratorfsm_tb
+Z15 w1432826744
+R3
+R4
+R0
+Z16 8/home/pedro/reactiontime/Code/RandomGenerator/RandomGeneratorFSM_Tb.vhd
+Z17 F/home/pedro/reactiontime/Code/RandomGenerator/RandomGeneratorFSM_Tb.vhd
+l0
+L4
+VF?4:RCE16dN9<`4Plg0[a3
+!s100 K]_<E4ddVVJONgg45K>R63
+R7
+32
+Z18 !s110 1432827005
+!i10b 1
+Z19 !s108 1432827005.555853
+Z20 !s90 -reportprogress|300|-work|work|/home/pedro/reactiontime/Code/RandomGenerator/RandomGeneratorFSM_Tb.vhd|
+Z21 !s107 /home/pedro/reactiontime/Code/RandomGenerator/RandomGeneratorFSM_Tb.vhd|
+!i113 1
+Z22 o-work work
+R13
+Astimulus
+R2
+R14
+R3
+R4
+DEx4 work 21 randomgeneratorfsm_tb 0 22 F?4:RCE16dN9<`4Plg0[a3
+l10
+L7
+V8mU7bf0YRH@VKBm:6:=KS1
+!s100 O`S=D;TIVYzg@2C6?ae<i3
+R7
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R22
+R13

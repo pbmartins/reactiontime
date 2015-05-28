@@ -1,0 +1,6 @@
+
+State Machine - |RandomGeneratorFSM|PS
+Name PS.C PS.B PS.A 
+PS.A 0 0 0 
+PS.B 0 1 1 
+PS.C 1 0 1 

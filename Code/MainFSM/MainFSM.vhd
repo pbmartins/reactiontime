@@ -22,32 +22,30 @@ architecture Behav of MainFSM is
 	type State is (A, B, C, D, E, F, G, H);
 	signal PS, NS : State;
 begin
-	clock_proc : process(clk, reset, input)
+	clock_proc : process(clk)
 	begin
-		if (reset <= '1') then
-			PS <= A;
-		elsif ((PS = D or PS = E) and (input = '1')) then
-			PS <= H;
-		elsif ((PS = F) and (input = '1')) then
-			PS <= G;
-		elsif (rising_edge(clk)) then
-			PS <= NS;
+		if (rising_edge(clk)) then
+			if (reset <= '1') then
+				PS <= A;
+			else
+				PS <= NS;
+			end if;
 		end if;
 	end process;
 	
 	main_proc : process(PS, input, valid, timeExp, final)
 	begin
-		newTime <= '0';
+		newTime       <= '0';
 		ledCounter_En <= '0';
-		counter_En <= '0';
-		ledGreen_En <= '0';
-		hex_En <= '0';
-		hex_Error <= '0';
+		counter_En    <= '0';
+		ledGreen_En   <= '0';
+		hex_En        <= '0';
+		hex_Error     <= '0';
 		
 		case PS is
 		when A =>
 			if (input = '1') then
-				NS <= A;
+				NS <= B;
 			else
 				NS <= A;
 			end if;
@@ -72,22 +70,16 @@ begin
 			if (input = '1') then
 				NS <= H;
 			else
-				if (timeExp <= '1') then
-					NS <= G;
-				else
-					NS <= E;
-				end if;
+				NS <= E;
 			end if;
 			
 		when E =>
 			if (input = '1') then
-				if (timeExp = '1') then
-					NS <= F;
-				else
-					NS <= E;
-				end if;
-			else
 				NS <= H;
+			elsif (timeExp = '1') then
+				NS <= F;
+			else
+				NS <= E;
 			end if;
 			
 		when F =>

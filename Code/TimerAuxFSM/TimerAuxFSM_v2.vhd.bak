@@ -1,0 +1,29 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
+
+entity TimerAuxFSM_v2 is
+	port(newTime : in std_logic;
+		  clk : in std_logic;
+		  reset : in std_logic;
+		  timerVal : in std_logic_vector(5 downto 0);
+		  currentValue : out std_logic_vector(5 downto 0);
+		  timeExp : out std_logic);
+end TimerAuxFSM;
+
+architecture Behav of TimerAuxFSM_v2 is
+	signal s_counter : unsigned(5 downto 0) := (others => '1');
+begin
+	process(clk)
+	begin
+		if (rising_edge(clk)) then
+			if (reset = '1') then
+				s_counter <= (others => '1');
+				
+			if (newTime = '1') then
+				
+			end if;
+		end if;
+	end process;
+	currentValue <= std_logic_vector(s_counter);
+end Behav;
