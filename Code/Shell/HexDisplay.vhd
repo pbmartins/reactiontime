@@ -4,20 +4,22 @@ use IEEE.STD_LOGIC_1164.all;
 entity HexDisplay is
 	port(enable     : in std_logic;
 		  error      : in std_logic;
-		  count      : in std_logic_vector(23 downto 0);
+		  count      : in std_logic_vector(31 downto 0);
 	     dispOut0_n : out std_logic_vector(6 downto 0);
 		  dispOut1_n : out std_logic_vector(6 downto 0);
 		  dispOut2_n : out std_logic_vector(6 downto 0);
 		  dispOut3_n : out std_logic_vector(6 downto 0);
 		  dispOut4_n : out std_logic_vector(6 downto 0);
-		  dispOut5_n : out std_logic_vector(6 downto 0));
+		  dispOut5_n : out std_logic_vector(6 downto 0);
+		  dispOut6_n : out std_logic_vector(6 downto 0);
+		  dispOut7_n : out std_logic_vector(6 downto 0));
 end HexDisplay;
 
 architecture Structural of HexDisplay is
-	signal s_registerOut	: std_logic_vector(23 downto 0);
+	signal s_registerOut	: std_logic_vector(31 downto 0);
 begin
-	s_registerOut <= "110011101111111111011111" when (error = '1') else
-	                 "110011001100110011001100" when (enable = '0') else
+	s_registerOut <= "11001100110011001110111111111101" when (error = '1') else
+	                 "11001100110011001100110011001100" when (enable = '0') else
 						  count;
 	
 	disp_0_decoder : entity WORK.Bin7SegDecoder(Behavioral)
@@ -38,8 +40,17 @@ begin
 					
 	disp_4_decoder : entity WORK.Bin7SegDecoder(Behavioral)
 		port map(binInput		 => s_registerOut(19 downto 16),
-					decOut_n		 => dispOut4_n);		
+					decOut_n		 => dispOut4_n);	
+					
 	disp_5_decoder : entity WORK.Bin7SegDecoder(Behavioral)
 		port map(binInput		 => s_registerOut(23 downto 20),
-					decOut_n		 => dispOut5_n);							
+					decOut_n		 => dispOut5_n);	
+
+	disp_6_decoder : entity WORK.Bin7SegDecoder(Behavioral)
+		port map(binInput		 => s_registerOut(27 downto 24),
+					decOut_n		 => dispOut6_n);	
+				
+	disp_7_decoder : entity WORK.Bin7SegDecoder(Behavioral)
+		port map(binInput		 => s_registerOut(31 downto 28),
+					decOut_n		 => dispOut7_n);		
 end Structural;

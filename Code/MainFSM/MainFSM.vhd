@@ -5,7 +5,6 @@ use IEEE.NUMERIC_STD.all;
 entity MainFSM is
 	port (input : in std_logic;
 			reset : in std_logic;
-			valid : in std_logic;
 			timeExp : in std_logic;
 			clk : in std_logic;
 			final : in std_logic;
@@ -14,18 +13,17 @@ entity MainFSM is
 			counter_En : out std_logic;
 			hex_En : out std_logic;
 			hex_Error : out std_logic;
-			stOut : out std_logic_vector(2 downto 0);
 			ledGreen_En : out std_logic);
 end MainFSM;
 
 architecture Behav of MainFSM is
 	type State is (A, B, C, D, E, F, G, H);
-	signal PS, NS : State;
+	signal PS, NS : State := A;
 begin
 	clock_proc : process(clk)
 	begin
 		if (rising_edge(clk)) then
-			if (reset <= '1') then
+			if (reset = '1') then
 				PS <= A;
 			else
 				PS <= NS;
@@ -33,8 +31,9 @@ begin
 		end if;
 	end process;
 	
-	main_proc : process(PS, input, valid, timeExp, final)
+	main_proc : process(PS, input, timeExp, final)
 	begin
+		NS <= PS;
 		newTime       <= '0';
 		ledCounter_En <= '0';
 		counter_En    <= '0';
@@ -49,24 +48,20 @@ begin
 			else
 				NS <= A;
 			end if;
-		
+			
 		when B =>
-			if (valid = '1') then
+			LedCounter_En <= '1';
+			if (final = '1') then
 				NS <= C;
 			else
 				NS <= B;
 			end if;
 			
 		when C =>
-			LedCounter_En <= '1';
-			if (final = '1') then
-				NS <= D;
-			else
-				NS <= C;
-			end if;
+			newTime <= '1';
+			NS <= D;
 			
 		when D =>
-			newTime <= '1';
 			if (input = '1') then
 				NS <= H;
 			else
@@ -97,16 +92,8 @@ begin
 		when H =>
 			hex_En <= '1';
 			hex_Error <= '1';
+			
+			
 		end case;
 	end process;
-	
-	with PS select
-		stOut <= "000" when A,
-					"001" when B,
-					"010" when C,
-					"011" when D,
-					"100" when E,
-					"101" when F,
-					"110" when G,
-					"111" when H;
 end Behav;

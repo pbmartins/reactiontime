@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 d/home/pedro/reactiontime/Code/LEDCounterFSM/simulation/modelsim
 Eledcounterfsm
-Z1 w1432677233
+Z1 w1432862655
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
@@ -21,9 +21,9 @@ Voi4XeF6bQNCL[DX;_f0S42
 !s100 2V^PAGRHaJS>YdmaSb6OQ0
 Z6 OV;C;10.3c;59
 31
-Z7 !s110 1432678681
+Z7 !s110 1432863005
 !i10b 1
-Z8 !s108 1432678681.686927
+Z8 !s108 1432863005.081493
 Z9 !s90 -reportprogress|300|-93|-work|work|/home/pedro/reactiontime/Code/LEDCounterFSM/LEDCounterFSM.vhd|
 Z10 !s107 /home/pedro/reactiontime/Code/LEDCounterFSM/LEDCounterFSM.vhd|
 !i113 1
@@ -35,8 +35,8 @@ R3
 Z13 DEx4 work 13 ledcounterfsm 0 22 oi4XeF6bQNCL[DX;_f0S42
 l19
 L14
-VSVSTlHzY58hNGhH5:agG=1
-!s100 :a^6X]hMcMdogX=m4fF0E0
+V07V_P:S40OzdMnm5>?dI02
+!s100 =k4mKzPDc@hzXaJ==PW>R0
 R6
 31
 R7
@@ -60,9 +60,9 @@ VRfj6Eab?9f=MR]HBoUi0a1
 !s100 aizeT;iZ8edIEEQkX`YcY3
 R6
 32
-Z17 !s110 1432678687
+Z17 !s110 1432863012
 !i10b 1
-Z18 !s108 1432678687.087551
+Z18 !s108 1432863012.441061
 Z19 !s90 -reportprogress|300|-work|work|/home/pedro/reactiontime/Code/LEDCounterFSM/LEDCounterFSM_Tb.vhd|
 Z20 !s107 /home/pedro/reactiontime/Code/LEDCounterFSM/LEDCounterFSM_Tb.vhd|
 !i113 1

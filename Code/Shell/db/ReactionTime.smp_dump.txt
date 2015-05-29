@@ -7,9 +7,12 @@ s_currentState.C 0 0 1 0 1
 s_currentState.D 0 1 0 0 1 
 s_currentState.E 1 0 0 0 1 
 
-State Machine - |ReactionTime|TimerAuxFSM:timeraux_fsm|PS
-Name PS.D PS.C PS.B PS.A 
-PS.A 0 0 0 0 
-PS.B 0 0 1 1 
-PS.C 0 1 0 1 
-PS.D 1 0 0 1 
+State Machine - |ReactionTime|MainFSM:main_fsm|PS
+Name PS.G PS.F PS.E PS.D PS.C PS.B PS.A 
+PS.A 0 0 0 0 0 0 0 
+PS.B 0 0 0 0 0 1 1 
+PS.C 0 0 0 0 1 0 1 
+PS.D 0 0 0 1 0 0 1 
+PS.E 0 0 1 0 0 0 1 
+PS.F 0 1 0 0 0 0 1 
+PS.G 1 0 0 0 0 0 1 

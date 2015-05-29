@@ -4,6 +4,7 @@ use IEEE.NUMERIC_STD.all;
 
 entity MainFSM_Demo is
 	port (KEY : in std_logic_vector(4 downto 0);
+			SW : in std_logic_vector(0 downto 0);
 			LEDR : out std_logic_vector(7 downto 0);
 			LEDG : out std_logic_vector(0 downto 0);
 			CLOCK_50 : in std_logic);
@@ -13,8 +14,7 @@ architecture Shell of MainFSM_Demo is
 begin
 	uut : entity work.MainFSM(Behav)
 			port map(input => KEY(0),
-						reset => KEY(1),
-						valid => KEY(2),
+						reset => SW(0),
 						timeExp => KEY(3),
 						clk => CLOCK_50,
 						final => KEY(4),
@@ -23,6 +23,5 @@ begin
 						counter_En => LEDR(5),
 						hex_En => LEDR(6),
 						hex_Error => LEDR(7),
-						stOut => LEDR(2 downto 0),
 						ledGreen_En => LEDG(0));
 end Shell;

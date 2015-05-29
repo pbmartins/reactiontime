@@ -6,13 +6,14 @@ entity TimerAuxFSM_Tb is
 end TimerAuxFSM_Tb;
 
 architecture Stimulus of TimerAuxFSM_Tb is
-	signal s_newTime, s_clk, s_reset, s_timeExp : std_logic;
+	signal s_newTime, s_clk, s_reset, s_active, s_timeExp : std_logic;
 	signal s_timerVal, s_currentValue : std_logic_vector(5 downto 0);
 begin
 	uut : entity work.TimerAuxFSM_v2(Behav)
 		port map(newTime  => s_newTime,
 					clk      => s_clk,
 					reset    => s_reset,
+					isActive => s_active,
 					currentValue => s_currentValue,
 					timerVal => s_timerVal,
 					timeExp  => s_timeExp);

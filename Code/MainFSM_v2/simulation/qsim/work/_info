@@ -1,0 +1,136 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/pedro/reactiontime/Code/MainFSM_v2/simulation/qsim
+vMainFSM
+Z1 !s110 1432842610
+!i10b 1
+!s100 OEzWYDXK46fnciElF:WV_0
+IPiJ^UU?OFhN0F;:6L>62U3
+Z2 V`JN@9S9cnhjKRR_L]QIcM3
+R0
+w1432842609
+Z3 8MainFSM.vo
+Z4 FMainFSM.vo
+Z5 L0 32
+Z6 OV;L;10.3c;59
+r1
+!s85 0
+31
+!s108 1432842610.089868
+Z7 !s107 MainFSM.vo|
+Z8 !s90 -work|work|MainFSM.vo|
+!i113 1
+Z9 o-work work
+n@main@f@s@m
+vMainFSM_Demo
+!s110 1432843351
+!i10b 1
+!s100 GFfCKDBP;@fk7]V5T6]E[2
+IC=RP5oLV@o0eE>7PC=7VP0
+R2
+R0
+w1432843351
+R3
+R4
+R5
+R6
+r1
+!s85 0
+31
+!s108 1432843351.970054
+R7
+R8
+!i113 1
+R9
+n@main@f@s@m_@demo
+vMainFSM_Demo_vlg_vec_tst
+!s110 1432843352
+!i10b 1
+!s100 `WTS?jBCB;g42eP>VMeQS3
+I]SmAeb7;@8d_2Dz6KcI1I3
+R2
+R0
+w1432843348
+Z10 8Waveform.vwf.vt
+Z11 FWaveform.vwf.vt
+Z12 L0 30
+R6
+r1
+!s85 0
+31
+!s108 1432843352.055057
+!s107 Waveform.vwf.vt|
+Z13 !s90 -work|work|Waveform.vwf.vt|
+!i113 1
+R9
+n@main@f@s@m_@demo_vlg_vec_tst
+vMainFSM_vlg_check_tst
+R1
+!i10b 1
+!s100 <e[LkZEK40mA9<d1N68N`1
+If2dn7VH@]DCiVOXI7CjgF1
+R2
+R0
+Z14 w1432842606
+R10
+R11
+L0 68
+R6
+r1
+!s85 0
+31
+Z15 !s108 1432842610.184858
+!s107 Waveform.vwf.vt|
+R13
+!i113 1
+R9
+n@main@f@s@m_vlg_check_tst
+vMainFSM_vlg_sample_tst
+R1
+!i10b 1
+!s100 _hTD0jb=d6ekDiOc81BMC2
+IcU481_k0`RjdBbjaKF[381
+R2
+R0
+R14
+R10
+R11
+R12
+R6
+r1
+!s85 0
+31
+R15
+!s107 Waveform.vwf.vt|
+R13
+!i113 1
+R9
+n@main@f@s@m_vlg_sample_tst
+vMainFSM_vlg_vec_tst
+R1
+!i10b 1
+!s100 ocl?@<0[^J2IW4Mz=0;4n1
+I7<]b1k1i8k<eQ[?Kb?iAG0
+R2
+R0
+R14
+R10
+R11
+L0 298
+R6
+r1
+!s85 0
+31
+R15
+!s107 Waveform.vwf.vt|
+R13
+!i113 1
+R9
+n@main@f@s@m_vlg_vec_tst

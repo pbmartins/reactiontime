@@ -19,23 +19,22 @@ architecture Behavioral of LEDCounterFSM is
 begin
 	sync_proc : process(clk)
 	begin
-		if (rising_edge(clk)) then
-			if (reset = '1') then
-				s_currentState <= A;
-			else
-				s_currentState <= s_nextState;
-			end if;
+		if (reset = '1') then
+			s_currentState <= A;
+		elsif (rising_edge(clk)) then
+			s_currentState <= s_nextState;
 		end if;
 	end process;
 
 	comb_proc : process(s_currentState, enable)
 	begin
-		ledRed0 <= '0';
-		ledRed1 <= '0';
-		ledRed2 <= '0';
-		final <= '0';
 		case (s_currentState) is
 		when A =>
+			ledRed0 <= '0';
+			ledRed1 <= '0';
+			ledRed2 <= '0';
+			final <= '0';
+			
 			if (enable = '1') then
 				s_nextState <= B;
 			else
@@ -46,31 +45,33 @@ begin
 			ledRed0 <= '1';
 			ledRed1 <= '1';
 			ledRed2 <= '1';
-			if (enable = '1') then
-				s_nextState <= C;
-			else
-				s_nextState <= A;
-			end if;
+			final <= '0';
+			
+			s_nextState <= C;
 
 		when C =>
 			ledRed0 <= '1';
 			ledRed1 <= '1';
-			if (enable = '1') then
-			   s_nextState <= D;
-			else
-				s_nextState <= A;
-			end if;
+			ledRed2 <= '0';
+			final <= '0';
+			
+			s_nextState <= D;
 
 		when D =>
 			ledRed0 <= '1';
-			if (enable = '1') then
-		      s_nextState <= E;
-			else
-				s_nextState <= A;
-			end if;
+			ledRed1 <= '0';
+			ledRed2 <= '0';
+			final <= '0';
+			
+			s_nextState <= E;
 			
 		when E =>
-			 final <= '1';
+			ledRed0 <= '0';
+			ledRed1 <= '0';
+			ledRed2 <= '0';
+			final <= '1';
+			s_nextState <= E;
+			
 		end case;
 	end process;
 

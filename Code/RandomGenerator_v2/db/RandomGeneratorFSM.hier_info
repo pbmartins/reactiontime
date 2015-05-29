@@ -1,28 +1,123 @@
-|RandomGeneratorFSM
+|RandomGeneratorDemo
+CLOCK_50 => randomgenerator:rnd_generator.clk
+KEY[0] => randomgenerator:rnd_generator.input
+KEY[1] => randomgenerator:rnd_generator.reset
+LEDG[0] << randomgenerator:rnd_generator.validOut
+LEDR[0] << randomgenerator:rnd_generator.dataOut[0]
+LEDR[1] << randomgenerator:rnd_generator.dataOut[1]
+LEDR[2] << randomgenerator:rnd_generator.dataOut[2]
+LEDR[3] << randomgenerator:rnd_generator.dataOut[3]
+LEDR[4] << randomgenerator:rnd_generator.dataOut[4]
+LEDR[5] << randomgenerator:rnd_generator.dataOut[5]
+
+
+|RandomGeneratorDemo|RandomGenerator:rnd_generator
+clk => pseudo_random_generator:rnd_gen.clk
+clk => randomgeneratorfsm:fsm.clk
+reset => randomgeneratorfsm:fsm.reset
+input => randomgeneratorfsm:fsm.input
+validOut <= randomgeneratorfsm:fsm.validOut
+dataOut[0] <= randomgeneratorfsm:fsm.dataOut[0]
+dataOut[1] <= randomgeneratorfsm:fsm.dataOut[1]
+dataOut[2] <= randomgeneratorfsm:fsm.dataOut[2]
+dataOut[3] <= randomgeneratorfsm:fsm.dataOut[3]
+dataOut[4] <= randomgeneratorfsm:fsm.dataOut[4]
+dataOut[5] <= randomgeneratorfsm:fsm.dataOut[5]
+
+
+|RandomGeneratorDemo|RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen
+clk => state[0].CLK
+clk => state[1].CLK
+clk => state[2].CLK
+clk => state[3].CLK
+clk => state[4].CLK
+clk => state[5].CLK
+clk => state[6].CLK
+clk => state[7].CLK
+clk => state[8].CLK
+clk => state[9].CLK
+clk => state[10].CLK
+clk => state[11].CLK
+clk => state[12].CLK
+clk => state[13].CLK
+clk => state[14].CLK
+clk => state[15].CLK
+clk => state[16].CLK
+clk => state[17].CLK
+clk => state[18].CLK
+clk => state[19].CLK
+clk => state[20].CLK
+clk => state[21].CLK
+clk => state[22].CLK
+clk => state[23].CLK
+clk => state[24].CLK
+clk => state[25].CLK
+clk => state[26].CLK
+clk => state[27].CLK
+clk => state[28].CLK
+clk => state[29].CLK
+clk => state[30].CLK
+clk => state[31].CLK
+clk => state[32].CLK
+clk => state[33].CLK
+clk => state[34].CLK
+clk => state[35].CLK
+clk => state[36].CLK
+clk => state[37].CLK
+clk => state[38].CLK
+clk => state[39].CLK
+clk => state[40].CLK
+clk => state[41].CLK
+clk => state[42].CLK
+clk => state[43].CLK
+clk => state[44].CLK
+clk => state[45].CLK
+clk => state[46].CLK
+clk => state[47].CLK
+clk => state[48].CLK
+clk => state[49].CLK
+clk => state[50].CLK
+clk => state[51].CLK
+clk => state[52].CLK
+clk => state[53].CLK
+clk => state[54].CLK
+clk => state[55].CLK
+clk => state[56].CLK
+clk => state[57].CLK
+clk => state[58].CLK
+clk => state[59].CLK
+clk => state[60].CLK
+clk => state[61].CLK
+clk => state[62].CLK
+clk => state[63].CLK
+rnd[0] <= state[0].DB_MAX_OUTPUT_PORT_TYPE
+rnd[1] <= state[1].DB_MAX_OUTPUT_PORT_TYPE
+rnd[2] <= state[2].DB_MAX_OUTPUT_PORT_TYPE
+rnd[3] <= state[3].DB_MAX_OUTPUT_PORT_TYPE
+rnd[4] <= state[4].DB_MAX_OUTPUT_PORT_TYPE
+rnd[5] <= state[5].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RandomGeneratorDemo|RandomGenerator:rnd_generator|RandomGeneratorFSM:fsm
 clk => PS~1.DATAIN
 reset => PS.OUTPUTSELECT
 reset => PS.OUTPUTSELECT
 reset => PS.OUTPUTSELECT
-dataIn[0] => dataOut.DATAB
+reset => PS.OUTPUTSELECT
 dataIn[0] => s_dataIn[0].DATAIN
-dataIn[1] => dataOut.DATAB
 dataIn[1] => s_dataIn[1].DATAIN
-dataIn[2] => dataOut.DATAB
 dataIn[2] => s_dataIn[2].DATAIN
-dataIn[3] => dataOut.DATAB
 dataIn[3] => s_dataIn[3].DATAIN
-dataIn[4] => dataOut.DATAB
 dataIn[4] => s_dataIn[4].DATAIN
-dataIn[5] => dataOut.DATAB
 dataIn[5] => s_dataIn[5].DATAIN
-input => Selector0.IN2
-input => NS.A.DATAB
-validOut <= validOut.DB_MAX_OUTPUT_PORT_TYPE
-dataOut[0] <= dataOut.DB_MAX_OUTPUT_PORT_TYPE
-dataOut[1] <= dataOut.DB_MAX_OUTPUT_PORT_TYPE
-dataOut[2] <= dataOut.DB_MAX_OUTPUT_PORT_TYPE
-dataOut[3] <= dataOut.DB_MAX_OUTPUT_PORT_TYPE
-dataOut[4] <= dataOut.DB_MAX_OUTPUT_PORT_TYPE
-dataOut[5] <= dataOut.DB_MAX_OUTPUT_PORT_TYPE
+input => Selector1.IN2
+input => Selector0.IN1
+validOut <= validOut$latch.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[0] <= dataOut[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[1] <= dataOut[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[2] <= dataOut[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[3] <= dataOut[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[4] <= dataOut[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[5] <= dataOut[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
 
 

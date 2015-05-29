@@ -1,6 +1,6 @@
 Analysis & Synthesis report for ReactionTime
-Tue May 26 11:55:20 2015
-Quartus II 64-Bit Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
+Fri May 29 15:11:00 2015
+Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
 
 
 ---------------------
@@ -9,62 +9,60 @@ Quartus II 64-Bit Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
   1. Legal Notice
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
-  4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |ReactionTime|LEDCounterFSM:ledcounter_fsm|s_currentState
-  9. State Machine - |ReactionTime|TimerAuxFSM:timeraux_fsm|PS
- 10. Registers Removed During Synthesis
- 11. Removed Registers Triggering Further Register Optimizations
- 12. General Register Statistics
- 13. Parameter Settings for User Entity Instance: FreqDivider:clkdivider_50000hz
- 14. Parameter Settings for User Entity Instance: RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen
- 15. Parameter Settings for User Entity Instance: RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg
- 16. Parameter Settings for User Entity Instance: RandomGenerator:rnd_generator|CheckRangeN:checkrng
- 17. Parameter Settings for User Entity Instance: FreqDivider:clkdivider_1hz
- 18. Parameter Settings for User Entity Instance: FreqDivider:clkdivider_2hz
- 19. Parameter Settings for User Entity Instance: FreqDivider:clkdivider_100hz
- 20. Port Connectivity Checks: "MainFSM:main_fsm"
- 21. Port Connectivity Checks: "TimerAuxFSM:timeraux_fsm"
- 22. Port Connectivity Checks: "RandomGenerator:rnd_generator"
- 23. Elapsed Time Per Partition
- 24. Analysis & Synthesis Messages
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. State Machine - |ReactionTime|LEDCounterFSM:ledcounter_fsm|s_currentState
+  8. State Machine - |ReactionTime|MainFSM:main_fsm|PS
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: DebounceUnit:key0_debounce
+ 14. Parameter Settings for User Entity Instance: DebounceUnit:key1_debounce
+ 15. Parameter Settings for User Entity Instance: pseudo_random_generator:rnd_gen
+ 16. Parameter Settings for User Entity Instance: FreqDivider:clkdivider_1hz
+ 17. Parameter Settings for User Entity Instance: FreqDivider:clkdivider_10000hz
+ 18. Port Connectivity Checks: "TimerAuxFSM:timeraux_fsm"
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2014 Altera Corporation
+Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
 to the terms and conditions of the Altera Program License 
-Subscription Agreement, Altera MegaCore Function License 
-Agreement, or other applicable license agreement, including, 
-without limitation, that your use is for the sole purpose of 
-programming logic devices manufactured by Altera and sold by 
-Altera or its authorized distributors.  Please refer to the 
-applicable agreement for further details.
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
 
 
 
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue May 26 11:55:20 2015      ;
-; Quartus II 64-Bit Version          ; 13.1.4 Build 182 03/12/2014 SJ Web Edition ;
+; Analysis & Synthesis Status        ; Successful - Fri May 29 15:11:00 2015      ;
+; Quartus II 64-Bit Version          ; 14.1.0 Build 186 12/03/2014 SJ Web Edition ;
 ; Revision Name                      ; ReactionTime                               ;
 ; Top-level Entity Name              ; ReactionTime                               ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; 57                                         ;
-;     Total combinational functions  ; 57                                         ;
-;     Dedicated logic registers      ; 32                                         ;
-; Total registers                    ; 32                                         ;
-; Total pins                         ; 55                                         ;
+; Total logic elements               ; 585                                        ;
+;     Total combinational functions  ; 579                                        ;
+;     Dedicated logic registers      ; 246                                        ;
+; Total registers                    ; 246                                        ;
+; Total pins                         ; 68                                         ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0                                          ;
 ; Embedded Multiplier 9-bit elements ; 0                                          ;
@@ -139,7 +137,7 @@ applicable agreement for further details.
 ; Report Connectivity Checks                                                 ; On                 ; On                 ;
 ; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
 ; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
-; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
 ; HDL message level                                                          ; Level2             ; Level2             ;
 ; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
 ; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
@@ -159,35 +157,22 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
-+-------------------------------------+
-; Parallel Compilation                ;
-+----------------------------+--------+
-; Processors                 ; Number ;
-+----------------------------+--------+
-; Number detected on machine ; 8      ;
-; Maximum allowed            ; 1      ;
-+----------------------------+--------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                               ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                        ; Library ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
-; pseudo_random_generator.vhd      ; yes             ; User VHDL File  ; C:/VHDL/projeto/reactiontime/Code/Shell/pseudo_random_generator.vhd ;         ;
-; FreqDivider.vhd                  ; yes             ; User VHDL File  ; C:/VHDL/projeto/reactiontime/Code/Shell/FreqDivider.vhd             ;         ;
-; RandomGenerator.vhd              ; yes             ; User VHDL File  ; C:/VHDL/projeto/reactiontime/Code/Shell/RandomGenerator.vhd         ;         ;
-; Bin7SegDecoder.vhd               ; yes             ; User VHDL File  ; C:/VHDL/projeto/reactiontime/Code/Shell/Bin7SegDecoder.vhd          ;         ;
-; HexDisplay.vhd                   ; yes             ; User VHDL File  ; C:/VHDL/projeto/reactiontime/Code/Shell/HexDisplay.vhd              ;         ;
-; CheckRangeN.vhd                  ; yes             ; User VHDL File  ; C:/VHDL/projeto/reactiontime/Code/Shell/CheckRangeN.vhd             ;         ;
-; MainFSM.vhd                      ; yes             ; User VHDL File  ; C:/VHDL/projeto/reactiontime/Code/Shell/MainFSM.vhd                 ;         ;
-; CntBCDUp4.vhd                    ; yes             ; User VHDL File  ; C:/VHDL/projeto/reactiontime/Code/Shell/CntBCDUp4.vhd               ;         ;
-; LEDCounterFSM.vhd                ; yes             ; User VHDL File  ; C:/VHDL/projeto/reactiontime/Code/Shell/LEDCounterFSM.vhd           ;         ;
-; ShiftRegisterN.vhd               ; yes             ; User VHDL File  ; C:/VHDL/projeto/reactiontime/Code/Shell/ShiftRegisterN.vhd          ;         ;
-; TimerAuxFSM.vhd                  ; yes             ; User VHDL File  ; C:/VHDL/projeto/reactiontime/Code/Shell/TimerAuxFSM.vhd             ;         ;
-; ReactionTime.vhd                 ; yes             ; User VHDL File  ; C:/VHDL/projeto/reactiontime/Code/Shell/ReactionTime.vhd            ;         ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                           ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                    ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
+; pseudo_random_generator.vhd      ; yes             ; User VHDL File  ; /home/pedro/reactiontime/Code/Shell/pseudo_random_generator.vhd ;         ;
+; FreqDivider.vhd                  ; yes             ; User VHDL File  ; /home/pedro/reactiontime/Code/Shell/FreqDivider.vhd             ;         ;
+; Bin7SegDecoder.vhd               ; yes             ; User VHDL File  ; /home/pedro/reactiontime/Code/Shell/Bin7SegDecoder.vhd          ;         ;
+; HexDisplay.vhd                   ; yes             ; User VHDL File  ; /home/pedro/reactiontime/Code/Shell/HexDisplay.vhd              ;         ;
+; MainFSM.vhd                      ; yes             ; User VHDL File  ; /home/pedro/reactiontime/Code/Shell/MainFSM.vhd                 ;         ;
+; DebounceUnit.vhd                 ; yes             ; User VHDL File  ; /home/pedro/reactiontime/Code/Shell/DebounceUnit.vhd            ;         ;
+; CntBCDUp4.vhd                    ; yes             ; User VHDL File  ; /home/pedro/reactiontime/Code/Shell/CntBCDUp4.vhd               ;         ;
+; LEDCounterFSM.vhd                ; yes             ; User VHDL File  ; /home/pedro/reactiontime/Code/Shell/LEDCounterFSM.vhd           ;         ;
+; TimerAuxFSM.vhd                  ; yes             ; User VHDL File  ; /home/pedro/reactiontime/Code/Shell/TimerAuxFSM.vhd             ;         ;
+; ReactionTime.vhd                 ; yes             ; User VHDL File  ; /home/pedro/reactiontime/Code/Shell/ReactionTime.vhd            ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------+
@@ -195,39 +180,58 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 57             ;
+; Estimated Total logic elements              ; 585            ;
 ;                                             ;                ;
-; Total combinational functions               ; 57             ;
+; Total combinational functions               ; 579            ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 13             ;
-;     -- 3 input functions                    ; 1              ;
-;     -- <=2 input functions                  ; 43             ;
+;     -- 4 input functions                    ; 315            ;
+;     -- 3 input functions                    ; 65             ;
+;     -- <=2 input functions                  ; 199            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 27             ;
-;     -- arithmetic mode                      ; 30             ;
+;     -- normal mode                          ; 450            ;
+;     -- arithmetic mode                      ; 129            ;
 ;                                             ;                ;
-; Total registers                             ; 32             ;
-;     -- Dedicated logic registers            ; 32             ;
+; Total registers                             ; 246            ;
+;     -- Dedicated logic registers            ; 246            ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
-; I/O pins                                    ; 55             ;
+; I/O pins                                    ; 68             ;
+;                                             ;                ;
 ; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 32             ;
-; Total fan-out                               ; 260            ;
-; Average fan-out                             ; 1.31           ;
+; Maximum fan-out                             ; 199            ;
+; Total fan-out                               ; 2719           ;
+; Average fan-out                             ; 2.83           ;
 +---------------------------------------------+----------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                   ;
-+---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------+--------------+
-; Compilation Hierarchy Node      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                      ; Library Name ;
-+---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------+--------------+
-; |ReactionTime                   ; 57 (0)            ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 55   ; 0            ; |ReactionTime                            ; work         ;
-;    |FreqDivider:clkdivider_2hz| ; 57 (57)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|FreqDivider:clkdivider_2hz ; work         ;
-+---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                  ;
++---------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node            ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                               ; Library Name ;
++---------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------+--------------+
+; |ReactionTime                         ; 579 (1)           ; 246 (0)      ; 0           ; 0            ; 0       ; 0         ; 68   ; 0            ; |ReactionTime                                                     ; work         ;
+;    |CntBCDUp4:counter|                ; 49 (49)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|CntBCDUp4:counter                                   ; work         ;
+;    |DebounceUnit:key0_debounce|       ; 43 (43)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|DebounceUnit:key0_debounce                          ; work         ;
+;    |DebounceUnit:key1_debounce|       ; 43 (43)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|DebounceUnit:key1_debounce                          ; work         ;
+;    |FreqDivider:clkdivider_10000hz|   ; 48 (48)           ; 30 (30)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|FreqDivider:clkdivider_10000hz                      ; work         ;
+;    |FreqDivider:clkdivider_1hz|       ; 58 (58)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|FreqDivider:clkdivider_1hz                          ; work         ;
+;    |HexDisplay:hexdisplay|            ; 88 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|HexDisplay:hexdisplay                               ; work         ;
+;       |Bin7SegDecoder:disp_0_decoder| ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|HexDisplay:hexdisplay|Bin7SegDecoder:disp_0_decoder ; work         ;
+;       |Bin7SegDecoder:disp_1_decoder| ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|HexDisplay:hexdisplay|Bin7SegDecoder:disp_1_decoder ; work         ;
+;       |Bin7SegDecoder:disp_2_decoder| ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|HexDisplay:hexdisplay|Bin7SegDecoder:disp_2_decoder ; work         ;
+;       |Bin7SegDecoder:disp_3_decoder| ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|HexDisplay:hexdisplay|Bin7SegDecoder:disp_3_decoder ; work         ;
+;       |Bin7SegDecoder:disp_4_decoder| ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|HexDisplay:hexdisplay|Bin7SegDecoder:disp_4_decoder ; work         ;
+;       |Bin7SegDecoder:disp_5_decoder| ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|HexDisplay:hexdisplay|Bin7SegDecoder:disp_5_decoder ; work         ;
+;       |Bin7SegDecoder:disp_6_decoder| ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|HexDisplay:hexdisplay|Bin7SegDecoder:disp_6_decoder ; work         ;
+;       |Bin7SegDecoder:disp_7_decoder| ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|HexDisplay:hexdisplay|Bin7SegDecoder:disp_7_decoder ; work         ;
+;    |LEDCounterFSM:ledcounter_fsm|     ; 5 (5)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|LEDCounterFSM:ledcounter_fsm                        ; work         ;
+;    |MainFSM:main_fsm|                 ; 8 (8)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|MainFSM:main_fsm                                    ; work         ;
+;    |TimerAuxFSM:timeraux_fsm|         ; 58 (58)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|TimerAuxFSM:timeraux_fsm                            ; work         ;
+;    |pseudo_random_generator:rnd_gen|  ; 178 (178)         ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|pseudo_random_generator:rnd_gen                     ; work         ;
++---------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -246,70 +250,30 @@ Encoding Type:  One-Hot
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------+
-; State Machine - |ReactionTime|TimerAuxFSM:timeraux_fsm|PS ;
-+------+------+------+------+-------------------------------+
-; Name ; PS.D ; PS.C ; PS.B ; PS.A                          ;
-+------+------+------+------+-------------------------------+
-; PS.A ; 0    ; 0    ; 0    ; 0                             ;
-; PS.B ; 0    ; 0    ; 1    ; 1                             ;
-; PS.C ; 0    ; 1    ; 0    ; 1                             ;
-; PS.D ; 1    ; 0    ; 0    ; 1                             ;
-+------+------+------+------+-------------------------------+
++-------------------------------------------------------+
+; State Machine - |ReactionTime|MainFSM:main_fsm|PS     ;
++------+------+------+------+------+------+------+------+
+; Name ; PS.G ; PS.F ; PS.E ; PS.D ; PS.C ; PS.B ; PS.A ;
++------+------+------+------+------+------+------+------+
+; PS.A ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ; 0    ;
+; PS.B ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ; 1    ;
+; PS.C ; 0    ; 0    ; 0    ; 0    ; 1    ; 0    ; 1    ;
+; PS.D ; 0    ; 0    ; 0    ; 1    ; 0    ; 0    ; 1    ;
+; PS.E ; 0    ; 0    ; 1    ; 0    ; 0    ; 0    ; 1    ;
+; PS.F ; 0    ; 1    ; 0    ; 0    ; 0    ; 0    ; 1    ;
+; PS.G ; 1    ; 0    ; 0    ; 0    ; 0    ; 0    ; 1    ;
++------+------+------+------+------+------+------+------+
 
 
-+---------------------------------------------------------------------+
-; Registers Removed During Synthesis                                  ;
-+------------------------------------------------+--------------------+
-; Register name                                  ; Reason for Removal ;
-+------------------------------------------------+--------------------+
-; CntBCDUp4:counter|s_count[0..23]               ; Lost fanout        ;
-; FreqDivider:clkdivider_100hz|s_counter[0..14]  ; Lost fanout        ;
-; FreqDivider:clkdivider_100hz|clkOut            ; Lost fanout        ;
-; FreqDivider:clkdivider_100hz|s_counter[15..30] ; Lost fanout        ;
-; LEDCounterFSM:ledcounter_fsm|s_currentState.D  ; Lost fanout        ;
-; LEDCounterFSM:ledcounter_fsm|s_currentState.A  ; Lost fanout        ;
-; LEDCounterFSM:ledcounter_fsm|s_currentState.B  ; Lost fanout        ;
-; LEDCounterFSM:ledcounter_fsm|s_currentState.C  ; Lost fanout        ;
-; LEDCounterFSM:ledcounter_fsm|s_currentState.E  ; Lost fanout        ;
-; TimerAuxFSM:timeraux_fsm|PS.B                  ; Lost fanout        ;
-; FreqDivider:clkdivider_1hz|clkOut              ; Lost fanout        ;
-; FreqDivider:clkdivider_1hz|s_counter[0..30]    ; Lost fanout        ;
-; TimerAuxFSM:timeraux_fsm|PS.A                  ; Lost fanout        ;
-; TimerAuxFSM:timeraux_fsm|PS.C                  ; Lost fanout        ;
-; TimerAuxFSM:timeraux_fsm|PS.D                  ; Lost fanout        ;
-; Total Number of Removed Registers = 97         ;                    ;
-+------------------------------------------------+--------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                              ;
-+-----------------------------------------------+--------------------+-------------------------------------------------------------------------------------+
-; Register name                                 ; Reason for Removal ; Registers Removed due to This Register                                              ;
-+-----------------------------------------------+--------------------+-------------------------------------------------------------------------------------+
-; LEDCounterFSM:ledcounter_fsm|s_currentState.D ; Lost Fanouts       ; FreqDivider:clkdivider_1hz|clkOut, FreqDivider:clkdivider_1hz|s_counter[28],        ;
-;                                               ;                    ; FreqDivider:clkdivider_1hz|s_counter[27], FreqDivider:clkdivider_1hz|s_counter[26], ;
-;                                               ;                    ; FreqDivider:clkdivider_1hz|s_counter[25], FreqDivider:clkdivider_1hz|s_counter[24], ;
-;                                               ;                    ; FreqDivider:clkdivider_1hz|s_counter[23], FreqDivider:clkdivider_1hz|s_counter[22], ;
-;                                               ;                    ; FreqDivider:clkdivider_1hz|s_counter[21], FreqDivider:clkdivider_1hz|s_counter[20], ;
-;                                               ;                    ; FreqDivider:clkdivider_1hz|s_counter[19], FreqDivider:clkdivider_1hz|s_counter[18], ;
-;                                               ;                    ; FreqDivider:clkdivider_1hz|s_counter[17], FreqDivider:clkdivider_1hz|s_counter[16], ;
-;                                               ;                    ; FreqDivider:clkdivider_1hz|s_counter[15], FreqDivider:clkdivider_1hz|s_counter[14], ;
-;                                               ;                    ; FreqDivider:clkdivider_1hz|s_counter[13], FreqDivider:clkdivider_1hz|s_counter[12], ;
-;                                               ;                    ; FreqDivider:clkdivider_1hz|s_counter[11], FreqDivider:clkdivider_1hz|s_counter[10], ;
-;                                               ;                    ; FreqDivider:clkdivider_1hz|s_counter[9], FreqDivider:clkdivider_1hz|s_counter[8],   ;
-;                                               ;                    ; FreqDivider:clkdivider_1hz|s_counter[7], FreqDivider:clkdivider_1hz|s_counter[6],   ;
-;                                               ;                    ; FreqDivider:clkdivider_1hz|s_counter[5], FreqDivider:clkdivider_1hz|s_counter[4],   ;
-;                                               ;                    ; FreqDivider:clkdivider_1hz|s_counter[3], FreqDivider:clkdivider_1hz|s_counter[2],   ;
-;                                               ;                    ; FreqDivider:clkdivider_1hz|s_counter[1]                                             ;
-; FreqDivider:clkdivider_100hz|s_counter[14]    ; Lost Fanouts       ; FreqDivider:clkdivider_100hz|s_counter[25],                                         ;
-;                                               ;                    ; FreqDivider:clkdivider_100hz|s_counter[26],                                         ;
-;                                               ;                    ; FreqDivider:clkdivider_100hz|s_counter[27],                                         ;
-;                                               ;                    ; FreqDivider:clkdivider_100hz|s_counter[28],                                         ;
-;                                               ;                    ; FreqDivider:clkdivider_100hz|s_counter[29],                                         ;
-;                                               ;                    ; FreqDivider:clkdivider_100hz|s_counter[30]                                          ;
-; CntBCDUp4:counter|s_count[1]                  ; Lost Fanouts       ; FreqDivider:clkdivider_100hz|clkOut                                                 ;
-+-----------------------------------------------+--------------------+-------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                ;
++---------------------------------------------+-----------------------------------------------------+
+; Register name                               ; Reason for Removal                                  ;
++---------------------------------------------+-----------------------------------------------------+
+; FreqDivider:clkdivider_10000hz|s_counter[0] ; Merged with FreqDivider:clkdivider_1hz|s_counter[0] ;
+; FreqDivider:clkdivider_10000hz|s_counter[1] ; Merged with FreqDivider:clkdivider_1hz|s_counter[1] ;
+; Total Number of Removed Registers = 2       ;                                                     ;
++---------------------------------------------+-----------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -317,54 +281,109 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 32    ;
+; Total registers                              ; 246   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Synchronous Load   ; 62    ;
+; Number of registers using Asynchronous Clear ; 118   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 31    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: FreqDivider:clkdivider_50000hz ;
-+----------------+-------+----------------------------------------------------+
-; Parameter Name ; Value ; Type                                               ;
-+----------------+-------+----------------------------------------------------+
-; k              ; 1000  ; Signed Integer                                     ;
-+----------------+-------+----------------------------------------------------+
++-----------------------------------------------------------+
+; Inverted Register Statistics                              ;
++-------------------------------------------------+---------+
+; Inverted Register                               ; Fan out ;
++-------------------------------------------------+---------+
+; pseudo_random_generator:rnd_gen|state[0]        ; 11      ;
+; pseudo_random_generator:rnd_gen|state[1]        ; 10      ;
+; pseudo_random_generator:rnd_gen|state[2]        ; 10      ;
+; pseudo_random_generator:rnd_gen|state[3]        ; 10      ;
+; pseudo_random_generator:rnd_gen|state[5]        ; 9       ;
+; TimerAuxFSM:timeraux_fsm|s_counter[5]~_emulated ; 1       ;
+; TimerAuxFSM:timeraux_fsm|s_counter[4]~_emulated ; 1       ;
+; TimerAuxFSM:timeraux_fsm|s_counter[3]~_emulated ; 1       ;
+; TimerAuxFSM:timeraux_fsm|s_counter[2]~_emulated ; 1       ;
+; TimerAuxFSM:timeraux_fsm|s_counter[1]~_emulated ; 1       ;
+; pseudo_random_generator:rnd_gen|state[6]        ; 10      ;
+; pseudo_random_generator:rnd_gen|state[7]        ; 8       ;
+; pseudo_random_generator:rnd_gen|state[8]        ; 5       ;
+; pseudo_random_generator:rnd_gen|state[10]       ; 8       ;
+; pseudo_random_generator:rnd_gen|state[11]       ; 8       ;
+; pseudo_random_generator:rnd_gen|state[15]       ; 11      ;
+; pseudo_random_generator:rnd_gen|state[14]       ; 8       ;
+; pseudo_random_generator:rnd_gen|state[16]       ; 9       ;
+; pseudo_random_generator:rnd_gen|state[17]       ; 7       ;
+; pseudo_random_generator:rnd_gen|state[19]       ; 6       ;
+; pseudo_random_generator:rnd_gen|state[23]       ; 9       ;
+; pseudo_random_generator:rnd_gen|state[21]       ; 7       ;
+; pseudo_random_generator:rnd_gen|state[24]       ; 6       ;
+; pseudo_random_generator:rnd_gen|state[27]       ; 9       ;
+; pseudo_random_generator:rnd_gen|state[31]       ; 9       ;
+; pseudo_random_generator:rnd_gen|state[32]       ; 8       ;
+; pseudo_random_generator:rnd_gen|state[33]       ; 10      ;
+; pseudo_random_generator:rnd_gen|state[34]       ; 9       ;
+; pseudo_random_generator:rnd_gen|state[37]       ; 11      ;
+; pseudo_random_generator:rnd_gen|state[38]       ; 7       ;
+; pseudo_random_generator:rnd_gen|state[42]       ; 10      ;
+; pseudo_random_generator:rnd_gen|state[40]       ; 9       ;
+; pseudo_random_generator:rnd_gen|state[46]       ; 8       ;
+; pseudo_random_generator:rnd_gen|state[48]       ; 7       ;
+; pseudo_random_generator:rnd_gen|state[49]       ; 8       ;
+; pseudo_random_generator:rnd_gen|state[53]       ; 8       ;
+; pseudo_random_generator:rnd_gen|state[56]       ; 9       ;
+; Total number of inverted registers = 37         ;         ;
++-------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |ReactionTime|DebounceUnit:key1_debounce|s_debounceCnt[15] ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |ReactionTime|DebounceUnit:key0_debounce|s_debounceCnt[15] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |ReactionTime|HexDisplay:hexdisplay|s_registerOut[6]       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |ReactionTime|TimerAuxFSM:timeraux_fsm|s_active            ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |ReactionTime|TimerAuxFSM:timeraux_fsm|s_counter           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DebounceUnit:key0_debounce ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; clkfrekhz      ; 50000 ; Signed Integer                                 ;
+; blindmsec      ; 100   ; Signed Integer                                 ;
+; inpol          ; '0'   ; Enumerated                                     ;
+; outpol         ; '1'   ; Enumerated                                     ;
++----------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen ;
-+----------------+------------------------------------------------------------------+------------------------+
-; Parameter Name ; Value                                                            ; Type                   ;
-+----------------+------------------------------------------------------------------+------------------------+
-; n_output_bits  ; 6                                                                ; Signed Integer         ;
-; seed           ; 0000000100100011010001010110011110001001101010111100110111101111 ; Unsigned Binary        ;
-+----------------+------------------------------------------------------------------+------------------------+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DebounceUnit:key1_debounce ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; clkfrekhz      ; 50000 ; Signed Integer                                 ;
+; blindmsec      ; 100   ; Signed Integer                                 ;
+; inpol          ; '0'   ; Enumerated                                     ;
+; outpol         ; '1'   ; Enumerated                                     ;
++----------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg ;
-+----------------+-------+---------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                      ;
-+----------------+-------+---------------------------------------------------------------------------+
-; size           ; 6     ; Signed Integer                                                            ;
-+----------------+-------+---------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: RandomGenerator:rnd_generator|CheckRangeN:checkrng ;
-+----------------+-------+------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                   ;
-+----------------+-------+------------------------------------------------------------------------+
-; size           ; 6     ; Signed Integer                                                         ;
-+----------------+-------+------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pseudo_random_generator:rnd_gen                        ;
++----------------+------------------------------------------------------------------+-----------------+
+; Parameter Name ; Value                                                            ; Type            ;
++----------------+------------------------------------------------------------------+-----------------+
+; n_output_bits  ; 6                                                                ; Signed Integer  ;
+; seed           ; 0000000100100011010001010110011110001001101010111100110111101111 ; Unsigned Binary ;
++----------------+------------------------------------------------------------------+-----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -378,57 +397,50 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: FreqDivider:clkdivider_2hz ;
-+----------------+----------+---------------------------------------------+
-; Parameter Name ; Value    ; Type                                        ;
-+----------------+----------+---------------------------------------------+
-; k              ; 25000000 ; Signed Integer                              ;
-+----------------+----------+---------------------------------------------+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FreqDivider:clkdivider_10000hz ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; k              ; 5000  ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: FreqDivider:clkdivider_100hz ;
-+----------------+--------+-------------------------------------------------+
-; Parameter Name ; Value  ; Type                                            ;
-+----------------+--------+-------------------------------------------------+
-; k              ; 500000 ; Signed Integer                                  ;
-+----------------+--------+-------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "TimerAuxFSM:timeraux_fsm"                                                                   ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; currentvalue ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "MainFSM:main_fsm"                                                                            ;
-+---------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port          ; Type   ; Severity ; Details                                                                             ;
-+---------------+--------+----------+-------------------------------------------------------------------------------------+
-; valid         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; ledcounter_en ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------+
-; Port Connectivity Checks: "TimerAuxFSM:timeraux_fsm" ;
-+----------------+-------+----------+------------------+
-; Port           ; Type  ; Severity ; Details          ;
-+----------------+-------+----------+------------------+
-; timerval[5..4] ; Input ; Info     ; Stuck at GND     ;
-; timerval[3]    ; Input ; Info     ; Stuck at VCC     ;
-; timerval[2]    ; Input ; Info     ; Stuck at GND     ;
-; timerval[1]    ; Input ; Info     ; Stuck at VCC     ;
-; timerval[0]    ; Input ; Info     ; Stuck at GND     ;
-+----------------+-------+----------+------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "RandomGenerator:rnd_generator"                                                          ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; validout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; dataout  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 68                          ;
+; cycloneiii_ff         ; 246                         ;
+;     CLR               ; 25                          ;
+;     CLR SLD           ; 62                          ;
+;     ENA CLR           ; 31                          ;
+;     plain             ; 128                         ;
+; cycloneiii_lcell_comb ; 588                         ;
+;     arith             ; 129                         ;
+;         2 data inputs ; 128                         ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 459                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 24                          ;
+;         2 data inputs ; 55                          ;
+;         3 data inputs ; 64                          ;
+;         4 data inputs ; 315                         ;
+;                       ;                             ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 3.07                        ;
++-----------------------+-----------------------------+
 
 
 +-------------------------------+
@@ -436,7 +448,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -445,170 +457,88 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
-    Info: Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
-    Info: Processing started: Tue May 26 11:55:17 2015
+    Info: Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
+    Info: Processing started: Fri May 29 15:10:35 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ReactionTime -c ReactionTime
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file pseudo_random_generator.vhd
     Info (12022): Found design unit 1: pseudo_random_generator-v1
     Info (12023): Found entity 1: pseudo_random_generator
-Info (12021): Found 2 design units, including 1 entities, in source file reactiontimecounter.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file ReactionTimeCounter.vhd
     Info (12022): Found design unit 1: ReactionTimeCounter-Behav
     Info (12023): Found entity 1: ReactionTimeCounter
-Info (12021): Found 2 design units, including 1 entities, in source file freqdivider.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file FreqDivider.vhd
     Info (12022): Found design unit 1: FreqDivider-Behavioral
     Info (12023): Found entity 1: FreqDivider
-Info (12021): Found 2 design units, including 1 entities, in source file randomgenerator.vhd
-    Info (12022): Found design unit 1: RandomGenerator-Shell
-    Info (12023): Found entity 1: RandomGenerator
-Info (12021): Found 2 design units, including 1 entities, in source file bin7segdecoder.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file Bin7SegDecoder.vhd
     Info (12022): Found design unit 1: Bin7SegDecoder-Behavioral
     Info (12023): Found entity 1: Bin7SegDecoder
-Info (12021): Found 2 design units, including 1 entities, in source file hexdisplay.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file HexDisplay.vhd
     Info (12022): Found design unit 1: HexDisplay-Structural
     Info (12023): Found entity 1: HexDisplay
-Info (12021): Found 2 design units, including 1 entities, in source file checkrangen.vhd
-    Info (12022): Found design unit 1: CheckRangeN-Behavioral
-    Info (12023): Found entity 1: CheckRangeN
-Info (12021): Found 2 design units, including 1 entities, in source file mainfsm.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file MainFSM.vhd
     Info (12022): Found design unit 1: MainFSM-Behav
     Info (12023): Found entity 1: MainFSM
-Info (12021): Found 2 design units, including 1 entities, in source file debounceunit.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file DebounceUnit.vhd
     Info (12022): Found design unit 1: DebounceUnit-Behavioral
     Info (12023): Found entity 1: DebounceUnit
-Info (12021): Found 2 design units, including 1 entities, in source file cntbcdup4.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file CntBCDUp4.vhd
     Info (12022): Found design unit 1: CntBCDUp4-Behavioral
     Info (12023): Found entity 1: CntBCDUp4
-Info (12021): Found 2 design units, including 1 entities, in source file ledcounterfsm.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file LEDCounterFSM.vhd
     Info (12022): Found design unit 1: LEDCounterFSM-Behavioral
     Info (12023): Found entity 1: LEDCounterFSM
-Info (12021): Found 2 design units, including 1 entities, in source file shiftregistern.vhd
-    Info (12022): Found design unit 1: ShiftRegisterN-Behavioral
-    Info (12023): Found entity 1: ShiftRegisterN
-Info (12021): Found 2 design units, including 1 entities, in source file timerauxfsm.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file TimerAuxFSM.vhd
     Info (12022): Found design unit 1: TimerAuxFSM-Behav
     Info (12023): Found entity 1: TimerAuxFSM
-Info (12021): Found 2 design units, including 1 entities, in source file reactiontime.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file ReactionTime.vhd
     Info (12022): Found design unit 1: ReactionTime-Shell
     Info (12023): Found entity 1: ReactionTime
 Info (12127): Elaborating entity "ReactionTime" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at ReactionTime.vhd(16): object "s_validOut" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at ReactionTime.vhd(16): object "s_ledCounterEN" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at ReactionTime.vhd(17): object "rnd_number" assigned a value but never read
-Info (12129): Elaborating entity "FreqDivider" using architecture "A:behavioral" for hierarchy "FreqDivider:clkdivider_50000hz"
-Info (12129): Elaborating entity "RandomGenerator" using architecture "A:shell" for hierarchy "RandomGenerator:rnd_generator"
-Info (12129): Elaborating entity "pseudo_random_generator" using architecture "A:v1" for hierarchy "RandomGenerator:rnd_generator|pseudo_random_generator:rnd_gen"
-Info (12129): Elaborating entity "ShiftRegisterN" using architecture "A:behavioral" for hierarchy "RandomGenerator:rnd_generator|ShiftRegisterN:shiftreg"
-Info (12129): Elaborating entity "CheckRangeN" using architecture "A:behavioral" for hierarchy "RandomGenerator:rnd_generator|CheckRangeN:checkrng"
-Warning (10631): VHDL Process Statement warning at CheckRangeN.vhd(14): inferring latch(es) for signal or variable "dataOut", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "dataOut[0]" at CheckRangeN.vhd(14)
-Info (10041): Inferred latch for "dataOut[1]" at CheckRangeN.vhd(14)
-Info (10041): Inferred latch for "dataOut[2]" at CheckRangeN.vhd(14)
-Info (10041): Inferred latch for "dataOut[3]" at CheckRangeN.vhd(14)
-Info (10041): Inferred latch for "dataOut[4]" at CheckRangeN.vhd(14)
-Info (10041): Inferred latch for "dataOut[5]" at CheckRangeN.vhd(14)
+Warning (10873): Using initial value X (don't care) for net "LEDR[6..3]" at ReactionTime.vhd(9)
+Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "DebounceUnit:key0_debounce"
+Info (12129): Elaborating entity "pseudo_random_generator" using architecture "A:v1" for hierarchy "pseudo_random_generator:rnd_gen"
 Info (12129): Elaborating entity "FreqDivider" using architecture "A:behavioral" for hierarchy "FreqDivider:clkdivider_1hz"
 Info (12129): Elaborating entity "TimerAuxFSM" using architecture "A:behav" for hierarchy "TimerAuxFSM:timeraux_fsm"
-Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(42): signal "timerVal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(43): signal "s_counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(50): signal "s_counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(51): signal "s_counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10631): VHDL Process Statement warning at TimerAuxFSM.vhd(29): inferring latch(es) for signal or variable "s_counter", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "s_counter[0]" at TimerAuxFSM.vhd(29)
-Info (10041): Inferred latch for "s_counter[1]" at TimerAuxFSM.vhd(29)
-Info (10041): Inferred latch for "s_counter[2]" at TimerAuxFSM.vhd(29)
-Info (10041): Inferred latch for "s_counter[3]" at TimerAuxFSM.vhd(29)
-Info (10041): Inferred latch for "s_counter[4]" at TimerAuxFSM.vhd(29)
-Info (10041): Inferred latch for "s_counter[5]" at TimerAuxFSM.vhd(29)
-Info (12129): Elaborating entity "FreqDivider" using architecture "A:behavioral" for hierarchy "FreqDivider:clkdivider_2hz"
+Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(26): signal "s_active" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(27): signal "definedValue" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(31): signal "timerVal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(32): signal "timerVal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(36): signal "s_active" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12129): Elaborating entity "MainFSM" using architecture "A:behav" for hierarchy "MainFSM:main_fsm"
-Warning (10631): VHDL Process Statement warning at MainFSM.vhd(38): inferring latch(es) for signal or variable "NS", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "NS.H" at MainFSM.vhd(38)
-Info (10041): Inferred latch for "NS.G" at MainFSM.vhd(38)
-Info (10041): Inferred latch for "NS.F" at MainFSM.vhd(38)
-Info (10041): Inferred latch for "NS.E" at MainFSM.vhd(38)
-Info (10041): Inferred latch for "NS.D" at MainFSM.vhd(38)
-Info (10041): Inferred latch for "NS.C" at MainFSM.vhd(38)
-Info (10041): Inferred latch for "NS.B" at MainFSM.vhd(38)
-Info (10041): Inferred latch for "NS.A" at MainFSM.vhd(38)
+Warning (10492): VHDL Process Statement warning at MainFSM.vhd(26): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12129): Elaborating entity "LEDCounterFSM" using architecture "A:behavioral" for hierarchy "LEDCounterFSM:ledcounter_fsm"
-Warning (10631): VHDL Process Statement warning at LEDCounterFSM.vhd(31): inferring latch(es) for signal or variable "s_nextState", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "s_nextState.E" at LEDCounterFSM.vhd(31)
-Info (10041): Inferred latch for "s_nextState.D" at LEDCounterFSM.vhd(31)
-Info (10041): Inferred latch for "s_nextState.C" at LEDCounterFSM.vhd(31)
-Info (10041): Inferred latch for "s_nextState.B" at LEDCounterFSM.vhd(31)
-Info (10041): Inferred latch for "s_nextState.A" at LEDCounterFSM.vhd(31)
-Info (12129): Elaborating entity "FreqDivider" using architecture "A:behavioral" for hierarchy "FreqDivider:clkdivider_100hz"
+Warning (10492): VHDL Process Statement warning at LEDCounterFSM.vhd(22): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12129): Elaborating entity "FreqDivider" using architecture "A:behavioral" for hierarchy "FreqDivider:clkdivider_10000hz"
 Info (12129): Elaborating entity "CntBCDUp4" using architecture "A:behavioral" for hierarchy "CntBCDUp4:counter"
+Warning (10492): VHDL Process Statement warning at CntBCDUp4.vhd(19): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12129): Elaborating entity "HexDisplay" using architecture "A:structural" for hierarchy "HexDisplay:hexdisplay"
 Info (12129): Elaborating entity "Bin7SegDecoder" using architecture "A:behavioral" for hierarchy "HexDisplay:hexdisplay|Bin7SegDecoder:disp_0_decoder"
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "TimerAuxFSM:timeraux_fsm|s_timeExp" is converted into an equivalent circuit using register "TimerAuxFSM:timeraux_fsm|s_timeExp~_emulated" and latch "TimerAuxFSM:timeraux_fsm|s_timeExp~1"
+    Warning (13310): Register "TimerAuxFSM:timeraux_fsm|s_counter[5]" is converted into an equivalent circuit using register "TimerAuxFSM:timeraux_fsm|s_counter[5]~_emulated" and latch "TimerAuxFSM:timeraux_fsm|s_counter[5]~1"
+    Warning (13310): Register "TimerAuxFSM:timeraux_fsm|s_counter[4]" is converted into an equivalent circuit using register "TimerAuxFSM:timeraux_fsm|s_counter[4]~_emulated" and latch "TimerAuxFSM:timeraux_fsm|s_counter[4]~6"
+    Warning (13310): Register "TimerAuxFSM:timeraux_fsm|s_counter[3]" is converted into an equivalent circuit using register "TimerAuxFSM:timeraux_fsm|s_counter[3]~_emulated" and latch "TimerAuxFSM:timeraux_fsm|s_counter[3]~11"
+    Warning (13310): Register "TimerAuxFSM:timeraux_fsm|s_counter[2]" is converted into an equivalent circuit using register "TimerAuxFSM:timeraux_fsm|s_counter[2]~_emulated" and latch "TimerAuxFSM:timeraux_fsm|s_counter[2]~16"
+    Warning (13310): Register "TimerAuxFSM:timeraux_fsm|s_counter[1]" is converted into an equivalent circuit using register "TimerAuxFSM:timeraux_fsm|s_counter[1]~_emulated" and latch "TimerAuxFSM:timeraux_fsm|s_counter[1]~21"
+    Warning (13310): Register "TimerAuxFSM:timeraux_fsm|s_counter[0]" is converted into an equivalent circuit using register "TimerAuxFSM:timeraux_fsm|s_counter[0]~_emulated" and latch "TimerAuxFSM:timeraux_fsm|s_counter[0]~26"
+    Warning (13310): Register "TimerAuxFSM:timeraux_fsm|s_active" is converted into an equivalent circuit using register "TimerAuxFSM:timeraux_fsm|s_active~_emulated" and latch "TimerAuxFSM:timeraux_fsm|s_active~1"
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[0]" is stuck at GND
-    Warning (13410): Pin "LEDR[1]" is stuck at GND
-    Warning (13410): Pin "LEDR[2]" is stuck at GND
     Warning (13410): Pin "LEDR[3]" is stuck at GND
     Warning (13410): Pin "LEDR[4]" is stuck at GND
     Warning (13410): Pin "LEDR[5]" is stuck at GND
-    Warning (13410): Pin "LEDG[0]" is stuck at GND
-    Warning (13410): Pin "HEX0[0]" is stuck at VCC
-    Warning (13410): Pin "HEX0[1]" is stuck at VCC
-    Warning (13410): Pin "HEX0[2]" is stuck at VCC
-    Warning (13410): Pin "HEX0[3]" is stuck at VCC
-    Warning (13410): Pin "HEX0[4]" is stuck at VCC
-    Warning (13410): Pin "HEX0[5]" is stuck at VCC
-    Warning (13410): Pin "HEX0[6]" is stuck at VCC
-    Warning (13410): Pin "HEX1[0]" is stuck at VCC
-    Warning (13410): Pin "HEX1[1]" is stuck at VCC
-    Warning (13410): Pin "HEX1[2]" is stuck at VCC
-    Warning (13410): Pin "HEX1[3]" is stuck at VCC
-    Warning (13410): Pin "HEX1[4]" is stuck at VCC
-    Warning (13410): Pin "HEX1[5]" is stuck at VCC
-    Warning (13410): Pin "HEX1[6]" is stuck at VCC
-    Warning (13410): Pin "HEX2[0]" is stuck at VCC
-    Warning (13410): Pin "HEX2[1]" is stuck at VCC
-    Warning (13410): Pin "HEX2[2]" is stuck at VCC
-    Warning (13410): Pin "HEX2[3]" is stuck at VCC
-    Warning (13410): Pin "HEX2[4]" is stuck at VCC
-    Warning (13410): Pin "HEX2[5]" is stuck at VCC
-    Warning (13410): Pin "HEX2[6]" is stuck at VCC
-    Warning (13410): Pin "HEX3[0]" is stuck at VCC
-    Warning (13410): Pin "HEX3[1]" is stuck at VCC
-    Warning (13410): Pin "HEX3[2]" is stuck at VCC
-    Warning (13410): Pin "HEX3[3]" is stuck at VCC
-    Warning (13410): Pin "HEX3[4]" is stuck at VCC
-    Warning (13410): Pin "HEX3[5]" is stuck at VCC
-    Warning (13410): Pin "HEX3[6]" is stuck at VCC
-    Warning (13410): Pin "HEX4[0]" is stuck at VCC
-    Warning (13410): Pin "HEX4[1]" is stuck at VCC
-    Warning (13410): Pin "HEX4[2]" is stuck at VCC
-    Warning (13410): Pin "HEX4[3]" is stuck at VCC
-    Warning (13410): Pin "HEX4[4]" is stuck at VCC
-    Warning (13410): Pin "HEX4[5]" is stuck at VCC
-    Warning (13410): Pin "HEX4[6]" is stuck at VCC
-    Warning (13410): Pin "HEX5[0]" is stuck at VCC
-    Warning (13410): Pin "HEX5[1]" is stuck at VCC
-    Warning (13410): Pin "HEX5[2]" is stuck at VCC
-    Warning (13410): Pin "HEX5[3]" is stuck at VCC
-    Warning (13410): Pin "HEX5[4]" is stuck at VCC
-    Warning (13410): Pin "HEX5[5]" is stuck at VCC
-    Warning (13410): Pin "HEX5[6]" is stuck at VCC
+    Warning (13410): Pin "LEDR[6]" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 97 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 4 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[0]"
-    Warning (15610): No output dependent on input pin "KEY[1]"
-    Warning (15610): No output dependent on input pin "SW[0]"
-    Warning (15610): No output dependent on input pin "SW[1]"
-Info (21057): Implemented 112 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 5 input pins
-    Info (21059): Implemented 50 output pins
-    Info (21061): Implemented 57 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 67 warnings
-    Info: Peak virtual memory: 521 megabytes
-    Info: Processing ended: Tue May 26 11:55:20 2015
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:02
+Info (21057): Implemented 653 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 64 output pins
+    Info (21061): Implemented 585 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 24 warnings
+    Info: Peak virtual memory: 947 megabytes
+    Info: Processing ended: Fri May 29 15:11:00 2015
+    Info: Elapsed time: 00:00:25
+    Info: Total CPU time (on all processors): 00:00:20
 
 

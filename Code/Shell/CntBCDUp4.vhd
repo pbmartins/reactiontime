@@ -6,20 +6,20 @@ entity CntBCDUp4 is
 	port(reset		: in  std_logic;
 		  clk			: in  std_logic;
 		  clkEnable	: in  std_logic;
-		  count		: out std_logic_vector(23 downto 0));
+		  count		: out std_logic_vector(31 downto 0));
 end CntBCDUp4;
 
 architecture Behavioral of CntBCDUp4 is
 
-	signal s_count : unsigned(23 downto 0);
+	signal s_count : unsigned(31 downto 0);
 
 begin
 	process(clk)
 	begin
-		if (rising_edge(clk)) then
-			if (reset = '1') then
-				s_count <= (others => '0');
-			elsif (clkEnable = '1') then
+		if (reset = '1') then
+			s_count <= (others => '0');
+		elsif (rising_edge(clk)) then
+			if (clkEnable = '1') then
 				--Milesimas
 				if (s_count(3 downto 0) = "1001") then
 					s_count(3 downto 0) <= "0000";
@@ -33,8 +33,18 @@ begin
 								--Segundos
 								if (s_count(19 downto 16) = "1001") then
 									s_count(19 downto 16) <= "0000";
-									if (s_count(23 downto 20) = "0101") then
+									if (s_count(23 downto 20) = "1001") then
 										s_count(23 downto 20) <= "0000";
+										if (s_count(27 downto 24) = "1001") then
+											s_count(27 downto 24) <= "0000";
+											if (s_count(31 downto 28) = "0101") then
+												s_count(31 downto 28) <= "0000";
+											else
+												s_count(31 downto 28) <= s_count(31 downto 28) + 1;
+											end if;
+										else
+											s_count(27 downto 24) <= s_count(27 downto 24) + 1;
+										end if;
 									else
 										s_count(23 downto 20) <= s_count(23 downto 20) + 1;
 									end if;

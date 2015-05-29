@@ -3,65 +3,48 @@ use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 
 entity TimerAuxFSM is
-	port(newTime : in std_logic;
-		  clk : in std_logic;
-		  reset : in std_logic;
-		  timerVal : in std_logic_vector(5 downto 0);
-		  timeExp : out std_logic);
+	port(newTime      : in std_logic;
+		  clk          : in std_logic;
+		  reset        : in std_logic;
+		  definedValue : in std_logic;
+		  timerVal     : in std_logic_vector(5 downto 0);
+		  isActive     : out std_logic;
+		  currentValue : out std_logic_vector(5 downto 0);
+		  timeExp      : out std_logic);
 end TimerAuxFSM;
 
 architecture Behav of TimerAuxFSM is
-	type State is (A, B, C, D);
-	signal PS, NS : State;
 	signal s_counter : unsigned(5 downto 0) := (others => '1');
+	signal s_timeExp, s_active : std_logic := '0';
 begin
-	clock_proc : process(clk)
+	process(clk, reset, newTime)
 	begin
-		if (rising_edge(clk)) then
-			if (reset = '1') then
-				PS <= A;
-			else
-				PS <= NS;
+		if (reset = '1') then
+			s_counter <= (others => '1');
+			s_active <= '0';
+			s_timeExp <= '0';
+		elsif (newTime = '1' and s_active = '0') then
+			if (definedValue = '1') then
+				s_counter <= "000100"; -- 5 seconds of waiting time if the user wants to 
+				s_timeExp <= '0';
+				s_active <= '1';
+			elsif (unsigned(timerVal) > 4 and unsigned(timerVal) < 61) then
+				s_counter <= unsigned(timerVal) - 1;
+				s_timeExp <= '0';
+				s_active <= '1';
+			end if;
+		elsif (rising_edge(clk) and s_active = '1') then
+			s_counter <= s_counter - 1;
+			if (s_counter = "000000") then
+				s_timeExp <= '1';
+				s_active <= '0';
+			else 
+				s_timeExp <= '0';
+				s_active <= '1';
 			end if;
 		end if;
 	end process;
-	
-	main_proc : process(PS, newTime)
-	begin
-		timeExp <= '0';
-		
-		case PS is
-		when A =>
-			if (newTime = '1') then
-				NS <= B;
-			else
-				NS <= A;
-			end if;
-			
-		when B =>
-			s_counter <= unsigned(timerVal) - 1;
-			if (s_counter = "000000") then
-				NS <= D;
-			else
-				NS <= C;
-			end if;
-			
-		when C =>
-			s_counter <= s_counter - 1;
-			if (s_counter = "000000") then
-				NS <= D;
-			else
-				NS <= C;
-			end if;
-			
-		when D =>
-			timeExp <= '1';
-			if (newTime = '1') then
-				NS <= B;
-			else
-				NS <= D;
-			end if;
-			
-		end case;
-	end process;
+	timeExp <= s_timeExp;
+	isActive <= s_active;
+	currentValue <= std_logic_vector(s_counter);
 end Behav;

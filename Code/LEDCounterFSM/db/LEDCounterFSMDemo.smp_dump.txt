@@ -1,5 +1,5 @@
 
-State Machine - |LEDCounterFSM|s_currentState
+State Machine - |LEDCounterFSM_DEMO|LEDCounterFSM:uut|s_currentState
 Name s_currentState.E s_currentState.D s_currentState.C s_currentState.B s_currentState.A 
 s_currentState.A 0 0 0 0 0 
 s_currentState.B 0 0 0 1 1 

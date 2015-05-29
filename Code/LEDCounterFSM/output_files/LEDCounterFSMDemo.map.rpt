@@ -1,5 +1,5 @@
 Analysis & Synthesis report for LEDCounterFSMDemo
-Tue May 26 23:17:23 2015
+Fri May 29 14:58:35 2015
 Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
 
 
@@ -12,12 +12,13 @@ Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
   4. Analysis & Synthesis Source Files Read
   5. Analysis & Synthesis Resource Usage Summary
   6. Analysis & Synthesis Resource Utilization by Entity
-  7. State Machine - |LEDCounterFSM|s_currentState
-  8. User-Specified and Inferred Latches
-  9. General Register Statistics
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  7. State Machine - |LEDCounterFSM_DEMO|LEDCounterFSM:uut|s_currentState
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Parameter Settings for User Entity Instance: FreqDivider:clkdivider_1hz
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -44,15 +45,15 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue May 26 23:17:23 2015      ;
+; Analysis & Synthesis Status        ; Successful - Fri May 29 14:58:35 2015      ;
 ; Quartus II 64-Bit Version          ; 14.1.0 Build 186 12/03/2014 SJ Web Edition ;
 ; Revision Name                      ; LEDCounterFSMDemo                          ;
-; Top-level Entity Name              ; LEDCounterFSM                              ;
+; Top-level Entity Name              ; LEDCounterFSM_DEMO                         ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; 16                                         ;
-;     Total combinational functions  ; 16                                         ;
-;     Dedicated logic registers      ; 5                                          ;
-; Total registers                    ; 5                                          ;
+; Total logic elements               ; 64                                         ;
+;     Total combinational functions  ; 62                                         ;
+;     Dedicated logic registers      ; 37                                         ;
+; Total registers                    ; 37                                         ;
 ; Total pins                         ; 7                                          ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0                                          ;
@@ -67,7 +68,7 @@ agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                                      ; LEDCounterFSM      ; LEDCounterFSMDemo  ;
+; Top-level entity name                                                      ; LEDCounterFSM_DEMO ; LEDCounterFSMDemo  ;
 ; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -148,60 +149,64 @@ agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                         ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                  ; Library ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------+---------+
-; LEDCounterFSM.vhd                ; yes             ; User VHDL File  ; /home/pedro/reactiontime/Code/LEDCounterFSM/LEDCounterFSM.vhd ;         ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                              ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                       ; Library ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+---------+
+; FreqDivider.vhd                  ; yes             ; User VHDL File  ; /home/pedro/reactiontime/Code/LEDCounterFSM/FreqDivider.vhd        ;         ;
+; LEDCounterFSM.vhd                ; yes             ; User VHDL File  ; /home/pedro/reactiontime/Code/LEDCounterFSM/LEDCounterFSM.vhd      ;         ;
+; LEDCounterFSM_DEMO.vhd           ; yes             ; User VHDL File  ; /home/pedro/reactiontime/Code/LEDCounterFSM/LEDCounterFSM_DEMO.vhd ;         ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+---------+
 
 
-+----------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                    ;
-+---------------------------------------------+------------------+
-; Resource                                    ; Usage            ;
-+---------------------------------------------+------------------+
-; Estimated Total logic elements              ; 16               ;
-;                                             ;                  ;
-; Total combinational functions               ; 16               ;
-; Logic element usage by number of LUT inputs ;                  ;
-;     -- 4 input functions                    ; 0                ;
-;     -- 3 input functions                    ; 5                ;
-;     -- <=2 input functions                  ; 11               ;
-;                                             ;                  ;
-; Logic elements by mode                      ;                  ;
-;     -- normal mode                          ; 16               ;
-;     -- arithmetic mode                      ; 0                ;
-;                                             ;                  ;
-; Total registers                             ; 5                ;
-;     -- Dedicated logic registers            ; 5                ;
-;     -- I/O registers                        ; 0                ;
-;                                             ;                  ;
-; I/O pins                                    ; 7                ;
-;                                             ;                  ;
-; Embedded Multiplier 9-bit elements          ; 0                ;
-;                                             ;                  ;
-; Maximum fan-out node                        ; s_currentState.E ;
-; Maximum fan-out                             ; 7                ;
-; Total fan-out                               ; 58               ;
-; Average fan-out                             ; 1.66             ;
-+---------------------------------------------+------------------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 64             ;
+;                                             ;                ;
+; Total combinational functions               ; 62             ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 13             ;
+;     -- 3 input functions                    ; 1              ;
+;     -- <=2 input functions                  ; 48             ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 32             ;
+;     -- arithmetic mode                      ; 30             ;
+;                                             ;                ;
+; Total registers                             ; 37             ;
+;     -- Dedicated logic registers            ; 37             ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 7              ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 32             ;
+; Total fan-out                               ; 240            ;
+; Average fan-out                             ; 2.12           ;
++---------------------------------------------+----------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |LEDCounterFSM             ; 16 (16)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 7    ; 0            ; |LEDCounterFSM      ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                         ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+--------------+
+; Compilation Hierarchy Node      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                            ; Library Name ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+--------------+
+; |LEDCounterFSM_DEMO             ; 62 (0)            ; 37 (0)       ; 0           ; 0            ; 0       ; 0         ; 7    ; 0            ; |LEDCounterFSM_DEMO                            ; work         ;
+;    |FreqDivider:clkdivider_1hz| ; 57 (57)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LEDCounterFSM_DEMO|FreqDivider:clkdivider_1hz ; work         ;
+;    |LEDCounterFSM:uut|          ; 5 (5)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LEDCounterFSM_DEMO|LEDCounterFSM:uut          ; work         ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
 +-----------------------------------------------------------------------------------------------------------------+
-; State Machine - |LEDCounterFSM|s_currentState                                                                   ;
+; State Machine - |LEDCounterFSM_DEMO|LEDCounterFSM:uut|s_currentState                                            ;
 +------------------+------------------+------------------+------------------+------------------+------------------+
 ; Name             ; s_currentState.E ; s_currentState.D ; s_currentState.C ; s_currentState.B ; s_currentState.A ;
 +------------------+------------------+------------------+------------------+------------------+------------------+
@@ -213,34 +218,38 @@ Encoding Type:  One-Hot
 +------------------+------------------+------------------+------------------+------------------+------------------+
 
 
-+---------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                               ;
-+----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
-+----------------------------------------------------+---------------------+------------------------+
-; s_nextState.E_81                                   ; s_currentState.E    ; yes                    ;
-; s_nextState.A_113                                  ; s_currentState.E    ; yes                    ;
-; s_nextState.B_105                                  ; s_currentState.E    ; yes                    ;
-; s_nextState.C_97                                   ; s_currentState.E    ; yes                    ;
-; s_nextState.D_89                                   ; s_currentState.E    ; yes                    ;
-; Number of user-specified and inferred latches = 5  ;                     ;                        ;
-+----------------------------------------------------+---------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 5     ;
+; Total registers                              ; 37    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 5     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |LEDCounterFSM_DEMO|FreqDivider:clkdivider_1hz|s_counter[7] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FreqDivider:clkdivider_1hz ;
++----------------+----------+---------------------------------------------+
+; Parameter Name ; Value    ; Type                                        ;
++----------------+----------+---------------------------------------------+
+; k              ; 50000000 ; Signed Integer                              ;
++----------------+----------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-----------------------------------------------------+
@@ -249,16 +258,20 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 7                           ;
-; cycloneiii_ff         ; 5                           ;
-;     plain             ; 5                           ;
-; cycloneiii_lcell_comb ; 17                          ;
-;     normal            ; 17                          ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 11                          ;
-;         3 data inputs ; 5                           ;
+; cycloneiii_ff         ; 37                          ;
+;     CLR               ; 5                           ;
+;     plain             ; 32                          ;
+; cycloneiii_lcell_comb ; 63                          ;
+;     arith             ; 30                          ;
+;         2 data inputs ; 30                          ;
+;     normal            ; 33                          ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 17                          ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 13                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.50                        ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 3.70                        ;
 +-----------------------+-----------------------------+
 
 
@@ -277,30 +290,33 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
-    Info: Processing started: Tue May 26 23:16:56 2015
+    Info: Processing started: Fri May 29 14:58:09 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off LEDCounterFSMDemo -c LEDCounterFSMDemo
 Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file FreqDivider.vhd
+    Info (12022): Found design unit 1: FreqDivider-Behavioral
+    Info (12023): Found entity 1: FreqDivider
 Info (12021): Found 2 design units, including 1 entities, in source file LEDCounterFSM.vhd
     Info (12022): Found design unit 1: LEDCounterFSM-Behavioral
     Info (12023): Found entity 1: LEDCounterFSM
-Info (12127): Elaborating entity "LEDCounterFSM" for the top level hierarchy
-Warning (10631): VHDL Process Statement warning at LEDCounterFSM.vhd(31): inferring latch(es) for signal or variable "s_nextState", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "s_nextState.E" at LEDCounterFSM.vhd(31)
-Info (10041): Inferred latch for "s_nextState.D" at LEDCounterFSM.vhd(31)
-Info (10041): Inferred latch for "s_nextState.C" at LEDCounterFSM.vhd(31)
-Info (10041): Inferred latch for "s_nextState.B" at LEDCounterFSM.vhd(31)
-Info (10041): Inferred latch for "s_nextState.A" at LEDCounterFSM.vhd(31)
+Info (12021): Found 2 design units, including 1 entities, in source file LEDCounterFSM_DEMO.vhd
+    Info (12022): Found design unit 1: LEDCounterFSM_DEMO-Behavioral
+    Info (12023): Found entity 1: LEDCounterFSM_DEMO
+Info (12127): Elaborating entity "LEDCounterFSM_DEMO" for the top level hierarchy
+Info (12129): Elaborating entity "FreqDivider" using architecture "A:behavioral" for hierarchy "FreqDivider:clkdivider_1hz"
+Info (12129): Elaborating entity "LEDCounterFSM" using architecture "A:behavioral" for hierarchy "LEDCounterFSM:uut"
+Warning (10492): VHDL Process Statement warning at LEDCounterFSM.vhd(22): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 23 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 71 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 4 output pins
-    Info (21061): Implemented 16 logic cells
+    Info (21061): Implemented 64 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 932 megabytes
-    Info: Processing ended: Tue May 26 23:17:23 2015
-    Info: Elapsed time: 00:00:27
-    Info: Total CPU time (on all processors): 00:00:21
+    Info: Peak virtual memory: 938 megabytes
+    Info: Processing ended: Fri May 29 14:58:35 2015
+    Info: Elapsed time: 00:00:26
+    Info: Total CPU time (on all processors): 00:00:18
 
 

@@ -19,5 +19,5 @@ Sim dir               :  simulation/modelsim
 
 Info: Starting NativeLink simulation with ModelSim-Altera software
 Sourced NativeLink script /home/pedro/altera/14.1/quartus/common/tcl/internal/nativelink/modelsim.tcl
-Warning: File TimerAuxFSM_run_msim_rtl_vhdl.do already exists - backing up current file as TimerAuxFSM_run_msim_rtl_vhdl.do.bak7
+Warning: File TimerAuxFSM_run_msim_rtl_vhdl.do already exists - backing up current file as TimerAuxFSM_run_msim_rtl_vhdl.do.bak10
 Info: Spawning ModelSim-Altera Simulation software 

@@ -1,0 +1,94 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/pedro/reactiontime/Code/LEDCounterFSM/simulation/qsim
+vLEDCounterFSM
+Z1 !s110 1432907449
+!i10b 1
+!s100 hE0KJGXkWoKd2zfLA0gVG0
+IFoY6DZZhHIjj=lNZHWPI`1
+Z2 V`JN@9S9cnhjKRR_L]QIcM3
+R0
+w1432907447
+8LEDCounterFSMDemo.vo
+FLEDCounterFSMDemo.vo
+L0 32
+Z3 OV;L;10.3c;59
+r1
+!s85 0
+31
+!s108 1432907449.766261
+!s107 LEDCounterFSMDemo.vo|
+!s90 -work|work|LEDCounterFSMDemo.vo|
+!i113 1
+Z4 o-work work
+n@l@e@d@counter@f@s@m
+vLEDCounterFSM_vlg_check_tst
+Z5 !s110 1432907450
+!i10b 1
+!s100 i1NH9>VPGz2ed6CffJ4=00
+Ie3G=0LM8PKOZ9dghM@6>72
+R2
+R0
+Z6 w1432907443
+Z7 8Waveform.vwf.vt
+Z8 FWaveform.vwf.vt
+L0 62
+R3
+r1
+!s85 0
+31
+Z9 !s108 1432907449.936019
+Z10 !s107 Waveform.vwf.vt|
+Z11 !s90 -work|work|Waveform.vwf.vt|
+!i113 1
+R4
+n@l@e@d@counter@f@s@m_vlg_check_tst
+vLEDCounterFSM_vlg_sample_tst
+R1
+!i10b 1
+!s100 =F^AZK7AfX49R]aGoHVL^3
+I`Czi4Yf7VoHNFf7UO0g_=2
+R2
+R0
+R6
+R7
+R8
+L0 30
+R3
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R4
+n@l@e@d@counter@f@s@m_vlg_sample_tst
+vLEDCounterFSM_vlg_vec_tst
+R5
+!i10b 1
+!s100 LI<a1h]k>G@?OXC[E=GT62
+I0[L7JT30bk1]GQn1BzPea1
+R2
+R0
+R6
+R7
+R8
+L0 238
+R3
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R4
+n@l@e@d@counter@f@s@m_vlg_vec_tst

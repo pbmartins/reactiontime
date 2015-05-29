@@ -8,7 +8,7 @@ architecture Stimulus of RandomGeneratorFSM_Tb is
 	signal s_dataOut, s_dataIn : std_logic_vector(5 downto 0);
 	signal s_clk, s_validOut, s_input, s_reset : std_logic;
 begin
-	uut : entity work.RandomGeneratorFSM(Shell)
+	uut : entity work.RandomGeneratorFSM(Behavioral)
 				port map(clk => s_clk,
 							reset => s_reset,
 							input => s_input,
@@ -36,7 +36,7 @@ begin
 		wait for 20 ns;
 		
 		s_dataIn <= "001000";
-		wait for 20 ns;
+		wait for 60 ns;
 		
 	end process;
 end Stimulus;
