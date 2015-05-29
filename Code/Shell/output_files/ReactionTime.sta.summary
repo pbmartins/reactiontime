@@ -3,92 +3,172 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : -12.954
-TNS   : -613.219
+Slack : -15.810
+TNS   : -104.340
 
 Type  : Slow 1200mV 85C Model Setup 'FreqDivider:clkdivider_1hz|clkOut'
-Slack : -11.167
-TNS   : -84.391
+Slack : -13.502
+TNS   : -94.176
 
 Type  : Slow 1200mV 85C Model Setup 'SW[0]'
-Slack : -8.486
-TNS   : -59.906
+Slack : -10.288
+TNS   : -72.401
+
+Type  : Slow 1200mV 85C Model Setup 'AudioDemo:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|mI2C_CTRL_CLK'
+Slack : -4.823
+TNS   : -127.368
+
+Type  : Slow 1200mV 85C Model Setup 'AUD_BCLK'
+Slack : -3.163
+TNS   : -11.417
 
 Type  : Slow 1200mV 85C Model Setup 'FreqDivider:clkdivider_10000hz|clkOut'
-Slack : -2.904
-TNS   : -71.751
+Slack : -2.888
+TNS   : -72.220
 
-Type  : Slow 1200mV 85C Model Hold 'SW[0]'
-Slack : -0.514
-TNS   : -1.178
+Type  : Slow 1200mV 85C Model Setup 'AudioDemo:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK'
+Slack : -2.760
+TNS   : -86.120
+
+Type  : Slow 1200mV 85C Model Setup 'FreqDivider:clkdivider_2hz|clkOut'
+Slack : -0.233
+TNS   : -0.563
+
+Type  : Slow 1200mV 85C Model Setup 'audio|audio_interface|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.200
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'audio|audio_interface|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -2.085
+TNS   : -2.085
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.204
+Slack : 0.384
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'AudioDemo:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|mI2C_CTRL_CLK'
+Slack : 0.385
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'AUD_BCLK'
+Slack : 0.397
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'FreqDivider:clkdivider_2hz|clkOut'
+Slack : 0.404
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'AudioDemo:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK'
+Slack : 0.406
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'FreqDivider:clkdivider_10000hz|clkOut'
-Slack : 0.259
+Slack : 0.407
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'SW[0]'
+Slack : 0.703
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'FreqDivider:clkdivider_1hz|clkOut'
-Slack : 0.403
+Slack : 1.884
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'FreqDivider:clkdivider_1hz|clkOut'
-Slack : -9.078
-TNS   : -69.448
+Slack : -10.575
+TNS   : -68.470
 
 Type  : Slow 1200mV 85C Model Recovery 'CLOCK_50'
-Slack : -2.409
-TNS   : -78.222
+Slack : -4.073
+TNS   : -279.761
 
-Type  : Slow 1200mV 85C Model Recovery 'DebounceUnit:key0_debounce|s_dirtyIn'
-Slack : -2.282
-TNS   : -2.282
+Type  : Slow 1200mV 85C Model Recovery 'AudioDemo:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|mI2C_CTRL_CLK'
+Slack : -3.628
+TNS   : -75.037
 
-Type  : Slow 1200mV 85C Model Recovery 'DebounceUnit:key1_debounce|s_dirtyIn'
-Slack : -1.875
-TNS   : -1.875
-
-Type  : Slow 1200mV 85C Model Recovery 'SW[0]'
-Slack : -1.367
-TNS   : -9.011
+Type  : Slow 1200mV 85C Model Recovery 'audio|audio_interface|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -2.770
+TNS   : -27.453
 
 Type  : Slow 1200mV 85C Model Recovery 'FreqDivider:clkdivider_10000hz|clkOut'
-Slack : -0.108
-TNS   : -0.432
+Slack : -2.460
+TNS   : -78.688
 
-Type  : Slow 1200mV 85C Model Removal 'FreqDivider:clkdivider_10000hz|clkOut'
-Slack : -0.053
-TNS   : -0.212
+Type  : Slow 1200mV 85C Model Recovery 'FreqDivider:clkdivider_2hz|clkOut'
+Slack : -2.443
+TNS   : -19.544
 
-Type  : Slow 1200mV 85C Model Removal 'SW[0]'
-Slack : 0.308
-TNS   : 0.000
+Type  : Slow 1200mV 85C Model Recovery 'SW[0]'
+Slack : -1.878
+TNS   : -13.219
 
-Type  : Slow 1200mV 85C Model Removal 'CLOCK_50'
-Slack : 1.132
+Type  : Slow 1200mV 85C Model Recovery 'DebounceUnit:key0_debounce|s_dirtyIn'
+Slack : -1.127
+TNS   : -1.127
+
+Type  : Slow 1200mV 85C Model Recovery 'DebounceUnit:key1_debounce|s_dirtyIn'
+Slack : -1.017
+TNS   : -1.017
+
+Type  : Slow 1200mV 85C Model Recovery 'AudioDemo:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK'
+Slack : -0.710
+TNS   : -4.964
+
+Type  : Slow 1200mV 85C Model Removal 'AudioDemo:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK'
+Slack : 0.337
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'FreqDivider:clkdivider_1hz|clkOut'
-Slack : 1.216
+Slack : 0.593
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Removal 'DebounceUnit:key1_debounce|s_dirtyIn'
-Slack : 1.502
+Type  : Slow 1200mV 85C Model Removal 'SW[0]'
+Slack : 0.750
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'DebounceUnit:key0_debounce|s_dirtyIn'
-Slack : 2.255
+Slack : 1.075
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -3.000
-TNS   : -260.000
+Type  : Slow 1200mV 85C Model Removal 'DebounceUnit:key1_debounce|s_dirtyIn'
+Slack : 1.426
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'audio|audio_interface|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 2.110
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'FreqDivider:clkdivider_2hz|clkOut'
+Slack : 2.730
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'FreqDivider:clkdivider_10000hz|clkOut'
+Slack : 2.756
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'AudioDemo:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|mI2C_CTRL_CLK'
+Slack : 3.236
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'CLOCK_50'
+Slack : 3.388
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'AudioDemo:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK'
+Slack : -3.210
+TNS   : -49.470
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'AUD_BCLK'
+Slack : -3.210
+TNS   : -8.350
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SW[0]'
 Slack : -3.000
 TNS   : -3.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'AudioDemo:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|mI2C_CTRL_CLK'
+Slack : -1.285
+TNS   : -62.965
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'FreqDivider:clkdivider_10000hz|clkOut'
 Slack : -1.285
@@ -96,7 +176,11 @@ TNS   : -41.120
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'FreqDivider:clkdivider_1hz|clkOut'
 Slack : -1.285
-TNS   : -17.990
+TNS   : -10.280
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'FreqDivider:clkdivider_2hz|clkOut'
+Slack : -1.285
+TNS   : -10.280
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'DebounceUnit:key0_debounce|s_dirtyIn'
 Slack : -1.285
@@ -106,93 +190,181 @@ Type  : Slow 1200mV 85C Model Minimum Pulse Width 'DebounceUnit:key1_debounce|s_
 Slack : -1.285
 TNS   : -1.285
 
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 9.593
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'audio|audio_interface|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 27.487
+TNS   : 0.000
+
 Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -11.754
-TNS   : -542.411
+Slack : -14.303
+TNS   : -92.333
 
 Type  : Slow 1200mV 0C Model Setup 'FreqDivider:clkdivider_1hz|clkOut'
-Slack : -10.098
-TNS   : -76.478
+Slack : -12.286
+TNS   : -85.931
 
 Type  : Slow 1200mV 0C Model Setup 'SW[0]'
-Slack : -7.752
-TNS   : -54.622
+Slack : -9.472
+TNS   : -66.540
+
+Type  : Slow 1200mV 0C Model Setup 'AudioDemo:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|mI2C_CTRL_CLK'
+Slack : -4.397
+TNS   : -113.221
+
+Type  : Slow 1200mV 0C Model Setup 'AUD_BCLK'
+Slack : -2.650
+TNS   : -9.469
 
 Type  : Slow 1200mV 0C Model Setup 'FreqDivider:clkdivider_10000hz|clkOut'
-Slack : -2.599
-TNS   : -63.450
+Slack : -2.573
+TNS   : -63.637
 
-Type  : Slow 1200mV 0C Model Hold 'SW[0]'
-Slack : -0.517
-TNS   : -1.219
+Type  : Slow 1200mV 0C Model Setup 'AudioDemo:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK'
+Slack : -2.441
+TNS   : -75.441
+
+Type  : Slow 1200mV 0C Model Setup 'FreqDivider:clkdivider_2hz|clkOut'
+Slack : -0.118
+TNS   : -0.122
+
+Type  : Slow 1200mV 0C Model Setup 'audio|audio_interface|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.130
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'audio|audio_interface|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -1.937
+TNS   : -1.937
+
+Type  : Slow 1200mV 0C Model Hold 'AUD_BCLK'
+Slack : 0.269
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'AudioDemo:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|mI2C_CTRL_CLK'
+Slack : 0.337
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.188
+Slack : 0.337
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'FreqDivider:clkdivider_10000hz|clkOut'
-Slack : 0.237
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'FreqDivider:clkdivider_1hz|clkOut'
+Type  : Slow 1200mV 0C Model Hold 'FreqDivider:clkdivider_2hz|clkOut'
 Slack : 0.354
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Recovery 'FreqDivider:clkdivider_1hz|clkOut'
-Slack : -8.187
-TNS   : -62.369
-
-Type  : Slow 1200mV 0C Model Recovery 'CLOCK_50'
-Slack : -2.160
-TNS   : -64.056
-
-Type  : Slow 1200mV 0C Model Recovery 'DebounceUnit:key0_debounce|s_dirtyIn'
-Slack : -2.038
-TNS   : -2.038
-
-Type  : Slow 1200mV 0C Model Recovery 'DebounceUnit:key1_debounce|s_dirtyIn'
-Slack : -1.681
-TNS   : -1.681
-
-Type  : Slow 1200mV 0C Model Recovery 'SW[0]'
-Slack : -1.312
-TNS   : -8.730
-
-Type  : Slow 1200mV 0C Model Recovery 'FreqDivider:clkdivider_10000hz|clkOut'
-Slack : -0.005
-TNS   : -0.020
-
-Type  : Slow 1200mV 0C Model Removal 'FreqDivider:clkdivider_10000hz|clkOut'
-Slack : -0.042
-TNS   : -0.168
-
-Type  : Slow 1200mV 0C Model Removal 'SW[0]'
-Slack : 0.121
+Type  : Slow 1200mV 0C Model Hold 'FreqDivider:clkdivider_10000hz|clkOut'
+Slack : 0.356
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Removal 'CLOCK_50'
-Slack : 1.045
+Type  : Slow 1200mV 0C Model Hold 'AudioDemo:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK'
+Slack : 0.357
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'SW[0]'
+Slack : 0.517
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'FreqDivider:clkdivider_1hz|clkOut'
+Slack : 1.729
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'FreqDivider:clkdivider_1hz|clkOut'
+Slack : -9.559
+TNS   : -62.018
+
+Type  : Slow 1200mV 0C Model Recovery 'CLOCK_50'
+Slack : -3.604
+TNS   : -241.500
+
+Type  : Slow 1200mV 0C Model Recovery 'AudioDemo:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|mI2C_CTRL_CLK'
+Slack : -3.206
+TNS   : -65.585
+
+Type  : Slow 1200mV 0C Model Recovery 'audio|audio_interface|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -2.269
+TNS   : -21.066
+
+Type  : Slow 1200mV 0C Model Recovery 'FreqDivider:clkdivider_10000hz|clkOut'
+Slack : -2.092
+TNS   : -66.885
+
+Type  : Slow 1200mV 0C Model Recovery 'FreqDivider:clkdivider_2hz|clkOut'
+Slack : -2.074
+TNS   : -16.592
+
+Type  : Slow 1200mV 0C Model Recovery 'SW[0]'
+Slack : -1.666
+TNS   : -11.995
+
+Type  : Slow 1200mV 0C Model Recovery 'DebounceUnit:key0_debounce|s_dirtyIn'
+Slack : -0.919
+TNS   : -0.919
+
+Type  : Slow 1200mV 0C Model Recovery 'DebounceUnit:key1_debounce|s_dirtyIn'
+Slack : -0.901
+TNS   : -0.901
+
+Type  : Slow 1200mV 0C Model Recovery 'AudioDemo:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK'
+Slack : -0.660
+TNS   : -3.408
+
+Type  : Slow 1200mV 0C Model Removal 'AudioDemo:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK'
+Slack : 0.321
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'SW[0]'
+Slack : 0.540
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'FreqDivider:clkdivider_1hz|clkOut'
-Slack : 1.118
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Removal 'DebounceUnit:key1_debounce|s_dirtyIn'
-Slack : 1.359
+Slack : 0.576
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'DebounceUnit:key0_debounce|s_dirtyIn'
-Slack : 2.058
+Slack : 1.064
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -3.000
-TNS   : -260.000
+Type  : Slow 1200mV 0C Model Removal 'DebounceUnit:key1_debounce|s_dirtyIn'
+Slack : 1.375
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'audio|audio_interface|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.878
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'FreqDivider:clkdivider_2hz|clkOut'
+Slack : 2.440
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'FreqDivider:clkdivider_10000hz|clkOut'
+Slack : 2.465
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'AudioDemo:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|mI2C_CTRL_CLK'
+Slack : 2.910
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'CLOCK_50'
+Slack : 3.037
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'AudioDemo:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK'
+Slack : -3.210
+TNS   : -49.470
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'AUD_BCLK'
+Slack : -3.210
+TNS   : -8.350
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SW[0]'
 Slack : -3.000
 TNS   : -3.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'AudioDemo:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|mI2C_CTRL_CLK'
+Slack : -1.285
+TNS   : -62.965
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'FreqDivider:clkdivider_10000hz|clkOut'
 Slack : -1.285
@@ -200,7 +372,11 @@ TNS   : -41.120
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'FreqDivider:clkdivider_1hz|clkOut'
 Slack : -1.285
-TNS   : -17.990
+TNS   : -10.280
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'FreqDivider:clkdivider_2hz|clkOut'
+Slack : -1.285
+TNS   : -10.280
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'DebounceUnit:key0_debounce|s_dirtyIn'
 Slack : -1.285
@@ -210,93 +386,181 @@ Type  : Slow 1200mV 0C Model Minimum Pulse Width 'DebounceUnit:key1_debounce|s_d
 Slack : -1.285
 TNS   : -1.285
 
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 9.600
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'audio|audio_interface|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 27.489
+TNS   : 0.000
+
 Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -6.106
-TNS   : -204.258
+Slack : -7.848
+TNS   : -49.135
 
 Type  : Fast 1200mV 0C Model Setup 'FreqDivider:clkdivider_1hz|clkOut'
-Slack : -5.573
-TNS   : -38.568
+Slack : -6.459
+TNS   : -43.844
 
 Type  : Fast 1200mV 0C Model Setup 'SW[0]'
-Slack : -3.869
-TNS   : -26.966
+Slack : -4.893
+TNS   : -34.140
+
+Type  : Fast 1200mV 0C Model Setup 'AudioDemo:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|mI2C_CTRL_CLK'
+Slack : -1.917
+TNS   : -37.739
+
+Type  : Fast 1200mV 0C Model Setup 'AUD_BCLK'
+Slack : -1.546
+TNS   : -5.594
+
+Type  : Fast 1200mV 0C Model Setup 'AudioDemo:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK'
+Slack : -1.184
+TNS   : -37.409
 
 Type  : Fast 1200mV 0C Model Setup 'FreqDivider:clkdivider_10000hz|clkOut'
-Slack : -0.934
-TNS   : -19.622
+Slack : -0.895
+TNS   : -19.591
 
-Type  : Fast 1200mV 0C Model Hold 'SW[0]'
-Slack : -0.305
-TNS   : -0.447
+Type  : Fast 1200mV 0C Model Setup 'FreqDivider:clkdivider_2hz|clkOut'
+Slack : 0.397
+TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'FreqDivider:clkdivider_10000hz|clkOut'
-Slack : -0.001
-TNS   : -0.001
+Type  : Fast 1200mV 0C Model Setup 'audio|audio_interface|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.533
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'audio|audio_interface|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -1.072
+TNS   : -1.072
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.003
+Slack : 0.016
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'FreqDivider:clkdivider_2hz|clkOut'
+Slack : 0.076
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'AudioDemo:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK'
+Slack : 0.127
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'SW[0]'
+Slack : 0.140
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'AUD_BCLK'
+Slack : 0.151
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'AudioDemo:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|mI2C_CTRL_CLK'
+Slack : 0.173
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'FreqDivider:clkdivider_10000hz|clkOut'
+Slack : 0.184
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'FreqDivider:clkdivider_1hz|clkOut'
-Slack : 0.181
+Slack : 0.740
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'FreqDivider:clkdivider_1hz|clkOut'
-Slack : -4.145
-TNS   : -29.800
+Slack : -4.891
+TNS   : -30.277
 
 Type  : Fast 1200mV 0C Model Recovery 'CLOCK_50'
-Slack : -1.081
-TNS   : -30.000
+Slack : -1.988
+TNS   : -139.645
 
-Type  : Fast 1200mV 0C Model Recovery 'DebounceUnit:key0_debounce|s_dirtyIn'
-Slack : -0.849
-TNS   : -0.849
-
-Type  : Fast 1200mV 0C Model Recovery 'SW[0]'
-Slack : -0.754
-TNS   : -4.957
-
-Type  : Fast 1200mV 0C Model Recovery 'DebounceUnit:key1_debounce|s_dirtyIn'
-Slack : -0.626
-TNS   : -0.626
+Type  : Fast 1200mV 0C Model Recovery 'AudioDemo:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|mI2C_CTRL_CLK'
+Slack : -1.762
+TNS   : -36.780
 
 Type  : Fast 1200mV 0C Model Recovery 'FreqDivider:clkdivider_10000hz|clkOut'
-Slack : 0.168
+Slack : -1.166
+TNS   : -37.288
+
+Type  : Fast 1200mV 0C Model Recovery 'FreqDivider:clkdivider_2hz|clkOut'
+Slack : -1.143
+TNS   : -9.144
+
+Type  : Fast 1200mV 0C Model Recovery 'SW[0]'
+Slack : -1.085
+TNS   : -7.589
+
+Type  : Fast 1200mV 0C Model Recovery 'audio|audio_interface|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -0.446
+TNS   : -2.016
+
+Type  : Fast 1200mV 0C Model Recovery 'DebounceUnit:key1_debounce|s_dirtyIn'
+Slack : -0.153
+TNS   : -0.153
+
+Type  : Fast 1200mV 0C Model Recovery 'DebounceUnit:key0_debounce|s_dirtyIn'
+Slack : -0.078
+TNS   : -0.078
+
+Type  : Fast 1200mV 0C Model Recovery 'AudioDemo:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK'
+Slack : 0.004
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Removal 'FreqDivider:clkdivider_10000hz|clkOut'
-Slack : 0.177
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Removal 'SW[0]'
-Slack : 0.243
+Type  : Fast 1200mV 0C Model Removal 'AudioDemo:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK'
+Slack : 0.090
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'FreqDivider:clkdivider_1hz|clkOut'
-Slack : 0.522
+Slack : 0.109
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Removal 'DebounceUnit:key1_debounce|s_dirtyIn'
-Slack : 0.717
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Removal 'CLOCK_50'
-Slack : 0.830
+Type  : Fast 1200mV 0C Model Removal 'SW[0]'
+Slack : 0.554
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'DebounceUnit:key0_debounce|s_dirtyIn'
-Slack : 1.089
+Slack : 0.613
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Type  : Fast 1200mV 0C Model Removal 'DebounceUnit:key1_debounce|s_dirtyIn'
+Slack : 0.738
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'audio|audio_interface|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.018
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'FreqDivider:clkdivider_2hz|clkOut'
+Slack : 1.729
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'FreqDivider:clkdivider_10000hz|clkOut'
+Slack : 1.758
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'AudioDemo:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|mI2C_CTRL_CLK'
+Slack : 2.015
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'CLOCK_50'
+Slack : 2.124
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'AudioDemo:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK'
 Slack : -3.000
-TNS   : -260.504
+TNS   : -39.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'AUD_BCLK'
+Slack : -3.000
+TNS   : -9.268
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SW[0]'
 Slack : -3.000
-TNS   : -3.450
+TNS   : -3.787
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'AudioDemo:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|mI2C_CTRL_CLK'
+Slack : -1.000
+TNS   : -49.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'FreqDivider:clkdivider_10000hz|clkOut'
 Slack : -1.000
@@ -304,7 +568,11 @@ TNS   : -32.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'FreqDivider:clkdivider_1hz|clkOut'
 Slack : -1.000
-TNS   : -14.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'FreqDivider:clkdivider_2hz|clkOut'
+Slack : -1.000
+TNS   : -8.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'DebounceUnit:key0_debounce|s_dirtyIn'
 Slack : -1.000
@@ -313,5 +581,13 @@ TNS   : -1.000
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'DebounceUnit:key1_debounce|s_dirtyIn'
 Slack : -1.000
 TNS   : -1.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 9.240
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'audio|audio_interface|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 27.559
+TNS   : 0.000
 
 ------------------------------------------------------------

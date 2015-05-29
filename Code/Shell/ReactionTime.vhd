@@ -4,17 +4,27 @@ use IEEE.NUMERIC_STD.all;
 
 entity ReactionTime is
 	port (KEY      : in std_logic_vector(1 downto 0);
-			SW       : in std_logic_vector(0 downto 0);
+			SW       : in std_logic_vector(1 downto 0);
 			CLOCK_50 : in std_logic;
 			LEDR     : out std_logic_vector(6 downto 0);
 			LEDG     : out std_logic_vector(0 downto 0);
-			HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7 : out std_logic_vector(6 downto 0));
+			HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7 : out std_logic_vector(6 downto 0);
+			-- Audio Serial Data Interface
+		  AUD_ADCLRCK	: inout std_logic;
+		  AUD_ADCDAT	: in    std_logic;
+		  AUD_DACLRCK	: inout std_logic;
+		  AUD_DACDAT	: out   std_logic;
+		  AUD_BCLK		: inout std_logic;
+		  AUD_XCK		: out   std_logic;
+		  -- Audio I2C Configuration Interface
+		  I2C_SCLK		: out   std_logic;
+		  I2C_SDAT		: inout std_logic);
 end ReactionTime;
 
 architecture Shell of ReactionTime is
-	signal key0, key1, clk50000hz, clk1hz, clk10000hz : std_logic;
+	signal key0, key1, clk50000hz, clk1hz, clk2hz, clk10000hz : std_logic;
 	signal s_validOut, s_newTime, s_timeExp, s_ledCounterEN, s_active : std_logic;
-	signal s_final, s_counterEN, s_hexEN, s_hexERROR : std_logic;
+	signal s_final, s_counterEN, s_hexEN, s_hexERROR, s_audio : std_logic;
 	signal rnd_number : std_logic_vector(5 downto 0);
 	signal s_count : std_logic_vector(31 downto 0);
 begin
@@ -77,10 +87,31 @@ begin
 					hex_Error    => s_hexERROR);
 					
 	-- Led Counter --
+	clkdivider_2hz : entity work.FreqDivider(Behavioral)
+		generic map(K         => 25000000)
+		port map(clkIn        => CLOCK_50,
+					clkOut       => clk2hz);
+	
+	audio : entity work.AudioDemo(Structural)
+		port map(reset        => key1,
+					enable       => s_audio and SW(1),
+					CLOCK_50     => CLOCK_50,
+					-- Audio Serial Data Interface
+					AUD_ADCLRCK	=> AUD_ADCLRCK,
+					AUD_ADCDAT	=> AUD_ADCDAT,
+					AUD_DACLRCK	=> AUD_DACLRCK,
+					AUD_DACDAT	=> AUD_DACDAT,
+					AUD_BCLK		=> AUD_BCLK,
+					AUD_XCK		=> AUD_XCK,
+					-- Audio I2C Configuration Interface
+					I2C_SCLK		=> I2C_SCLK,
+					I2C_SDAT		=> I2C_SDAT);
+	
 	ledcounter_fsm : entity work.LEDCounterFSM(Behavioral)
-		port map(clk          => clk1hz,
+		port map(clk          => clk2hz,
 					reset        => key1,
 					enable       => s_ledCounterEN,
+					audioEnable  => s_audio,
 					ledRed0      => LEDR(0),
 					ledRed1      => LEDR(1),
 					ledRed2      => LEDR(2),

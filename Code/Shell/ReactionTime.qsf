@@ -1118,6 +1118,9 @@ set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_RO
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_global_assignment -name QXP_FILE AudioInterfaceCore.qxp
+set_global_assignment -name VHDL_FILE ROMSin16Pts.vhd
+set_global_assignment -name VHDL_FILE AudioDemo.vhd
 set_global_assignment -name VHDL_FILE pseudo_random_generator.vhd
 set_global_assignment -name VHDL_FILE ReactionTimeCounter.vhd
 set_global_assignment -name VHDL_FILE FreqDivider.vhd

@@ -5,6 +5,7 @@ entity LEDCounterFSM is
 	port(reset		     : in  std_logic;
 		  clk			     : in  std_logic;
 		  enable  	     : in  std_logic;
+		  audioEnable    : out std_logic;
 		  final  	     : out std_logic;
 		  ledRed0        : out std_logic;
 		  ledRed1        : out std_logic;
@@ -13,7 +14,7 @@ end LEDCounterFSM;
 
 architecture Behavioral of LEDCounterFSM is
 
-	type TState is (A, B, C, D, E);
+	type TState is (A, B, C, D, E, F, G, H);
 	signal s_currentState, s_nextState : TState;
 
 begin
@@ -34,43 +35,76 @@ begin
 			ledRed1 <= '0';
 			ledRed2 <= '0';
 			final <= '0';
+			audioEnable <= '0';
 			
 			if (enable = '1') then
 				s_nextState <= B;
 			else
 				s_nextState <= A;
 			end if;
-
-		when B =>
+			
+		when B => 
 			ledRed0 <= '1';
 			ledRed1 <= '1';
 			ledRed2 <= '1';
 			final <= '0';
+			audioEnable <= '1';
 			
 			s_nextState <= C;
 
 		when C =>
 			ledRed0 <= '1';
 			ledRed1 <= '1';
-			ledRed2 <= '0';
+			ledRed2 <= '1';
 			final <= '0';
+			audioEnable <= '0';
 			
 			s_nextState <= D;
 
 		when D =>
 			ledRed0 <= '1';
-			ledRed1 <= '0';
+			ledRed1 <= '1';
 			ledRed2 <= '0';
 			final <= '0';
+			audioEnable <= '1';
 			
 			s_nextState <= E;
 			
 		when E =>
+			ledRed0 <= '1';
+			ledRed1 <= '1';
+			ledRed2 <= '0';
+			final <= '0';
+			audioEnable <= '0';
+			
+			s_nextState <= F;
+
+		when F =>
+			ledRed0 <= '1';
+			ledRed1 <= '0';
+			ledRed2 <= '0';
+			final <= '0';
+			audioEnable <= '1';
+			
+			s_nextState <= G;
+	
+		when G =>
+			ledRed0 <= '1';
+			ledRed1 <= '0';
+			ledRed2 <= '0';
+			final <= '0';
+			audioEnable <= '1';
+			
+			s_nextState <= H;
+			
+		when H =>
 			ledRed0 <= '0';
 			ledRed1 <= '0';
 			ledRed2 <= '0';
 			final <= '1';
-			s_nextState <= E;
+			audioEnable <= '0';
+			
+			s_nextState <= H;
 			
 		end case;
 	end process;

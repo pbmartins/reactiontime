@@ -1,11 +1,14 @@
 
 State Machine - |ReactionTime|LEDCounterFSM:ledcounter_fsm|s_currentState
-Name s_currentState.E s_currentState.D s_currentState.C s_currentState.B s_currentState.A 
-s_currentState.A 0 0 0 0 0 
-s_currentState.B 0 0 0 1 1 
-s_currentState.C 0 0 1 0 1 
-s_currentState.D 0 1 0 0 1 
-s_currentState.E 1 0 0 0 1 
+Name s_currentState.H s_currentState.G s_currentState.F s_currentState.E s_currentState.D s_currentState.C s_currentState.B s_currentState.A 
+s_currentState.A 0 0 0 0 0 0 0 0 
+s_currentState.B 0 0 0 0 0 0 1 1 
+s_currentState.C 0 0 0 0 0 1 0 1 
+s_currentState.D 0 0 0 0 1 0 0 1 
+s_currentState.E 0 0 0 1 0 0 0 1 
+s_currentState.F 0 0 1 0 0 0 0 1 
+s_currentState.G 0 1 0 0 0 0 0 1 
+s_currentState.H 1 0 0 0 0 0 0 1 
 
 State Machine - |ReactionTime|MainFSM:main_fsm|PS
 Name PS.G PS.F PS.E PS.D PS.C PS.B PS.A 
