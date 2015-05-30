@@ -1,0 +1,247 @@
+\documentclass[a4paper,11pt,onecolumn]{report}
+\usepackage[T1]{fontenc} % Fontes T1
+\usepackage[utf8]{inputenc} % Input UTF8
+\usepackage[backend=biber, style=ieee]{biblatex} % para usar bibliografia
+\usepackage{csquotes}
+\usepackage[portuguese]{babel} %Usar língua inglesa
+\usepackage{blindtext} % Gerar texto automáticamente
+\usepackage[printonlyused]{acronym}
+\usepackage{hyperref} % para autoref
+\usepackage{graphicx}
+\usepackage{minted}
+\usepackage{indentfirst}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+\bibliography{bibliografia}
+\addbibresource{bibliografia.bib}
+
+
+\begin{document}
+%%
+% Definições
+%
+\def\titulo{Temporizador de Reação}
+\def\data{06/05/2015}
+\def\autores{Pedro Martins, Pedro Santos}
+\def\autorescontactos{pbmartins@ua.pt, pedroamaralsantos@ua.pt}
+\def\versao{1}
+\def\departamento{Departamento de Eletrónica Telecomunicações e Informática}
+\def\empresa{Universidade de Aveiro}
+\def\logotipo{ua.pdf}
+%
+%% CAPA %%
+%
+\begin{titlepage}
+
+\begin{center}
+%
+\vspace*{50mm}
+%
+{\Huge \titulo}\\ 
+%
+\vspace{10mm}
+%
+{\Large \empresa}\\
+%
+\vspace{10mm}
+%
+{\LARGE \autores}\\ 
+%
+%
+\vspace{30mm}
+%
+\begin{figure}[h]
+\center
+\includegraphics{\logotipo}
+\end{figure}
+%
+\vspace{30mm}
+\end{center}
+%
+\begin{flushright}
+\versao
+\end{flushright}
+\end{titlepage}
+
+%
+%
+%%  Página de Título %%
+%
+%
+\title{%
+{\Huge\textbf{\titulo}}\\
+{\Large \departamento\\ \empresa}
+}
+%
+\author{%
+    \autores \\
+    \autorescontactos
+}
+%
+\date{\data}
+%
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RESUMO
+%
+%
+\pagenumbering{roman}
+
+\tableofcontents
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introdução}
+\label{chap.introducao}
+
+Para avaliação da componente prática da disciplina de Laboratórios de Sistemas Digitais, foi-nos proposto a criação de um mini-projeto, no qual teríamos de criar uma arquitetura e os seus variados blocos em \ac{vhdl}, a qual seria utilizada para programar uma \ac{fpga}, a Terasic DE2-115. Foi determinado pelo grupo que seria implementado um simples temporizador de reação, no qual seria utilizado botões e \textit{switches} da \ac{fpga}, assim como um comando infravermelhos, de maneira a que seja possível jogar em ambas as plataformas. Para a construção do projeto, foram utilizadas máquinas de estados, assim como blocos de lógica simples e ainda as \textit{blackboxes} relativas às interfaces de infravermelhos e áudio, disponibilizadas pelos docentes da disciplina.
+
+\chapter{Análise}
+\label{chap.analise}
+O mini-projeto em análise consiste na implementação de um temporizador de reação. A ideia pode traduzir-se como, depois de aceso um LED, medir o tempo que o utilizador demora a carregar num botão pré-definido, registando o tempo decorrido entre ambos. 
+
+Como foi implementado um descodificador de infravermelhos, pode utilizar-se tanto o comando (desde que este envie informação no formato NEC), como os botões e \textit{switches} da \ac{fpga}. 
+
+Assim sendo, existe um botão (\texttt{KEY(0)}) na \ac{fpga} e outro no comando (botão de Play) para iniciar o jogo e que também terá como função parar o cronómetro que contabilizará o tempo de reação assim que o LED é ligado.
+
+Existirá também um botão que servirá para fazer \textit{Reset} ao sistema em qualquer ponto do seu funcionamento ( \texttt{KEY(0)} na \ac{fpga} e Return no comando), e um botão para parametrizar o tempo de espera antes de aparecer o LED verde, que simboliza o início da contagem do tempo de reação. Caso esteja ativo o \texttt{SW(0)} da \ac{fpga}, esse tempo será definido como 5 segundos, caso contrário será um valor aleatório. No entanto, existe um funcionalidade exclusiva ao comando de infravermelhos. Para além de se poder parametrizar o valor de espera, usando a tecla QUALQUERCOISA, também é possível escolher esse valor, desde que esteja no intervalo entre 1 e 9 segundos (utilizando para o efeito os botões de 1 a 9 disponíveis no comando).
+
+Assim que o utilizador carrega no botão de iniciar o jogo, é gerado um número aleatório entre 5 e 60 (e validado), que será o tempo, em segundos, que demorará o LED a acender desde que se iniciou o jogo. De seguida, é utilizado um "semáforo de partida", onde a cada segundo, 3 LED vermelhos se apagam e onde é emitido um som, até que se inicia a contagem do tempo até o LED indicador se acender.
+
+Se o utilizador carregar no botão de jogar antes de o LED acender, é impresso nos ecrãs hexadecimais uma mensagem de erro. Caso o utilizador apenas clique no botão depois de aceso, é imprimido nos ecrãs hexadecimais o tempo percorrido desde que o LED acendeu até o utilizador carregar no botão. A \ac{fpga} manter-se-á neste estado até que se reinicie o jogo, isto é, clicar no botão de \textit{Reset}, onde todos os painéis hexadecimais e todos os LED serão apagados.
+
+\section{Arquitetura}
+
+\section{Arquitetura}
+A \autoref{figblocos} apresenta uma arquitetura do sistema em geral.
+
+%figura 1%
+\begin{figure}[h]
+\centerline{\includegraphics[scale=0.25]{Images/BlockDiagram}}
+\caption{Arquitetura do temporizador de reação.}
+\label{figblocos}
+\end{figure}
+
+\pagebreak
+
+\section{Implementação}
+
+Este projeto foi construído tendo como bases blocos lógicos simples, assim como máquinas de estados.
+
+O "cérebro" de todo o projeto é a máquina de estados \textit{Main FSM}. É ela que ativa todos os blocos e máquinas de estados auxiliares, consoante as entradas (botões da \ac{fpga} e comando de infravermelhos), assim como os sinais provenientes dos restantes blocos.
+
+%figura 5%
+\begin{figure}[h]
+\centerline{\includegraphics[scale=0.4]{Images/MainFSMDiagram}}
+\caption{Diagrama de estados da \textit{Main FSM}.}
+\label{figmainfsm}
+\end{figure}
+
+\pagebreak
+
+Assim que é iniciado o jogo, é dado um sinal de partida, gerado pela \textit{LEDCounter FSM}. Esta máquina de estados recebe um sinal que a ativa, e, de seguida, a cada dois tiques de relógio (frequência 2Hz - 0.5 segundos), desliga um LED vermelho, para além de, a cada tique, ativar e desativar o bloco \textit{Audio_Core}, responsável pela geração de um som e comunicação com a \textit{blackbox} da interface áudio, que resultará na emissão de um som alternadamente ligado (nos dois primeiros LEDs) e continuamente ligado (no último LED), até que todos os LEDs sejam desligados.
+
+Ou seja, esta máquina funciona como um "semáforo de partida" e que, quando desligados todos os LEDs e o som desapareça, inicia a contagem do tempo até que o LED verde (indicador) se acenda.
+
+No entanto, se o \texttt{SW(1)} na \ac{fpga} estiver ativo ou tiver sido pressionado o botão de Mute no comando, não será emitido qualquer som, apesar de a contagem nos LED estar na mesma ativa.
+
+O diagrama da \textit{LEDCounter FSM} pode ser observado na \autoref{figledcounterfsm}.
+
+%figura 7%
+\begin{figure}[h]
+\centerline{\includegraphics[scale=0.30]{Images/LEDCounterFSMDiagram}}
+\caption{Arquitetura do \textit{LEDCounterFSM}.}
+\label{figledcounterfsm}
+\end{figure}
+
+De seguida, assim que a máquina de estados anterior envie um sinal à \textit{Main FSM} de que terminou a sua ação, a máquina principal envia um outro sinal à \textit{TimerAux FSM}, para que se comece a contar o tempo até o LED indicador se acenda.
+
+Esta máquina, para além de receber um sinal para iniciar a contagem, consoante as entradas \texttt{defineRemote} e \texttt{defineSW}, define se o tempo a contar é o selecionado no comando de infravermelhos ou 5 segundos, respetivamente, ou se é um número aleatório recebido do bloco \texttt{random_number_generator} (valor este que é validado, pois apenas são aceites números entre 5 e 60 segundos).
+
+Assim que a contagem chega a zero, a máquina envia um sinal a dizer que o tempo expirou e que já não está ativa (permite que os sinais relativamente ao comando de infravermelhos sejam atualizados).
+
+O diagrama da \textit{LEDCounter FSM} pode ser observado na \autoref{figtimerfsm}.
+
+%figura 6%
+\begin{figure}[h]
+\centerline{\includegraphics[scale=0.33]{Images/TimerAuxFSMDiagram}}
+\caption{Diagrama de estados da \textit{Timer Aux FSM}.}
+\label{figtimerfsm}
+\end{figure}
+
+
+\pagebreak
+
+\section{Abordagem Faseada do Desenvolvimento}
+Como se pode verificar na \autoref{figblocos}, o "núcleo" de funcionamento do temporizador de reação assenta na parceria entre as duas máquinas de estados, a \textit{Main FSM} e a \textit{Timer Aux FSM}. Depois de construídas estas duas máquinas, serão também desenvolvidos os blocos do contador do tempo de reação, assim como o descodificador de binário para hexadecimal.
+
+Primeiramente, serão implementados os \textit{debouncers} nas entradas do circuito (KEY(0) e KEY(1)), para evitar oscilações quando os botões são pressionados.
+
+Numa fase inicial, será ignorado o "semáforo de partida" e o gerador de números aleatórios. Logo, a entrada \textit{timeVal} na máquina de estados \textit{Timer Aux FSM} terá o valor 10 (10 segundos, isto é, 001010 em binário), enquanto que, em relação à \textit{Main FSM}, a saída \textit{LEDCounter\_En} será ignorada e a entrada \textit{Final} terá sempre o valor 1 ("salta" o "semáforo"). Serão também utilizados vários divisores de frequência para que os impulsos de relógio sejam a cada 1 segundo (\textit{Timer Aux FSM}), e a cada centésimo de segundo (\textit{ReactionTimeCounter}).
+
+Assim que realizados e validados os testes sobre a entidade acima descrita, adicionar-se-ão os restantes blocos, o \textit{LEDCounter FSM} ("semáforo de partida"), ao qual será ligado um divisor de frequência de 1Hz (impulsos a cada segundo) e o \textit{RandomGenerator}, ao qual será ligado um divisor de frequência de 50000 Hz.
+
+Por fim, serão executados novos testes para validar o funcionamento da entidade global do temporizador de reação.
+
+\section{Divisão de Tarefas}
+Em seguida, apresenta-se a divisão de tarefas do projeto e quais os blocos que cada elemento deve construir.
+
+Pedro Martins:
+\begin{itemize}
+\item \textit{Main FSM};
+\item \textit{Time Aux FSM};
+\item \textit{ReactionTimeCounter};
+\item \textit{Testbench} - unidade de testes.
+\end{itemize}
+
+\pagebreak
+
+Pedro Santos:
+\begin{itemize}
+\item \textit{Debouncer};
+\item \textit{FreqDivider};
+\item \textit{LEDCounter FSM};
+\item \textit{HexDisplaysDecoder};
+\item \textit{Testbench} - unidade de testes.
+\end{itemize}
+
+\section{Manual de Instruções}
+Para medir o seu tempo de reação, deve seguir os seguintes passos:
+\begin{itemize}
+\item Certificar-se que a \ac{fpga} está corretamente ligada e programada;
+\item Pressionar o botão KEY(0), para iniciar o jogo;
+\item Aguardar que os três LED vermelhos se apaguem;
+\item Clicar no botão KEY(0) logo depois de o LED verde se acender;
+\item Será impresso no ecrã hexadecimal o seu tempo de reação;
+\item Para reiniciar o jogo, tem de clicar no botão KEY(1) e repetir todos os passos acima descritos.
+\end{itemize}
+
+
+\chapter{Conclusões}
+\label{chap.conclusao}
+Em suma, depois de estabelecida a arquitetura do sistema, os vários diagramas de estados e a divisão de tarefas, é possível passar à prática e programar o circuito.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Acrónimos}
+\begin{acronym}
+\acro{ua}[UA]{Universidade de Aveiro}
+\acro{miect}[MIECT]{Mestrado Integrado em Engenharia de Computadores e Telemática}
+\acro{fpga}[FPGA]{Field-Programmable Gate Array}
+\acro{vhdl}[VHDL]{Very high speed integrated circuit Hardware Description Language}
+
+\end{acronym}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
