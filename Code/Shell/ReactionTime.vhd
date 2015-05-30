@@ -18,17 +18,32 @@ entity ReactionTime is
 		  AUD_XCK		: out   std_logic;
 		  -- Audio I2C Configuration Interface
 		  I2C_SCLK		: out   std_logic;
-		  I2C_SDAT		: inout std_logic);
+		  I2C_SDAT		: inout std_logic;
+		  -- Infrared
+		  irda_rxd     : in  std_logic);
 end ReactionTime;
 
 architecture Shell of ReactionTime is
 	signal key0, key1, clk50000hz, clk1hz, clk2hz, clk10000hz : std_logic;
 	signal s_validOut, s_newTime, s_timeExp, s_ledCounterEN, s_active : std_logic;
 	signal s_final, s_counterEN, s_hexEN, s_hexERROR, s_audio : std_logic;
-	signal rnd_number : std_logic_vector(5 downto 0);
+	signal s_play, s_reset, s_mute, s_dataReady, s_defineRemote : std_logic;
+	signal rnd_number, s_commandData : std_logic_vector(5 downto 0);
 	signal s_count : std_logic_vector(31 downto 0);
 begin
-	-- Debounce Units --
+	-- Infrared Unit --
+	infrared_dec : entity work.Infrared_Core(Behav)
+		port map(clock_50     => CLOCK_50,
+					activeCount  => s_active,
+					play         => s_play,
+					reset        => s_reset,
+					mute         => s_mute,
+					definedValue => s_defineRemote,
+					dataOut      => s_commandData,
+					dataReady    => s_dataReady,
+					irda_rxd     => irda_rxd);
+
+	-- Debounce Units from FPGA's inputs--
 	key0_debounce : entity work.DebounceUnit(Behavioral)
 		generic map(clkFrekHz => 50000,
 						blindmSec => 100,
@@ -64,8 +79,10 @@ begin
 					
 	timeraux_fsm : entity work.TimerAuxFSM(Behav)
 		port map(clk          => clk1hz,
-					reset        => key1,
-					definedValue => SW(0),
+					reset        => key1 or (s_reset and s_dataReady),
+					defineSW     => SW(0),
+					defineRemote => s_defineRemote,
+					commandInput => s_commandData,
 					isActive     => s_active,
 					newTime      => s_newTime,
 					timerVal     => rnd_number,
@@ -74,8 +91,8 @@ begin
 	-- Main FSM --
 	main_fsm : entity work.MainFSM(Behav)
 		port map(clk          => CLOCK_50,
-					reset        => key1,
-					inputKey     => key0,
+					reset        => key1 or (s_reset and s_dataReady),
+					inputKey     => key0 or (s_play and s_dataReady),
 					isActive     => s_active,
 					newTime      => s_newTime,
 					timeExp      => s_timeExp,
@@ -92,9 +109,9 @@ begin
 		port map(clkIn        => CLOCK_50,
 					clkOut       => clk2hz);
 	
-	audio : entity work.AudioDemo(Structural)
-		port map(reset        => key1,
-					enable       => s_audio and SW(1),
+	audio : entity work.Audio_Core(Structural)
+		port map(reset        => key1 or (s_reset and s_dataReady),
+					enable       => s_audio and (SW(1) or s_mute),
 					CLOCK_50     => CLOCK_50,
 					-- Audio Serial Data Interface
 					AUD_ADCLRCK	=> AUD_ADCLRCK,
@@ -109,7 +126,7 @@ begin
 	
 	ledcounter_fsm : entity work.LEDCounterFSM(Behavioral)
 		port map(clk          => clk2hz,
-					reset        => key1,
+					reset        => key1 or (s_reset and s_dataReady),
 					enable       => s_ledCounterEN,
 					audioEnable  => s_audio,
 					ledRed0      => LEDR(0),
@@ -126,7 +143,7 @@ begin
 					
 	counter : entity work.CntBCDUp4(Behavioral)
 		port map(clk          => clk10000hz,
-					reset        => key1,
+					reset        => key1 or (s_reset and s_dataReady),
 					clkEnable    => s_counterEN,
 					count        => s_count);
 					
