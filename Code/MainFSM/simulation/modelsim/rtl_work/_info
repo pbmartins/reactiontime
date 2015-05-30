@@ -9,66 +9,85 @@ z2
 cModel Technology
 Z0 d/home/pedro/reactiontime/Code/MainFSM/simulation/modelsim
 Emainfsm
-w1431204513
-Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z1 w1432835964
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
-8/home/pedro/reactiontime/Code/MainFSM/MainFSM.vhd
-F/home/pedro/reactiontime/Code/MainFSM/MainFSM.vhd
+Z5 8/home/pedro/reactiontime/Code/MainFSM/MainFSM.vhd
+Z6 F/home/pedro/reactiontime/Code/MainFSM/MainFSM.vhd
 l0
 L5
-VAIU@g]TR7nOEV<A4CT^:F1
-!s100 XO0TSD<2MY<ZQh=Rm63`10
-Z4 OV;C;10.3c;59
+VHO`KXezWkEE7Q5;8gf^MJ0
+!s100 e@857nOU1Bf8Z_SfO:?NV3
+Z7 OV;C;10.3c;59
 31
-!s110 1431271459
+Z8 !s110 1432836042
 !i10b 1
-!s108 1431271459.573773
-!s90 -reportprogress|300|-93|-work|work|/home/pedro/reactiontime/Code/MainFSM/MainFSM.vhd|
-!s107 /home/pedro/reactiontime/Code/MainFSM/MainFSM.vhd|
+Z9 !s108 1432836042.565845
+Z10 !s90 -reportprogress|300|-93|-work|work|/home/pedro/reactiontime/Code/MainFSM/MainFSM.vhd|
+Z11 !s107 /home/pedro/reactiontime/Code/MainFSM/MainFSM.vhd|
 !i113 1
-o-93 -work work
-Z5 tExplicit 1
-Emainfsm_tb
-Z6 w1431212967
-R1
+Z12 o-93 -work work
+Z13 tExplicit 1
+Abehav
 R2
 R3
+R4
+Z14 DEx4 work 7 mainfsm 0 22 HO`KXezWkEE7Q5;8gf^MJ0
+l22
+L19
+VjWEJg0feMaB[0V5ogGGCo0
+!s100 EOIja`RjcQQVG^F7XnA[i1
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Emainfsm_tb
+Z15 w1432835556
+R2
+R3
+R4
 R0
-Z7 8/home/pedro/reactiontime/Code/MainFSM/MainFSM_Tb.vhd
-Z8 F/home/pedro/reactiontime/Code/MainFSM/MainFSM_Tb.vhd
+Z16 8/home/pedro/reactiontime/Code/MainFSM/MainFSM_Tb.vhd
+Z17 F/home/pedro/reactiontime/Code/MainFSM/MainFSM_Tb.vhd
 l0
 L5
 V49fMN?JTjlRzzY0k235J?2
 !s100 i?iifdP=<J8[[glF84Gh^1
-R4
+R7
 32
-Z9 !s110 1431271465
+Z18 !s110 1432836528
 !i10b 1
-Z10 !s108 1431271465.772339
-Z11 !s90 -reportprogress|300|-work|work|/home/pedro/reactiontime/Code/MainFSM/MainFSM_Tb.vhd|
-Z12 !s107 /home/pedro/reactiontime/Code/MainFSM/MainFSM_Tb.vhd|
+Z19 !s108 1432836528.629927
+Z20 !s90 -reportprogress|300|-work|work|/home/pedro/reactiontime/Code/MainFSM/MainFSM_Tb.vhd|
+Z21 !s107 /home/pedro/reactiontime/Code/MainFSM/MainFSM_Tb.vhd|
 !i113 1
-Z13 o-work work
-R5
+Z22 o-work work
+R13
 Astimulus
-DEx4 work 7 mainfsm 0 22 AIU@g]TR7nOEV<A4CT^:F1
-R1
+R14
 R2
 R3
-DEx4 work 10 mainfsm_tb 0 22 49fMN?JTjlRzzY0k235J?2
+R4
+Z23 DEx4 work 10 mainfsm_tb 0 22 49fMN?JTjlRzzY0k235J?2
 l11
 L8
-VNNWZ:fSgT_Oo`nZBfoA321
-!s100 @:DVDTnKV0ohd@aBn9Y_a3
-R4
+Z24 V^GfO_c5McM2N?8_l;LMQj0
+Z25 !s100 1_ziCiQZm7]Nn>1S0BA5f3
+R7
 32
-R9
+R18
 !i10b 1
-R10
-R11
-R12
+R19
+R20
+R21
 !i113 1
+R22
 R13
-R5

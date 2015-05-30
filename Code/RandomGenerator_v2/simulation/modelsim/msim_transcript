@@ -1,0 +1,60 @@
+# do RandomGeneratorFSM_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim LE vmap 10.3c Lib Mapping Utility 2014.09 Sep 20 2014
+# vmap -modelsim_quiet work rtl_work 
+# Copying /home/pedro/altera/14.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied /home/pedro/altera/14.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {/home/pedro/reactiontime/Code/RandomGenerator_v2/RandomGeneratorFSM.vhd}
+# Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 17:28:25 on May 28,2015
+# vcom -reportprogress 300 -93 -work work /home/pedro/reactiontime/Code/RandomGenerator_v2/RandomGeneratorFSM.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity RandomGeneratorFSM
+# -- Compiling architecture Behavioral of RandomGeneratorFSM
+# End time: 17:28:25 on May 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# 
+# stdin: <EOF>
+vcom -reportprogress 300 -work work /home/pedro/reactiontime/Code/RandomGenerator_v2/RandomGeneratorFSM_Tb.vhd
+# Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 17:28:36 on May 28,2015
+# vcom -reportprogress 300 -work work /home/pedro/reactiontime/Code/RandomGenerator_v2/RandomGeneratorFSM_Tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity RandomGeneratorFSM_Tb
+# -- Compiling architecture Stimulus of RandomGeneratorFSM_Tb
+# -- Loading package NUMERIC_STD
+# -- Loading entity RandomGeneratorFSM
+# End time: 17:28:36 on May 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.randomgeneratorfsm_tb(stimulus)
+# vsim -i -l msim_transcript -do "RandomGeneratorFSM_run_msim_rtl_vhdl.do" 
+# Start time: 17:28:42 on May 28,2015
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.randomgeneratorfsm_tb(stimulus)
+# Loading work.randomgeneratorfsm(behavioral)
+add wave -position end  sim:/randomgeneratorfsm_tb/s_dataOut
+add wave -position end  sim:/randomgeneratorfsm_tb/s_dataIn
+add wave -position end  sim:/randomgeneratorfsm_tb/s_clk
+add wave -position end  sim:/randomgeneratorfsm_tb/s_validOut
+add wave -position end  sim:/randomgeneratorfsm_tb/s_input
+add wave -position end  sim:/randomgeneratorfsm_tb/s_reset
+add wave -position end  sim:/randomgeneratorfsm_tb/uut/PS
+run
+# End time: 17:35:04 on May 28,2015, Elapsed time: 0:06:22
+# Errors: 0, Warnings: 0

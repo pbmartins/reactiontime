@@ -7,6 +7,7 @@ entity TimerAuxFSM is
 		  clk : in std_logic;
 		  reset : in std_logic;
 		  timerVal : in std_logic_vector(5 downto 0);
+		  currentValue : out std_logic_vector(5 downto 0);
 		  timeExp : out std_logic);
 end TimerAuxFSM;
 
@@ -26,12 +27,13 @@ begin
 		end if;
 	end process;
 	
-	main_proc : process(PS, newTime)
+	main_proc : process(PS, newTime, clk)
 	begin
-		timeExp <= '0';
 		
+		if (rising_edge(clk)) then
 		case PS is
 		when A =>
+			timeExp <= '0';
 			if (newTime = '1') then
 				NS <= B;
 			else
@@ -39,20 +41,18 @@ begin
 			end if;
 			
 		when B =>
+			timeExp <= '0';
+			NS <= C;
 			s_counter <= unsigned(timerVal) - 1;
-			if (s_counter = "000000") then
-				NS <= D;
-			else
-				NS <= C;
-			end if;
 			
 		when C =>
-			s_counter <= s_counter - 1;
+			timeExp <= '0';
 			if (s_counter = "000000") then
 				NS <= D;
 			else
 				NS <= C;
 			end if;
+			s_counter <= s_counter - 1;
 			
 		when D =>
 			timeExp <= '1';
@@ -63,5 +63,7 @@ begin
 			end if;
 			
 		end case;
+		end if;
 	end process;
+	currentValue <= std_logic_vector(s_counter);
 end Behav;

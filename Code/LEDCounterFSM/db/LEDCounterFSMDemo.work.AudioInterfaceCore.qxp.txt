@@ -1,0 +1,52 @@
+Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
++------------------------------------------------------------------------+
+; Quartus II QXP Design File                                             ;
++------------------+-----------------------------------------------------+
+; Field            ; Value                                               ;
++------------------+-----------------------------------------------------+
+; Entity           ; AudioInterfaceCore                                  ;
+; Case Sensitive   ;                                                     ;
+; QXP Source       ; AudioInterfaceCore.qxp                              ;
+; Software Version ; Version 13.1.4 Build 182 03/12/2014 SJ Full Version ;
+; Date             ; Thu Apr 30 00:21:28 2015                            ;
+; Contents         ; Netlist Only                                        ;
+; Family           ; EP4CE115F29C7                                       ;
+; Device           ; CYCLONEIVE6F780C7                                   ;
++------------------+-----------------------------------------------------+
+
++----------------------------------------------------+
+; Boundary Ports                                     ;
++------------------------+--------+------------------+
+; Port Name              ; Type   ; Default Value    ;
++------------------------+--------+------------------+
+; CLOCK_50               ; input  ; 0                ;
+; RESET_n                ; input  ; 0                ;
+; IN_SAMPLE_VALID        ; output ; 0                ;
+; CH_L_IN_SAMPLE [15:0]  ; output ; 0000000000000000 ;
+; CH_R_IN_SAMPLE [15:0]  ; output ; 0000000000000000 ;
+; OUT_SAMPLE_RQST        ; output ; 0                ;
+; CH_L_OUT_SAMPLE [15:0] ; input  ; 0000000000000000 ;
+; CH_R_OUT_SAMPLE [15:0] ; input  ; 0000000000000000 ;
+; AUD_ADCLRCK            ; bidir  ; 0                ;
+; AUD_ADCDAT             ; input  ; 0                ;
+; AUD_DACLRCK            ; bidir  ; 0                ;
+; AUD_DACDAT             ; output ; 0                ;
+; AUD_BCLK               ; bidir  ; 0                ;
+; AUD_XCK                ; output ; 0                ;
+; I2C_SCLK               ; output ; 0                ;
+; I2C_SDAT               ; bidir  ; 0                ;
++------------------------+--------+------------------+

@@ -4,6 +4,7 @@ use IEEE.STD_LOGIC_1164.all;
 entity HexDisplay is
 	port(enable     : in std_logic;
 		  error      : in std_logic;
+		  count      : in std_logic_vector(23 downto 0);
 	     dispOut0_n : out std_logic_vector(6 downto 0);
 		  dispOut1_n : out std_logic_vector(6 downto 0);
 		  dispOut2_n : out std_logic_vector(6 downto 0);
@@ -13,14 +14,12 @@ entity HexDisplay is
 end HexDisplay;
 
 architecture Structural of HexDisplay is
-
-
-	
 	signal s_registerOut	: std_logic_vector(23 downto 0);
-
 begin
-
-
+	s_registerOut <= "110011101111111111011111" when (error = '1') else
+	                 "110011001100110011001100" when (enable = '0') else
+						  count;
+	
 	disp_0_decoder : entity WORK.Bin7SegDecoder(Behavioral)
 		port map(binInput		 => s_registerOut(3 downto 0),
                decOut_n		 => dispOut0_n);

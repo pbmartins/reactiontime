@@ -1,5 +1,5 @@
 Flow report for MainFSM
-Sun May 10 16:22:37 2015
+Thu May 28 19:17:15 2015
 Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
 
 
@@ -41,18 +41,18 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +------------------------------------+--------------------------------------------+
-; Flow Status                        ; Successful - Sun May 10 16:22:37 2015      ;
+; Flow Status                        ; Successful - Thu May 28 19:17:15 2015      ;
 ; Quartus II 64-Bit Version          ; 14.1.0 Build 186 12/03/2014 SJ Web Edition ;
 ; Revision Name                      ; MainFSM                                    ;
-; Top-level Entity Name              ; MainFSM                                    ;
+; Top-level Entity Name              ; MainFSM_Demo                               ;
 ; Family                             ; Cyclone IV E                               ;
 ; Device                             ; EP4CE115F29C7                              ;
 ; Timing Models                      ; Final                                      ;
-; Total logic elements               ; 0 / 114,480 ( 0 % )                        ;
-;     Total combinational functions  ; 0 / 114,480 ( 0 % )                        ;
-;     Dedicated logic registers      ; 0 / 114,480 ( 0 % )                        ;
-; Total registers                    ; 0                                          ;
-; Total pins                         ; 15 / 529 ( 3 % )                           ;
+; Total logic elements               ; 15 / 114,480 ( < 1 % )                     ;
+;     Total combinational functions  ; 15 / 114,480 ( < 1 % )                     ;
+;     Dedicated logic registers      ; 8 / 114,480 ( < 1 % )                      ;
+; Total registers                    ; 8                                          ;
+; Total pins                         ; 16 / 529 ( 3 % )                           ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                      ;
 ; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                            ;
@@ -65,30 +65,31 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/10/2015 16:21:32 ;
+; Start date & time ; 05/28/2015 19:16:02 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; MainFSM             ;
 +-------------------+---------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                           ;
-+-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
-+-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 8796750083200.143127129204969         ; --            ; --          ; --             ;
-; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                  ; --            ; --          ; eda_simulation ;
-; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                ; <None>        ; --          ; --             ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                    ; --            ; --          ; --             ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                     ; --            ; --          ; --             ;
-; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                  ; --            ; --          ; --             ;
-; PARTITION_COLOR                     ; 16764057                              ; --            ; --          ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                 ; --            ; --          ; Top            ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                                ; --            ; --          ; Top            ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                   ; --            ; --          ; --             ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --            ; --          ; --             ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                          ; --            ; --          ; --             ;
-+-------------------------------------+---------------------------------------+---------------+-------------+----------------+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                            ;
++-------------------------------------+---------------------------------------+---------------+--------------+----------------+
+; Assignment Name                     ; Value                                 ; Default Value ; Entity Name  ; Section Id     ;
++-------------------------------------+---------------------------------------+---------------+--------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 8796750083200.143283696205633         ; --            ; --           ; --             ;
+; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                  ; --            ; --           ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                ; <None>        ; --           ; --             ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                    ; --            ; --           ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                     ; --            ; --           ; --             ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                  ; --            ; --           ; --             ;
+; PARTITION_COLOR                     ; 16764057                              ; --            ; MainFSM_Demo ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                 ; --            ; MainFSM_Demo ; Top            ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                                ; --            ; MainFSM_Demo ; Top            ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                   ; --            ; --           ; --             ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --            ; --           ; --             ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                          ; --            ; --           ; --             ;
+; TOP_LEVEL_ENTITY                    ; MainFSM_Demo                          ; MainFSM       ; --           ; --             ;
++-------------------------------------+---------------------------------------+---------------+--------------+----------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -96,12 +97,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:25     ; 1.0                     ; 923 MB              ; 00:00:20                           ;
-; Fitter                    ; 00:00:17     ; 1.0                     ; 1170 MB             ; 00:00:14                           ;
-; Assembler                 ; 00:00:06     ; 1.0                     ; 783 MB              ; 00:00:05                           ;
-; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 845 MB              ; 00:00:02                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 1029 MB             ; 00:00:01                           ;
-; Total                     ; 00:00:51     ; --                      ; --                  ; 00:00:42                           ;
+; Analysis & Synthesis      ; 00:00:25     ; 1.0                     ; 924 MB              ; 00:00:17                           ;
+; Fitter                    ; 00:00:24     ; 1.0                     ; 1180 MB             ; 00:00:17                           ;
+; Assembler                 ; 00:00:07     ; 1.0                     ; 780 MB              ; 00:00:05                           ;
+; TimeQuest Timing Analyzer ; 00:00:04     ; 1.0                     ; 840 MB              ; 00:00:02                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 1033 MB             ; 00:00:01                           ;
+; Total                     ; 00:01:01     ; --                      ; --                  ; 00:00:42                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

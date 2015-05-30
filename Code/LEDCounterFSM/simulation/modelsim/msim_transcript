@@ -1,0 +1,59 @@
+# do LEDCounterFSMDemo_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim LE vmap 10.3c Lib Mapping Utility 2014.09 Sep 20 2014
+# vmap -modelsim_quiet work rtl_work 
+# Copying /home/pedro/altera/14.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied /home/pedro/altera/14.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {/home/pedro/reactiontime/Code/LEDCounterFSM/LEDCounterFSM.vhd}
+# Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 02:30:05 on May 29,2015
+# vcom -reportprogress 300 -93 -work work /home/pedro/reactiontime/Code/LEDCounterFSM/LEDCounterFSM.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity LEDCounterFSM
+# -- Compiling architecture Behavioral of LEDCounterFSM
+# End time: 02:30:05 on May 29,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# 
+# stdin: <EOF>
+vcom -reportprogress 300 -work work /home/pedro/reactiontime/Code/LEDCounterFSM/LEDCounterFSM_Tb.vhd
+# Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 02:30:12 on May 29,2015
+# vcom -reportprogress 300 -work work /home/pedro/reactiontime/Code/LEDCounterFSM/LEDCounterFSM_Tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity LEDCounterFSM_Tb
+# -- Compiling architecture Stimulus of LEDCounterFSM_Tb
+# -- Loading entity LEDCounterFSM
+# End time: 02:30:12 on May 29,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.ledcounterfsm_tb(stimulus)
+# vsim -i -l msim_transcript -do "LEDCounterFSMDemo_run_msim_rtl_vhdl.do" 
+# Start time: 02:30:21 on May 29,2015
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.ledcounterfsm_tb(stimulus)
+# Loading work.ledcounterfsm(behavioral)
+add wave -position end  sim:/ledcounterfsm_tb/s_reset
+add wave -position end  sim:/ledcounterfsm_tb/s_clk
+add wave -position end  sim:/ledcounterfsm_tb/s_final
+add wave -position end  sim:/ledcounterfsm_tb/s_enable
+add wave -position end  sim:/ledcounterfsm_tb/s_led0
+add wave -position end  sim:/ledcounterfsm_tb/s_led1
+add wave -position end  sim:/ledcounterfsm_tb/s_led2
+add wave -position end  sim:/ledcounterfsm_tb/uut/s_currentState
+add wave -position end  sim:/ledcounterfsm_tb/uut/s_nextState
+run
+# End time: 02:32:47 on May 29,2015, Elapsed time: 0:02:26
+# Errors: 0, Warnings: 0

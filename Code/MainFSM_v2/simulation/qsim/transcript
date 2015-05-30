@@ -1,0 +1,36 @@
+# do MainFSM.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 21:02:31 on May 28,2015
+# vlog -work work MainFSM.vo 
+# -- Compiling module MainFSM_Demo
+# 
+# Top level modules:
+# 	MainFSM_Demo
+# End time: 21:02:31 on May 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 21:02:32 on May 28,2015
+# vlog -work work Waveform.vwf.vt 
+# -- Compiling module MainFSM_Demo_vlg_vec_tst
+# 
+# Top level modules:
+# 	MainFSM_Demo_vlg_vec_tst
+# End time: 21:02:32 on May 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -c -do "MainFSM.do" 
+# Start time: 21:02:32 on May 28,2015
+# Loading work.MainFSM_vlg_vec_tst
+# Loading work.MainFSM
+# Loading cycloneive_ver.cycloneive_io_obuf
+# Loading cycloneive_ver.cycloneive_io_ibuf
+# Loading cycloneive_ver.cycloneive_lcell_comb
+# Loading altera_ver.dffeas
+# Loading work.MainFSM_vlg_sample_tst
+# Loading work.MainFSM_vlg_check_tst
+# Loading altera_ver.PRIM_GDFF_LOW
+# Simulation passed !
+# ** Note: $finish    : Waveform.vwf.vt(294)
+#    Time: 1 us  Iteration: 0  Instance: /MainFSM_vlg_vec_tst/tb_out
+# End time: 21:02:32 on May 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

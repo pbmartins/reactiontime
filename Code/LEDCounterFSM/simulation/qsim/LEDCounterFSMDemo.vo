@@ -1,0 +1,331 @@
+// Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, the Altera Quartus II License Agreement,
+// the Altera MegaCore Function License Agreement, or other 
+// applicable license agreement, including, without limitation, 
+// that your use is for the sole purpose of programming logic 
+// devices manufactured by Altera and sold by Altera or its 
+// authorized distributors.  Please refer to the applicable 
+// agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus II 64-Bit"
+// VERSION "Version 14.1.0 Build 186 12/03/2014 SJ Web Edition"
+
+// DATE "05/29/2015 14:50:47"
+
+// 
+// Device: Altera EP4CE115F29C7 Package FBGA780
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module LEDCounterFSM (
+	reset,
+	clk,
+	enable,
+	\final ,
+	ledRed0,
+	ledRed1,
+	ledRed2);
+input 	reset;
+input 	clk;
+input 	enable;
+output 	\final ;
+output 	ledRed0;
+output 	ledRed1;
+output 	ledRed2;
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \final~output_o ;
+wire \ledRed0~output_o ;
+wire \ledRed1~output_o ;
+wire \ledRed2~output_o ;
+wire \clk~input_o ;
+wire \enable~input_o ;
+wire \s_currentState.A~0_combout ;
+wire \reset~input_o ;
+wire \s_currentState.A~q ;
+wire \s_nextState.B~0_combout ;
+wire \s_currentState.B~q ;
+wire \s_currentState.C~q ;
+wire \s_currentState.D~q ;
+wire \s_currentState.E~0_combout ;
+wire \s_currentState.E~q ;
+wire \ledRed0~2_combout ;
+wire \ledRed1~2_combout ;
+
+
+cycloneive_io_obuf \final~output (
+	.i(\s_currentState.E~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\final~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \final~output .bus_hold = "false";
+defparam \final~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneive_io_obuf \ledRed0~output (
+	.i(!\ledRed0~2_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\ledRed0~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \ledRed0~output .bus_hold = "false";
+defparam \ledRed0~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneive_io_obuf \ledRed1~output (
+	.i(\ledRed1~2_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\ledRed1~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \ledRed1~output .bus_hold = "false";
+defparam \ledRed1~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneive_io_obuf \ledRed2~output (
+	.i(\s_currentState.B~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\ledRed2~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \ledRed2~output .bus_hold = "false";
+defparam \ledRed2~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneive_io_ibuf \clk~input (
+	.i(clk),
+	.ibar(gnd),
+	.o(\clk~input_o ));
+// synopsys translate_off
+defparam \clk~input .bus_hold = "false";
+defparam \clk~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneive_io_ibuf \enable~input (
+	.i(enable),
+	.ibar(gnd),
+	.o(\enable~input_o ));
+// synopsys translate_off
+defparam \enable~input .bus_hold = "false";
+defparam \enable~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneive_lcell_comb \s_currentState.A~0 (
+// Equation(s):
+// \s_currentState.A~0_combout  = (\s_currentState.A~q ) # (\enable~input_o )
+
+	.dataa(\s_currentState.A~q ),
+	.datab(\enable~input_o ),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\s_currentState.A~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \s_currentState.A~0 .lut_mask = 16'hEEEE;
+defparam \s_currentState.A~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneive_io_ibuf \reset~input (
+	.i(reset),
+	.ibar(gnd),
+	.o(\reset~input_o ));
+// synopsys translate_off
+defparam \reset~input .bus_hold = "false";
+defparam \reset~input .simulate_z_as = "z";
+// synopsys translate_on
+
+dffeas \s_currentState.A (
+	.clk(\clk~input_o ),
+	.d(\s_currentState.A~0_combout ),
+	.asdata(vcc),
+	.clrn(!\reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\s_currentState.A~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \s_currentState.A .is_wysiwyg = "true";
+defparam \s_currentState.A .power_up = "low";
+// synopsys translate_on
+
+cycloneive_lcell_comb \s_nextState.B~0 (
+// Equation(s):
+// \s_nextState.B~0_combout  = (\enable~input_o  & !\s_currentState.A~q )
+
+	.dataa(\enable~input_o ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\s_currentState.A~q ),
+	.cin(gnd),
+	.combout(\s_nextState.B~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \s_nextState.B~0 .lut_mask = 16'h00AA;
+defparam \s_nextState.B~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+dffeas \s_currentState.B (
+	.clk(\clk~input_o ),
+	.d(\s_nextState.B~0_combout ),
+	.asdata(vcc),
+	.clrn(!\reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\s_currentState.B~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \s_currentState.B .is_wysiwyg = "true";
+defparam \s_currentState.B .power_up = "low";
+// synopsys translate_on
+
+dffeas \s_currentState.C (
+	.clk(\clk~input_o ),
+	.d(\s_currentState.B~q ),
+	.asdata(vcc),
+	.clrn(!\reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\s_currentState.C~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \s_currentState.C .is_wysiwyg = "true";
+defparam \s_currentState.C .power_up = "low";
+// synopsys translate_on
+
+dffeas \s_currentState.D (
+	.clk(\clk~input_o ),
+	.d(\s_currentState.C~q ),
+	.asdata(vcc),
+	.clrn(!\reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\s_currentState.D~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \s_currentState.D .is_wysiwyg = "true";
+defparam \s_currentState.D .power_up = "low";
+// synopsys translate_on
+
+cycloneive_lcell_comb \s_currentState.E~0 (
+// Equation(s):
+// \s_currentState.E~0_combout  = (\s_currentState.E~q ) # (\s_currentState.D~q )
+
+	.dataa(\s_currentState.E~q ),
+	.datab(\s_currentState.D~q ),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\s_currentState.E~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \s_currentState.E~0 .lut_mask = 16'hEEEE;
+defparam \s_currentState.E~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+dffeas \s_currentState.E (
+	.clk(\clk~input_o ),
+	.d(\s_currentState.E~0_combout ),
+	.asdata(vcc),
+	.clrn(!\reset~input_o ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\s_currentState.E~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \s_currentState.E .is_wysiwyg = "true";
+defparam \s_currentState.E .power_up = "low";
+// synopsys translate_on
+
+cycloneive_lcell_comb \ledRed0~2 (
+// Equation(s):
+// \ledRed0~2_combout  = (\s_currentState.E~q ) # (!\s_currentState.A~q )
+
+	.dataa(\s_currentState.E~q ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\s_currentState.A~q ),
+	.cin(gnd),
+	.combout(\ledRed0~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \ledRed0~2 .lut_mask = 16'hAAFF;
+defparam \ledRed0~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneive_lcell_comb \ledRed1~2 (
+// Equation(s):
+// \ledRed1~2_combout  = (\s_currentState.B~q ) # (\s_currentState.C~q )
+
+	.dataa(\s_currentState.B~q ),
+	.datab(\s_currentState.C~q ),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\ledRed1~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \ledRed1~2 .lut_mask = 16'hEEEE;
+defparam \ledRed1~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+assign \final  = \final~output_o ;
+
+assign ledRed0 = \ledRed0~output_o ;
+
+assign ledRed1 = \ledRed1~output_o ;
+
+assign ledRed2 = \ledRed2~output_o ;
+
+endmodule

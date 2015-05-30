@@ -1,18 +1,49 @@
-|MainFSM
-input => ~NO_FANOUT~
-reset => ~NO_FANOUT~
-valid => ~NO_FANOUT~
-timeExp => ~NO_FANOUT~
-clk => ~NO_FANOUT~
-final => ~NO_FANOUT~
-newTime << newTime.DB_MAX_OUTPUT_PORT_TYPE
-ledCounter_En << ledCounter_En.DB_MAX_OUTPUT_PORT_TYPE
-counter_En << counter_En.DB_MAX_OUTPUT_PORT_TYPE
-hex_En << <GND>
-hex_Error << hex_Error.DB_MAX_OUTPUT_PORT_TYPE
-stOut[0] << <GND>
-stOut[1] << <GND>
-stOut[2] << <GND>
-ledGreen_En << ledGreen_En.DB_MAX_OUTPUT_PORT_TYPE
+|MainFSM_Demo
+KEY[0] => mainfsm:uut.input
+KEY[1] => ~NO_FANOUT~
+KEY[2] => ~NO_FANOUT~
+KEY[3] => mainfsm:uut.timeExp
+KEY[4] => mainfsm:uut.final
+SW[0] => mainfsm:uut.reset
+LEDR[0] <= <GND>
+LEDR[1] <= <GND>
+LEDR[2] <= <GND>
+LEDR[3] <= mainfsm:uut.newTime
+LEDR[4] <= mainfsm:uut.ledCounter_En
+LEDR[5] <= mainfsm:uut.counter_En
+LEDR[6] <= mainfsm:uut.hex_En
+LEDR[7] <= mainfsm:uut.hex_Error
+LEDG[0] <= mainfsm:uut.ledGreen_En
+CLOCK_50 => mainfsm:uut.clk
+
+
+|MainFSM_Demo|MainFSM:uut
+input => NS.OUTPUTSELECT
+input => NS.OUTPUTSELECT
+input => Selector1.IN3
+input => Selector6.IN2
+input => Selector7.IN3
+input => Selector0.IN1
+input => Selector4.IN1
+input => Selector5.IN1
+reset => PS.OUTPUTSELECT
+reset => PS.OUTPUTSELECT
+reset => PS.OUTPUTSELECT
+reset => PS.OUTPUTSELECT
+reset => PS.OUTPUTSELECT
+reset => PS.OUTPUTSELECT
+reset => PS.OUTPUTSELECT
+reset => PS.OUTPUTSELECT
+timeExp => NS.DATAA
+timeExp => NS.DATAA
+clk => PS~1.DATAIN
+final => Selector2.IN2
+final => Selector1.IN1
+newTime <= newTime.DB_MAX_OUTPUT_PORT_TYPE
+ledCounter_En <= ledCounter_En.DB_MAX_OUTPUT_PORT_TYPE
+counter_En <= counter_En.DB_MAX_OUTPUT_PORT_TYPE
+hex_En <= hex_En.DB_MAX_OUTPUT_PORT_TYPE
+hex_Error <= hex_Error.DB_MAX_OUTPUT_PORT_TYPE
+ledGreen_En <= ledGreen_En.DB_MAX_OUTPUT_PORT_TYPE
 
 
