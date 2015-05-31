@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus II 64-Bit"
 -- VERSION "Version 14.1.0 Build 186 12/03/2014 SJ Web Edition"
 
--- DATE "05/30/2015 13:29:49"
+-- DATE "05/31/2015 20:39:56"
 
 -- 
 -- Device: Altera EP4CE115F29C7 Package FBGA780
@@ -39,24 +39,24 @@ ENTITY 	ReactionTime IS
 	KEY : IN std_logic_vector(1 DOWNTO 0);
 	SW : IN std_logic_vector(1 DOWNTO 0);
 	CLOCK_50 : IN std_logic;
-	LEDR : BUFFER std_logic_vector(6 DOWNTO 0);
-	LEDG : BUFFER std_logic_vector(0 DOWNTO 0);
-	HEX0 : BUFFER std_logic_vector(6 DOWNTO 0);
-	HEX1 : BUFFER std_logic_vector(6 DOWNTO 0);
-	HEX2 : BUFFER std_logic_vector(6 DOWNTO 0);
-	HEX3 : BUFFER std_logic_vector(6 DOWNTO 0);
-	HEX4 : BUFFER std_logic_vector(6 DOWNTO 0);
-	HEX5 : BUFFER std_logic_vector(6 DOWNTO 0);
-	HEX6 : BUFFER std_logic_vector(6 DOWNTO 0);
-	HEX7 : BUFFER std_logic_vector(6 DOWNTO 0);
-	AUD_ADCLRCK : BUFFER std_logic;
+	LEDR : OUT std_logic_vector(6 DOWNTO 0);
+	LEDG : OUT std_logic_vector(0 DOWNTO 0);
+	HEX0 : OUT std_logic_vector(6 DOWNTO 0);
+	HEX1 : OUT std_logic_vector(6 DOWNTO 0);
+	HEX2 : OUT std_logic_vector(6 DOWNTO 0);
+	HEX3 : OUT std_logic_vector(6 DOWNTO 0);
+	HEX4 : OUT std_logic_vector(6 DOWNTO 0);
+	HEX5 : OUT std_logic_vector(6 DOWNTO 0);
+	HEX6 : OUT std_logic_vector(6 DOWNTO 0);
+	HEX7 : OUT std_logic_vector(6 DOWNTO 0);
+	AUD_ADCLRCK : INOUT std_logic;
 	AUD_ADCDAT : IN std_logic;
-	AUD_DACLRCK : BUFFER std_logic;
-	AUD_DACDAT : BUFFER std_logic;
-	AUD_BCLK : BUFFER std_logic;
-	AUD_XCK : BUFFER std_logic;
-	I2C_SCLK : BUFFER std_logic;
-	I2C_SDAT : BUFFER std_logic;
+	AUD_DACLRCK : INOUT std_logic;
+	AUD_DACDAT : OUT std_logic;
+	AUD_BCLK : INOUT std_logic;
+	AUD_XCK : OUT std_logic;
+	I2C_SCLK : OUT std_logic;
+	I2C_SDAT : INOUT std_logic;
 	irda_rxd : IN std_logic
 	);
 END ReactionTime;
@@ -165,14 +165,10 @@ SIGNAL ww_HEX4 : std_logic_vector(6 DOWNTO 0);
 SIGNAL ww_HEX5 : std_logic_vector(6 DOWNTO 0);
 SIGNAL ww_HEX6 : std_logic_vector(6 DOWNTO 0);
 SIGNAL ww_HEX7 : std_logic_vector(6 DOWNTO 0);
-SIGNAL ww_AUD_ADCLRCK : std_logic;
 SIGNAL ww_AUD_ADCDAT : std_logic;
-SIGNAL ww_AUD_DACLRCK : std_logic;
 SIGNAL ww_AUD_DACDAT : std_logic;
-SIGNAL ww_AUD_BCLK : std_logic;
 SIGNAL ww_AUD_XCK : std_logic;
 SIGNAL ww_I2C_SCLK : std_logic;
-SIGNAL ww_I2C_SDAT : std_logic;
 SIGNAL ww_irda_rxd : std_logic;
 SIGNAL \audio|audio_interface|p1|altpll_component|auto_generated|pll1_INCLK_bus\ : std_logic_vector(1 DOWNTO 0);
 SIGNAL \audio|audio_interface|p1|altpll_component|auto_generated|pll1_CLK_bus\ : std_logic_vector(4 DOWNTO 0);
@@ -1521,14 +1517,10 @@ HEX4 <= ww_HEX4;
 HEX5 <= ww_HEX5;
 HEX6 <= ww_HEX6;
 HEX7 <= ww_HEX7;
-AUD_ADCLRCK <= ww_AUD_ADCLRCK;
 ww_AUD_ADCDAT <= AUD_ADCDAT;
-AUD_DACLRCK <= ww_AUD_DACLRCK;
 AUD_DACDAT <= ww_AUD_DACDAT;
-AUD_BCLK <= ww_AUD_BCLK;
 AUD_XCK <= ww_AUD_XCK;
 I2C_SCLK <= ww_I2C_SCLK;
-I2C_SDAT <= ww_I2C_SDAT;
 ww_irda_rxd <= irda_rxd;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
@@ -1635,7 +1627,7 @@ PORT MAP (
 	i => \audio|audio_interface|u2|LRCK_1X~q\,
 	oe => VCC,
 	devoe => ww_devoe,
-	o => ww_AUD_ADCLRCK);
+	o => AUD_ADCLRCK);
 
 -- Location: IOOBUF_X0_Y66_N16
 \audio|audio_interface|AUD_DACLRCK~output\ : cycloneive_io_obuf
@@ -1648,7 +1640,7 @@ PORT MAP (
 	i => \audio|audio_interface|u2|LRCK_1X~_Duplicate_1_q\,
 	oe => VCC,
 	devoe => ww_devoe,
-	o => ww_AUD_DACLRCK);
+	o => AUD_DACLRCK);
 
 -- Location: IOOBUF_X0_Y60_N16
 \audio|audio_interface|AUD_BCLK~output\ : cycloneive_io_obuf
@@ -1661,7 +1653,7 @@ PORT MAP (
 	i => \audio|audio_interface|u2|AUD_BCK~clkctrl_outclk\,
 	oe => VCC,
 	devoe => ww_devoe,
-	o => ww_AUD_BCLK);
+	o => AUD_BCLK);
 
 -- Location: IOOBUF_X18_Y73_N23
 \audio|audio_interface|I2C_SDAT~output\ : cycloneive_io_obuf
@@ -1674,7 +1666,7 @@ PORT MAP (
 	i => \audio|audio_interface|u1|u1|SDO~q\,
 	oe => VCC,
 	devoe => ww_devoe,
-	o => ww_I2C_SDAT);
+	o => I2C_SDAT);
 
 -- Location: IOOBUF_X69_Y73_N16
 \LEDR[0]~output\ : cycloneive_io_obuf
@@ -9084,7 +9076,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_I2C_SDAT,
+	i => I2C_SDAT,
 	o => \audio|audio_interface|I2C_SDAT~input_o\);
 
 -- Location: LCCOMB_X41_Y62_N2
@@ -14282,7 +14274,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_AUD_BCLK,
+	i => AUD_BCLK,
 	o => \audio|audio_interface|AUD_BCLK~input_o\);
 
 -- Location: LCCOMB_X1_Y65_N8
@@ -26913,7 +26905,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_AUD_ADCLRCK,
+	i => AUD_ADCLRCK,
 	o => \audio|audio_interface|AUD_ADCLRCK~input_o\);
 
 -- Location: IOIBUF_X0_Y66_N15
@@ -26924,7 +26916,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_AUD_DACLRCK,
+	i => AUD_DACLRCK,
 	o => \audio|audio_interface|AUD_DACLRCK~input_o\);
 
 -- Location: IOIBUF_X0_Y68_N1

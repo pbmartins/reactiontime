@@ -5,5 +5,5 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
-vcom -93 -work work {/home/pedro/reactiontime/Code/TimerAuxFSM/TimerAuxFSM_v2.vhd}
+vcom -93 -work work {/home/pedro/reactiontime/Code/TimerAuxFSM/TimerAuxFSM.vhd}
 

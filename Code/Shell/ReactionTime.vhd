@@ -141,7 +141,7 @@ begin
 					clkOut       => clk10000hz);
 					
 					
-	counter : entity work.CntBCDUp4(Behavioral)
+	counter : entity work.ReactionTimeCounter(Behavioral)
 		port map(clk          => clk10000hz,
 					reset        => key1 or (s_reset and s_dataReady),
 					clkEnable    => s_counterEN,

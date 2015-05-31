@@ -1,5 +1,5 @@
 Fitter report for ReactionTime
-Sat May 30 13:29:24 2015
+Sun May 31 20:39:35 2015
 Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
 
 
@@ -73,7 +73,7 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Fitter Summary                                                                  ;
 +------------------------------------+--------------------------------------------+
-; Fitter Status                      ; Successful - Sat May 30 13:29:24 2015      ;
+; Fitter Status                      ; Successful - Sun May 31 20:39:35 2015      ;
 ; Quartus II 64-Bit Version          ; 14.1.0 Build 186 12/03/2014 SJ Web Edition ;
 ; Revision Name                      ; ReactionTime                               ;
 ; Top-level Entity Name              ; ReactionTime                               ;
@@ -3914,7 +3914,6 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;             |I2C_Controller:u1|             ; 49 (49)     ; 25 (25)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 24 (24)      ; 4 (4)             ; 21 (21)          ; |ReactionTime|Audio_Core:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|I2C_Controller:u1                           ; work         ;
 ;          |Reset_Delay:r1|                   ; 28 (28)     ; 21 (21)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 1 (1)             ; 20 (20)          ; |ReactionTime|Audio_Core:audio|AudioInterfaceCore:audio_interface|Reset_Delay:r1                                                  ; work         ;
 ;       |ROMSin16Pts:sin_rom|                 ; 21 (21)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 13 (13)      ; 0 (0)             ; 8 (8)            ; |ReactionTime|Audio_Core:audio|ROMSin16Pts:sin_rom                                                                                ; work         ;
-;    |CntBCDUp4:counter|                      ; 47 (47)     ; 32 (32)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 15 (15)      ; 0 (0)             ; 32 (32)          ; |ReactionTime|CntBCDUp4:counter                                                                                                   ; work         ;
 ;    |DebounceUnit:key0_debounce|             ; 44 (44)     ; 33 (33)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 11 (11)      ; 0 (0)             ; 33 (33)          ; |ReactionTime|DebounceUnit:key0_debounce                                                                                          ; work         ;
 ;    |DebounceUnit:key1_debounce|             ; 44 (44)     ; 33 (33)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 11 (11)      ; 0 (0)             ; 33 (33)          ; |ReactionTime|DebounceUnit:key1_debounce                                                                                          ; work         ;
 ;    |FreqDivider:clkdivider_10000hz|         ; 48 (48)     ; 29 (29)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 19 (19)      ; 0 (0)             ; 29 (29)          ; |ReactionTime|FreqDivider:clkdivider_10000hz                                                                                      ; work         ;
@@ -3933,6 +3932,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;       |irda_nec_decoder:DECODER|            ; 108 (108)   ; 66 (66)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 42 (42)      ; 6 (6)             ; 60 (60)          ; |ReactionTime|Infrared_Core:infrared_dec|irda_nec_decoder:DECODER                                                                 ; work         ;
 ;    |LEDCounterFSM:ledcounter_fsm|           ; 8 (8)       ; 8 (8)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 3 (3)             ; 5 (5)            ; |ReactionTime|LEDCounterFSM:ledcounter_fsm                                                                                        ; work         ;
 ;    |MainFSM:main_fsm|                       ; 9 (9)       ; 7 (7)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 1 (1)             ; 6 (6)            ; |ReactionTime|MainFSM:main_fsm                                                                                                    ; work         ;
+;    |ReactionTimeCounter:counter|            ; 47 (47)     ; 32 (32)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 15 (15)      ; 0 (0)             ; 32 (32)          ; |ReactionTime|ReactionTimeCounter:counter                                                                                         ; work         ;
 ;    |TimerAuxFSM:timeraux_fsm|               ; 63 (63)     ; 8 (8)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 54 (54)      ; 0 (0)             ; 9 (9)            ; |ReactionTime|TimerAuxFSM:timeraux_fsm                                                                                            ; work         ;
 ;    |pseudo_random_generator:rnd_gen|        ; 180 (180)   ; 64 (64)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 116 (116)    ; 1 (1)             ; 63 (63)          ; |ReactionTime|pseudo_random_generator:rnd_gen                                                                                     ; work         ;
 +---------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-----------------------------------------------------------------------------------------------------------------------------------+--------------+
@@ -4080,15 +4080,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Audio_Core:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|mI2C_GO                                            ; FF_X42_Y63_N9       ; 8       ; Sync. load                ; no     ; --                   ; --               ; --                        ;
 ; Audio_Core:audio|AudioInterfaceCore:audio_interface|Reset_Delay:r1|Equal0~6                                                ; LCCOMB_X1_Y69_N24   ; 21      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
 ; Audio_Core:audio|AudioInterfaceCore:audio_interface|Reset_Delay:r1|oRESET                                                  ; FF_X1_Y69_N21       ; 53      ; Async. clear              ; no     ; --                   ; --               ; --                        ;
-; CLOCK_50                                                                                                                   ; PIN_Y2              ; 309     ; Clock                     ; yes    ; Global Clock         ; GCLK1            ; --                        ;
 ; CLOCK_50                                                                                                                   ; PIN_Y2              ; 24      ; Clock                     ; no     ; --                   ; --               ; --                        ;
-; CntBCDUp4:counter|s_count[11]~7                                                                                            ; LCCOMB_X114_Y22_N0  ; 4       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; CntBCDUp4:counter|s_count[15]~11                                                                                           ; LCCOMB_X114_Y22_N4  ; 7       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; CntBCDUp4:counter|s_count[19]~15                                                                                           ; LCCOMB_X72_Y1_N6    ; 5       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; CntBCDUp4:counter|s_count[23]~19                                                                                           ; LCCOMB_X72_Y1_N16   ; 4       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; CntBCDUp4:counter|s_count[27]~23                                                                                           ; LCCOMB_X72_Y1_N10   ; 5       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; CntBCDUp4:counter|s_count[31]~27                                                                                           ; LCCOMB_X72_Y1_N26   ; 3       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; CntBCDUp4:counter|s_count[7]~3                                                                                             ; LCCOMB_X114_Y22_N2  ; 4       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; CLOCK_50                                                                                                                   ; PIN_Y2              ; 309     ; Clock                     ; yes    ; Global Clock         ; GCLK1            ; --                        ;
 ; DebounceUnit:key0_debounce|Equal0~9                                                                                        ; LCCOMB_X114_Y40_N14 ; 32      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
 ; DebounceUnit:key0_debounce|out_proc~0                                                                                      ; LCCOMB_X114_Y40_N12 ; 1       ; Async. clear              ; no     ; --                   ; --               ; --                        ;
 ; DebounceUnit:key0_debounce|s_dirtyIn                                                                                       ; FF_X115_Y40_N10     ; 1       ; Clock                     ; no     ; --                   ; --               ; --                        ;
@@ -4097,8 +4090,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; DebounceUnit:key1_debounce|s_dirtyIn                                                                                       ; FF_X115_Y53_N17     ; 1       ; Clock                     ; no     ; --                   ; --               ; --                        ;
 ; DebounceUnit:key1_debounce|s_pulsedOut                                                                                     ; FF_X114_Y50_N25     ; 64      ; Async. clear              ; yes    ; Global Clock         ; GCLK5            ; --                        ;
 ; FreqDivider:clkdivider_10000hz|clkOut                                                                                      ; FF_X1_Y36_N5        ; 32      ; Clock                     ; yes    ; Global Clock         ; GCLK2            ; --                        ;
-; FreqDivider:clkdivider_1hz|clkOut                                                                                          ; FF_X1_Y36_N1        ; 7       ; Clock                     ; yes    ; Global Clock         ; GCLK0            ; --                        ;
 ; FreqDivider:clkdivider_1hz|clkOut                                                                                          ; FF_X1_Y36_N1        ; 3       ; Clock                     ; no     ; --                   ; --               ; --                        ;
+; FreqDivider:clkdivider_1hz|clkOut                                                                                          ; FF_X1_Y36_N1        ; 7       ; Clock                     ; yes    ; Global Clock         ; GCLK0            ; --                        ;
 ; FreqDivider:clkdivider_2hz|clkOut                                                                                          ; FF_X1_Y36_N13       ; 8       ; Clock                     ; yes    ; Global Clock         ; GCLK4            ; --                        ;
 ; Infrared_Core:infrared_dec|Mux0~5                                                                                          ; LCCOMB_X17_Y36_N8   ; 4       ; Latch enable              ; yes    ; Global Clock         ; GCLK19           ; --                        ;
 ; Infrared_Core:infrared_dec|Mux10~1                                                                                         ; LCCOMB_X17_Y36_N6   ; 1       ; Latch enable              ; no     ; --                   ; --               ; --                        ;
@@ -4112,6 +4105,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Infrared_Core:infrared_dec|irda_nec_decoder:DECODER|process_2~11                                                           ; LCCOMB_X21_Y35_N16  ; 27      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
 ; Infrared_Core:infrared_dec|irda_nec_decoder:DECODER|process_4~2                                                            ; LCCOMB_X23_Y35_N18  ; 17      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
 ; MainFSM:main_fsm|PS.E~_Duplicate_1                                                                                         ; FF_X16_Y36_N1       ; 41      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; ReactionTimeCounter:counter|s_count[11]~7                                                                                  ; LCCOMB_X114_Y22_N0  ; 4       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; ReactionTimeCounter:counter|s_count[15]~11                                                                                 ; LCCOMB_X114_Y22_N4  ; 7       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; ReactionTimeCounter:counter|s_count[19]~15                                                                                 ; LCCOMB_X72_Y1_N6    ; 5       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; ReactionTimeCounter:counter|s_count[23]~19                                                                                 ; LCCOMB_X72_Y1_N16   ; 4       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; ReactionTimeCounter:counter|s_count[27]~23                                                                                 ; LCCOMB_X72_Y1_N10   ; 5       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; ReactionTimeCounter:counter|s_count[31]~27                                                                                 ; LCCOMB_X72_Y1_N26   ; 3       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; ReactionTimeCounter:counter|s_count[7]~3                                                                                   ; LCCOMB_X114_Y22_N2  ; 4       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
 ; TimerAuxFSM:timeraux_fsm|s_active~2                                                                                        ; LCCOMB_X11_Y36_N16  ; 12      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
 ; TimerAuxFSM:timeraux_fsm|s_active~7                                                                                        ; LCCOMB_X16_Y36_N16  ; 8       ; Latch enable              ; yes    ; Global Clock         ; GCLK16           ; --                        ;
 ; TimerAuxFSM:timeraux_fsm|s_timeExp~0                                                                                       ; LCCOMB_X58_Y1_N24   ; 8       ; Async. clear              ; yes    ; Global Clock         ; GCLK17           ; --                        ;
@@ -4265,7 +4265,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; pseudo_random_generator:rnd_gen|state[17]                                                                                      ; 7       ;
 ; pseudo_random_generator:rnd_gen|state[9]                                                                                       ; 7       ;
 ; FreqDivider:clkdivider_2hz|s_counter[2]                                                                                        ; 7       ;
-; CntBCDUp4:counter|s_count[15]~11                                                                                               ; 7       ;
+; ReactionTimeCounter:counter|s_count[15]~11                                                                                     ; 7       ;
 ; HexDisplay:hexdisplay|s_registerOut[31]~31                                                                                     ; 7       ;
 ; HexDisplay:hexdisplay|s_registerOut[30]~30                                                                                     ; 7       ;
 ; HexDisplay:hexdisplay|s_registerOut[29]~29                                                                                     ; 7       ;
@@ -4315,13 +4315,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; FreqDivider:clkdivider_10000hz|Equal0~9                                                                                        ; 6       ;
 ; FreqDivider:clkdivider_2hz|s_counter[5]                                                                                        ; 6       ;
 ; Audio_Core:audio|ROMSin16Pts:sin_rom|Mux12~1                                                                                   ; 6       ;
-; CntBCDUp4:counter|s_count[24]                                                                                                  ; 6       ;
-; CntBCDUp4:counter|s_count[20]                                                                                                  ; 6       ;
-; CntBCDUp4:counter|s_count[16]                                                                                                  ; 6       ;
-; CntBCDUp4:counter|s_count[12]                                                                                                  ; 6       ;
-; CntBCDUp4:counter|s_count[8]                                                                                                   ; 6       ;
-; CntBCDUp4:counter|s_count[4]                                                                                                   ; 6       ;
-; CntBCDUp4:counter|s_count[0]                                                                                                   ; 6       ;
+; ReactionTimeCounter:counter|s_count[24]                                                                                        ; 6       ;
+; ReactionTimeCounter:counter|s_count[20]                                                                                        ; 6       ;
+; ReactionTimeCounter:counter|s_count[16]                                                                                        ; 6       ;
+; ReactionTimeCounter:counter|s_count[12]                                                                                        ; 6       ;
+; ReactionTimeCounter:counter|s_count[8]                                                                                         ; 6       ;
+; ReactionTimeCounter:counter|s_count[4]                                                                                         ; 6       ;
+; ReactionTimeCounter:counter|s_count[0]                                                                                         ; 6       ;
 ; LEDCounterFSM:ledcounter_fsm|s_currentState.H                                                                                  ; 6       ;
 ; Infrared_Core:infrared_dec|irda_nec_decoder:DECODER|new_count[6]~0                                                             ; 5       ;
 ; Infrared_Core:infrared_dec|irda_nec_decoder:DECODER|count[1]                                                                   ; 5       ;
@@ -4335,23 +4335,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; FreqDivider:clkdivider_2hz|s_counter[0]                                                                                        ; 5       ;
 ; FreqDivider:clkdivider_2hz|s_counter[1]                                                                                        ; 5       ;
 ; Infrared_Core:infrared_dec|Mux0~2                                                                                              ; 5       ;
-; CntBCDUp4:counter|s_count[27]~23                                                                                               ; 5       ;
-; CntBCDUp4:counter|s_count[19]~15                                                                                               ; 5       ;
-; CntBCDUp4:counter|s_count[28]                                                                                                  ; 5       ;
-; CntBCDUp4:counter|s_count[26]                                                                                                  ; 5       ;
-; CntBCDUp4:counter|s_count[25]                                                                                                  ; 5       ;
-; CntBCDUp4:counter|s_count[22]                                                                                                  ; 5       ;
-; CntBCDUp4:counter|s_count[21]                                                                                                  ; 5       ;
-; CntBCDUp4:counter|s_count[18]                                                                                                  ; 5       ;
-; CntBCDUp4:counter|s_count[17]                                                                                                  ; 5       ;
-; CntBCDUp4:counter|s_count[14]                                                                                                  ; 5       ;
-; CntBCDUp4:counter|s_count[13]                                                                                                  ; 5       ;
-; CntBCDUp4:counter|s_count[10]                                                                                                  ; 5       ;
-; CntBCDUp4:counter|s_count[9]                                                                                                   ; 5       ;
-; CntBCDUp4:counter|s_count[6]                                                                                                   ; 5       ;
-; CntBCDUp4:counter|s_count[5]                                                                                                   ; 5       ;
-; CntBCDUp4:counter|s_count[2]                                                                                                   ; 5       ;
-; CntBCDUp4:counter|s_count[1]                                                                                                   ; 5       ;
+; ReactionTimeCounter:counter|s_count[27]~23                                                                                     ; 5       ;
+; ReactionTimeCounter:counter|s_count[19]~15                                                                                     ; 5       ;
+; ReactionTimeCounter:counter|s_count[28]                                                                                        ; 5       ;
+; ReactionTimeCounter:counter|s_count[26]                                                                                        ; 5       ;
+; ReactionTimeCounter:counter|s_count[25]                                                                                        ; 5       ;
+; ReactionTimeCounter:counter|s_count[22]                                                                                        ; 5       ;
+; ReactionTimeCounter:counter|s_count[21]                                                                                        ; 5       ;
+; ReactionTimeCounter:counter|s_count[18]                                                                                        ; 5       ;
+; ReactionTimeCounter:counter|s_count[17]                                                                                        ; 5       ;
+; ReactionTimeCounter:counter|s_count[14]                                                                                        ; 5       ;
+; ReactionTimeCounter:counter|s_count[13]                                                                                        ; 5       ;
+; ReactionTimeCounter:counter|s_count[10]                                                                                        ; 5       ;
+; ReactionTimeCounter:counter|s_count[9]                                                                                         ; 5       ;
+; ReactionTimeCounter:counter|s_count[6]                                                                                         ; 5       ;
+; ReactionTimeCounter:counter|s_count[5]                                                                                         ; 5       ;
+; ReactionTimeCounter:counter|s_count[2]                                                                                         ; 5       ;
+; ReactionTimeCounter:counter|s_count[1]                                                                                         ; 5       ;
 ; LEDCounterFSM:ledcounter_fsm|s_currentState.A                                                                                  ; 5       ;
 ; Infrared_Core:infrared_dec|irda_nec_decoder:DECODER|data[0]~36                                                                 ; 4       ;
 ; Infrared_Core:infrared_dec|irda_nec_decoder:DECODER|decoded_data[23]~reg0                                                      ; 4       ;
@@ -4371,25 +4371,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; pseudo_random_generator:rnd_gen|next_state[63]~77                                                                              ; 4       ;
 ; TimerAuxFSM:timeraux_fsm|s_counter[1]~22                                                                                       ; 4       ;
 ; TimerAuxFSM:timeraux_fsm|s_timeExp~2                                                                                           ; 4       ;
-; CntBCDUp4:counter|s_count[23]~19                                                                                               ; 4       ;
-; CntBCDUp4:counter|s_count[11]~7                                                                                                ; 4       ;
-; CntBCDUp4:counter|s_count[7]~3                                                                                                 ; 4       ;
+; ReactionTimeCounter:counter|s_count[23]~19                                                                                     ; 4       ;
+; ReactionTimeCounter:counter|s_count[11]~7                                                                                      ; 4       ;
+; ReactionTimeCounter:counter|s_count[7]~3                                                                                       ; 4       ;
 ; comb~3                                                                                                                         ; 4       ;
 ; Infrared_Core:infrared_dec|dataReady                                                                                           ; 4       ;
 ; MainFSM:main_fsm|PS.B                                                                                                          ; 4       ;
 ; Audio_Core:audio|ROMSin16Pts:sin_rom|Mux13~1                                                                                   ; 4       ;
 ; Audio_Core:audio|ROMSin16Pts:sin_rom|Mux1~1                                                                                    ; 4       ;
 ; Audio_Core:audio|ROMSin16Pts:sin_rom|Mux2~1                                                                                    ; 4       ;
-; CntBCDUp4:counter|s_count[31]                                                                                                  ; 4       ;
-; CntBCDUp4:counter|s_count[30]                                                                                                  ; 4       ;
-; CntBCDUp4:counter|s_count[29]                                                                                                  ; 4       ;
-; CntBCDUp4:counter|s_count[27]                                                                                                  ; 4       ;
-; CntBCDUp4:counter|s_count[23]                                                                                                  ; 4       ;
-; CntBCDUp4:counter|s_count[19]                                                                                                  ; 4       ;
-; CntBCDUp4:counter|s_count[15]                                                                                                  ; 4       ;
-; CntBCDUp4:counter|s_count[11]                                                                                                  ; 4       ;
-; CntBCDUp4:counter|s_count[7]                                                                                                   ; 4       ;
-; CntBCDUp4:counter|s_count[3]                                                                                                   ; 4       ;
+; ReactionTimeCounter:counter|s_count[31]                                                                                        ; 4       ;
+; ReactionTimeCounter:counter|s_count[30]                                                                                        ; 4       ;
+; ReactionTimeCounter:counter|s_count[29]                                                                                        ; 4       ;
+; ReactionTimeCounter:counter|s_count[27]                                                                                        ; 4       ;
+; ReactionTimeCounter:counter|s_count[23]                                                                                        ; 4       ;
+; ReactionTimeCounter:counter|s_count[19]                                                                                        ; 4       ;
+; ReactionTimeCounter:counter|s_count[15]                                                                                        ; 4       ;
+; ReactionTimeCounter:counter|s_count[11]                                                                                        ; 4       ;
+; ReactionTimeCounter:counter|s_count[7]                                                                                         ; 4       ;
+; ReactionTimeCounter:counter|s_count[3]                                                                                         ; 4       ;
 ; Infrared_Core:infrared_dec|irda_nec_decoder:DECODER|pulse_cnt[12]                                                              ; 3       ;
 ; Infrared_Core:infrared_dec|irda_nec_decoder:DECODER|pulse_cnt[9]                                                               ; 3       ;
 ; Infrared_Core:infrared_dec|irda_nec_decoder:DECODER|pulse_cnt[8]                                                               ; 3       ;
@@ -4450,10 +4450,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; FreqDivider:clkdivider_2hz|s_counter[24]                                                                                       ; 3       ;
 ; FreqDivider:clkdivider_2hz|s_counter[3]                                                                                        ; 3       ;
 ; FreqDivider:clkdivider_2hz|s_counter[4]                                                                                        ; 3       ;
-; CntBCDUp4:counter|s_count[31]~27                                                                                               ; 3       ;
-; CntBCDUp4:counter|Equal4~0                                                                                                     ; 3       ;
-; CntBCDUp4:counter|Equal3~0                                                                                                     ; 3       ;
-; CntBCDUp4:counter|Equal0~0                                                                                                     ; 3       ;
+; ReactionTimeCounter:counter|s_count[31]~27                                                                                     ; 3       ;
+; ReactionTimeCounter:counter|Equal4~0                                                                                           ; 3       ;
+; ReactionTimeCounter:counter|Equal3~0                                                                                           ; 3       ;
+; ReactionTimeCounter:counter|Equal0~0                                                                                           ; 3       ;
 ; MainFSM:main_fsm|PS.D                                                                                                          ; 3       ;
 ; Infrared_Core:infrared_dec|irda_nec_decoder:DECODER|Equal0~0                                                                   ; 2       ;
 ; Infrared_Core:infrared_dec|irda_nec_decoder:DECODER|Equal1~1                                                                   ; 2       ;
@@ -4635,9 +4635,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; MainFSM:main_fsm|PS.A                                                                                                          ; 2       ;
 ; Infrared_Core:infrared_dec|Mux0~3                                                                                              ; 2       ;
 ; Infrared_Core:infrared_dec|Mux9~0                                                                                              ; 2       ;
-; CntBCDUp4:counter|Equal6~0                                                                                                     ; 2       ;
-; CntBCDUp4:counter|Equal5~0                                                                                                     ; 2       ;
-; CntBCDUp4:counter|Equal1~0                                                                                                     ; 2       ;
+; ReactionTimeCounter:counter|Equal6~0                                                                                           ; 2       ;
+; ReactionTimeCounter:counter|Equal5~0                                                                                           ; 2       ;
+; ReactionTimeCounter:counter|Equal1~0                                                                                           ; 2       ;
 ; MainFSM:main_fsm|Selector3~0                                                                                                   ; 2       ;
 ; Audio_Core:audio|ROMSin16Pts:sin_rom|Mux8~1                                                                                    ; 2       ;
 ; Audio_Core:audio|ROMSin16Pts:sin_rom|Mux14~1                                                                                   ; 2       ;
@@ -5102,14 +5102,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Audio_Core:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|I2C_Controller:u1|SD_COUNTER[0]~7                      ; 1       ;
 ; Audio_Core:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|I2C_Controller:u1|SD_COUNTER[0]~6                      ; 1       ;
 ; DebounceUnit:key1_debounce|s_resetPulse~0                                                                                      ; 1       ;
-; CntBCDUp4:counter|s_count[28]~39                                                                                               ; 1       ;
-; CntBCDUp4:counter|s_count[24]~38                                                                                               ; 1       ;
-; CntBCDUp4:counter|s_count[20]~37                                                                                               ; 1       ;
-; CntBCDUp4:counter|s_count[16]~36                                                                                               ; 1       ;
-; CntBCDUp4:counter|s_count[12]~35                                                                                               ; 1       ;
-; CntBCDUp4:counter|s_count[8]~34                                                                                                ; 1       ;
-; CntBCDUp4:counter|s_count[4]~33                                                                                                ; 1       ;
-; CntBCDUp4:counter|s_count[0]~32                                                                                                ; 1       ;
+; ReactionTimeCounter:counter|s_count[28]~39                                                                                     ; 1       ;
+; ReactionTimeCounter:counter|s_count[24]~38                                                                                     ; 1       ;
+; ReactionTimeCounter:counter|s_count[20]~37                                                                                     ; 1       ;
+; ReactionTimeCounter:counter|s_count[16]~36                                                                                     ; 1       ;
+; ReactionTimeCounter:counter|s_count[12]~35                                                                                     ; 1       ;
+; ReactionTimeCounter:counter|s_count[8]~34                                                                                      ; 1       ;
+; ReactionTimeCounter:counter|s_count[4]~33                                                                                      ; 1       ;
+; ReactionTimeCounter:counter|s_count[0]~32                                                                                      ; 1       ;
 ; pseudo_random_generator:rnd_gen|next_state[50]~135                                                                             ; 1       ;
 ; pseudo_random_generator:rnd_gen|next_state[46]                                                                                 ; 1       ;
 ; pseudo_random_generator:rnd_gen|next_state[12]                                                                                 ; 1       ;
@@ -5634,7 +5634,7 @@ Warning (332060): Node: FreqDivider:clkdivider_2hz|clkOut was determined to be a
 Warning (332060): Node: FreqDivider:clkdivider_1hz|clkOut was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register TimerAuxFSM:timeraux_fsm|s_active~_emulated is being clocked by FreqDivider:clkdivider_1hz|clkOut
 Warning (332060): Node: FreqDivider:clkdivider_10000hz|clkOut was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register CntBCDUp4:counter|s_count[0] is being clocked by FreqDivider:clkdivider_10000hz|clkOut
+    Info (13166): Register ReactionTimeCounter:counter|s_count[0] is being clocked by FreqDivider:clkdivider_10000hz|clkOut
 Warning (332060): Node: AUD_BCLK was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register Audio_Core:audio|s_sinArg[0] is being clocked by AUD_BCLK
 Warning (332060): Node: Audio_Core:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK was determined to be a clock but was found without an associated clock assignment.
@@ -6724,25 +6724,25 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "VGA_SYNC_N" is assigned to location or region, but does not exist in design
     Warning (15706): Node "VGA_VS" is assigned to location or region, but does not exist in design
     Warning (15706): Node "VGA_VS" is assigned to location or region, but does not exist in design
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:05
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:03
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:01
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:07
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:05
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 2% of the available device resources in the region that extends from location X0_Y24 to location X10_Y36
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:07
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:04
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 1.49 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.93 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:04
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (169177): 7 pins must meet Altera requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing Cyclone IV E Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
     Info (169178): Pin AUD_ADCLRCK uses I/O standard 3.3-V LVTTL at C2
@@ -6758,10 +6758,10 @@ Warning (169064): Following 3 pins have no output enable or a GND or VCC output 
     Info (169065): Pin AUD_BCLK has a permanently enabled output enable
 Info (144001): Generated suppressed messages file /home/pedro/reactiontime/Code/Shell/output_files/ReactionTime.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 1060 warnings
-    Info: Peak virtual memory: 1195 megabytes
-    Info: Processing ended: Sat May 30 13:29:25 2015
-    Info: Elapsed time: 00:00:46
-    Info: Total CPU time (on all processors): 00:00:35
+    Info: Peak virtual memory: 1192 megabytes
+    Info: Processing ended: Sun May 31 20:39:36 2015
+    Info: Elapsed time: 00:00:31
+    Info: Total CPU time (on all processors): 00:00:25
 
 
 +----------------------------+

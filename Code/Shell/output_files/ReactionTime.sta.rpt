@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for ReactionTime
-Sat May 30 13:29:44 2015
+Sun May 31 20:39:52 2015
 Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
 
 
@@ -132,7 +132,7 @@ agreement for further details.
 +------------------+--------+--------------------------+
 ; SDC File Path    ; Status ; Read at                  ;
 +------------------+--------+--------------------------+
-; IrDA_example.sdc ; OK     ; Sat May 30 13:29:40 2015 ;
+; IrDA_example.sdc ; OK     ; Sun May 31 20:39:49 2015 ;
 +------------------+--------+--------------------------+
 
 
@@ -3768,7 +3768,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
-    Info: Processing started: Sat May 30 13:29:38 2015
+    Info: Processing started: Sun May 31 20:39:47 2015
 Info: Command: quartus_sta ReactionTime -c ReactionTime
 Info: qsta_default_script.tcl version: #3
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -3845,7 +3845,7 @@ Warning (332060): Node: FreqDivider:clkdivider_2hz|clkOut was determined to be a
 Warning (332060): Node: FreqDivider:clkdivider_1hz|clkOut was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register TimerAuxFSM:timeraux_fsm|s_active~_emulated is being clocked by FreqDivider:clkdivider_1hz|clkOut
 Warning (332060): Node: FreqDivider:clkdivider_10000hz|clkOut was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register CntBCDUp4:counter|s_count[0] is being clocked by FreqDivider:clkdivider_10000hz|clkOut
+    Info (13166): Register ReactionTimeCounter:counter|s_count[0] is being clocked by FreqDivider:clkdivider_10000hz|clkOut
 Warning (332060): Node: AUD_BCLK was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register Audio_Core:audio|s_sinArg[0] is being clocked by AUD_BCLK
 Warning (332060): Node: Audio_Core:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK was determined to be a clock but was found without an associated clock assignment.
@@ -3898,7 +3898,7 @@ Warning (332060): Node: FreqDivider:clkdivider_2hz|clkOut was determined to be a
 Warning (332060): Node: FreqDivider:clkdivider_1hz|clkOut was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register TimerAuxFSM:timeraux_fsm|s_active~_emulated is being clocked by FreqDivider:clkdivider_1hz|clkOut
 Warning (332060): Node: FreqDivider:clkdivider_10000hz|clkOut was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register CntBCDUp4:counter|s_count[0] is being clocked by FreqDivider:clkdivider_10000hz|clkOut
+    Info (13166): Register ReactionTimeCounter:counter|s_count[0] is being clocked by FreqDivider:clkdivider_10000hz|clkOut
 Warning (332060): Node: AUD_BCLK was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register Audio_Core:audio|s_sinArg[0] is being clocked by AUD_BCLK
 Warning (332060): Node: Audio_Core:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK was determined to be a clock but was found without an associated clock assignment.
@@ -3947,7 +3947,7 @@ Warning (332060): Node: FreqDivider:clkdivider_2hz|clkOut was determined to be a
 Warning (332060): Node: FreqDivider:clkdivider_1hz|clkOut was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register TimerAuxFSM:timeraux_fsm|s_active~_emulated is being clocked by FreqDivider:clkdivider_1hz|clkOut
 Warning (332060): Node: FreqDivider:clkdivider_10000hz|clkOut was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register CntBCDUp4:counter|s_count[0] is being clocked by FreqDivider:clkdivider_10000hz|clkOut
+    Info (13166): Register ReactionTimeCounter:counter|s_count[0] is being clocked by FreqDivider:clkdivider_10000hz|clkOut
 Warning (332060): Node: AUD_BCLK was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register Audio_Core:audio|s_sinArg[0] is being clocked by AUD_BCLK
 Warning (332060): Node: Audio_Core:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|AUD_BCK was determined to be a clock but was found without an associated clock assignment.
@@ -3984,8 +3984,8 @@ Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 80 warnings
     Info: Peak virtual memory: 866 megabytes
-    Info: Processing ended: Sat May 30 13:29:44 2015
-    Info: Elapsed time: 00:00:06
+    Info: Processing ended: Sun May 31 20:39:52 2015
+    Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:04
 
 
