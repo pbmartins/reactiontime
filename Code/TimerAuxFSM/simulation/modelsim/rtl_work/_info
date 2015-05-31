@@ -8,40 +8,39 @@ z2
 !i10f 100
 cModel Technology
 Z0 d/home/pedro/reactiontime/Code/TimerAuxFSM/simulation/modelsim
-Etimerauxfsm_tb
-Z1 w1432839224
+Etimerauxfsm
+Z1 w1432940577
 Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
-Z5 8/home/pedro/reactiontime/Code/TimerAuxFSM/TimerAuxFSM_Tb.vhd
-Z6 F/home/pedro/reactiontime/Code/TimerAuxFSM/TimerAuxFSM_Tb.vhd
+Z5 8/home/pedro/reactiontime/Code/TimerAuxFSM/TimerAuxFSM.vhd
+Z6 F/home/pedro/reactiontime/Code/TimerAuxFSM/TimerAuxFSM.vhd
 l0
 L5
-V53iM3D0h[N:_?<9T=:V9_3
-!s100 h29@227bnl8l6KU24aT[m3
+VL9HU2cDi<iH:2KW8JD[@W0
+!s100 J`;O`_oae_Y3PcFcKSZzZ2
 Z7 OV;C;10.3c;59
-32
-Z8 !s110 1432839297
+31
+Z8 !s110 1433091430
 !i10b 1
-Z9 !s108 1432839297.876622
-Z10 !s90 -reportprogress|300|-work|work|/home/pedro/reactiontime/Code/TimerAuxFSM/TimerAuxFSM_Tb.vhd|
-Z11 !s107 /home/pedro/reactiontime/Code/TimerAuxFSM/TimerAuxFSM_Tb.vhd|
+Z9 !s108 1433091430.532604
+Z10 !s90 -reportprogress|300|-93|-work|work|/home/pedro/reactiontime/Code/TimerAuxFSM/TimerAuxFSM.vhd|
+Z11 !s107 /home/pedro/reactiontime/Code/TimerAuxFSM/TimerAuxFSM.vhd|
 !i113 1
-Z12 o-work work
+Z12 o-93 -work work
 Z13 tExplicit 1
-Astimulus
-Z14 DEx4 work 14 timerauxfsm_v2 0 22 kTCPTE69l:M^HL60z`_Wm3
+Abehav
 R2
 R3
 R4
-DEx4 work 14 timerauxfsm_tb 0 22 53iM3D0h[N:_?<9T=:V9_3
-l11
-L8
-VN:o@9kUGBJ=C99_A<z7A^3
-!s100 f5KWWN[=?ZMb:Sb3JoL<E3
+Z14 DEx4 work 11 timerauxfsm 0 22 L9HU2cDi<iH:2KW8JD[@W0
+l21
+L18
+VC1SSMblf3[ES>759_Ol1E0
+!s100 4e3Fl0H42TFdoneB7NiOi1
 R7
-32
+31
 R8
 !i10b 1
 R9
@@ -50,39 +49,40 @@ R11
 !i113 1
 R12
 R13
-Etimerauxfsm_v2
-Z15 w1432839090
+Etimerauxfsm_tb
+Z15 w1433090641
 R2
 R3
 R4
 R0
-Z16 8/home/pedro/reactiontime/Code/TimerAuxFSM/TimerAuxFSM_v2.vhd
-Z17 F/home/pedro/reactiontime/Code/TimerAuxFSM/TimerAuxFSM_v2.vhd
+Z16 8/home/pedro/reactiontime/Code/TimerAuxFSM/TimerAuxFSM_Tb.vhd
+Z17 F/home/pedro/reactiontime/Code/TimerAuxFSM/TimerAuxFSM_Tb.vhd
 l0
 L5
-VkTCPTE69l:M^HL60z`_Wm3
-!s100 keCOLUD3mPSc8E>WnAX;N3
+V53iM3D0h[N:_?<9T=:V9_3
+!s100 h29@227bnl8l6KU24aT[m3
 R7
-31
-Z18 !s110 1432839280
+32
+Z18 !s110 1433091468
 !i10b 1
-Z19 !s108 1432839280.756972
-Z20 !s90 -reportprogress|300|-93|-work|work|/home/pedro/reactiontime/Code/TimerAuxFSM/TimerAuxFSM_v2.vhd|
-Z21 !s107 /home/pedro/reactiontime/Code/TimerAuxFSM/TimerAuxFSM_v2.vhd|
+Z19 !s108 1433091468.459351
+Z20 !s90 -reportprogress|300|-work|work|/home/pedro/reactiontime/Code/TimerAuxFSM/TimerAuxFSM_Tb.vhd|
+Z21 !s107 /home/pedro/reactiontime/Code/TimerAuxFSM/TimerAuxFSM_Tb.vhd|
 !i113 1
-Z22 o-93 -work work
+Z22 o-work work
 R13
-Abehav
+Astimulus
+R14
 R2
 R3
 R4
-R14
-l18
-L15
-V^GRU?>Sm=ZfUOY9NVUe^A3
-!s100 mm5^e7jA;86:?VV44NLWi1
+Z23 DEx4 work 14 timerauxfsm_tb 0 22 53iM3D0h[N:_?<9T=:V9_3
+l11
+L8
+Z24 VP^A1HShUoE5ndkQV7Nz1W0
+Z25 !s100 M@m?7cFiCV=R:EYf^k_zm2
 R7
-31
+32
 R18
 !i10b 1
 R19

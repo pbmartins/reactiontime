@@ -13,21 +13,21 @@
 # 
 # vcom -93 -work work {/home/pedro/reactiontime/Code/LEDCounterFSM/LEDCounterFSM.vhd}
 # Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
-# Start time: 02:30:05 on May 29,2015
+# Start time: 17:20:47 on May 31,2015
 # vcom -reportprogress 300 -93 -work work /home/pedro/reactiontime/Code/LEDCounterFSM/LEDCounterFSM.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity LEDCounterFSM
 # -- Compiling architecture Behavioral of LEDCounterFSM
-# End time: 02:30:05 on May 29,2015, Elapsed time: 0:00:00
+# End time: 17:20:47 on May 31,2015, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # 
 # stdin: <EOF>
 vcom -reportprogress 300 -work work /home/pedro/reactiontime/Code/LEDCounterFSM/LEDCounterFSM_Tb.vhd
 # Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
-# Start time: 02:30:12 on May 29,2015
+# Start time: 17:20:52 on May 31,2015
 # vcom -reportprogress 300 -work work /home/pedro/reactiontime/Code/LEDCounterFSM/LEDCounterFSM_Tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -35,11 +35,11 @@ vcom -reportprogress 300 -work work /home/pedro/reactiontime/Code/LEDCounterFSM/
 # -- Compiling entity LEDCounterFSM_Tb
 # -- Compiling architecture Stimulus of LEDCounterFSM_Tb
 # -- Loading entity LEDCounterFSM
-# End time: 02:30:12 on May 29,2015, Elapsed time: 0:00:00
+# End time: 17:20:53 on May 31,2015, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 vsim work.ledcounterfsm_tb(stimulus)
 # vsim -i -l msim_transcript -do "LEDCounterFSMDemo_run_msim_rtl_vhdl.do" 
-# Start time: 02:30:21 on May 29,2015
+# Start time: 17:20:57 on May 31,2015
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -48,12 +48,11 @@ vsim work.ledcounterfsm_tb(stimulus)
 add wave -position end  sim:/ledcounterfsm_tb/s_reset
 add wave -position end  sim:/ledcounterfsm_tb/s_clk
 add wave -position end  sim:/ledcounterfsm_tb/s_final
+add wave -position end  sim:/ledcounterfsm_tb/s_audio
 add wave -position end  sim:/ledcounterfsm_tb/s_enable
 add wave -position end  sim:/ledcounterfsm_tb/s_led0
 add wave -position end  sim:/ledcounterfsm_tb/s_led1
 add wave -position end  sim:/ledcounterfsm_tb/s_led2
-add wave -position end  sim:/ledcounterfsm_tb/uut/s_currentState
-add wave -position end  sim:/ledcounterfsm_tb/uut/s_nextState
 run
-# End time: 02:32:47 on May 29,2015, Elapsed time: 0:02:26
+# End time: 17:21:42 on May 31,2015, Elapsed time: 0:00:45
 # Errors: 0, Warnings: 0

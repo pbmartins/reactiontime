@@ -1,56 +1,4 @@
-|MainFSM_Demo
-CLOCK_50 => freqdivider:clkdivider_50000hz.clkIn
-CLOCK_50 => mainfsm:uut.clk
-KEY[0] => mainfsm:uut.inputKey
-KEY[1] => mainfsm:uut.reset
-KEY[2] => mainfsm:uut.final
-KEY[3] => mainfsm:uut.isActive
-SW[0] => mainfsm:uut.timeExp
-LEDR[0] <= mainfsm:uut.ledCounter_En
-LEDR[1] <= mainfsm:uut.newTime
-LEDR[2] <= mainfsm:uut.counter_En
-LEDR[3] <= mainfsm:uut.hex_en
-LEDR[4] <= mainfsm:uut.hex_error
-LEDG[0] <= mainfsm:uut.ledGreen_En
-
-
-|MainFSM_Demo|FreqDivider:clkdivider_50000hz
-clkIn => s_counter[0].CLK
-clkIn => s_counter[1].CLK
-clkIn => s_counter[2].CLK
-clkIn => s_counter[3].CLK
-clkIn => s_counter[4].CLK
-clkIn => s_counter[5].CLK
-clkIn => s_counter[6].CLK
-clkIn => s_counter[7].CLK
-clkIn => s_counter[8].CLK
-clkIn => s_counter[9].CLK
-clkIn => s_counter[10].CLK
-clkIn => s_counter[11].CLK
-clkIn => s_counter[12].CLK
-clkIn => s_counter[13].CLK
-clkIn => s_counter[14].CLK
-clkIn => s_counter[15].CLK
-clkIn => s_counter[16].CLK
-clkIn => s_counter[17].CLK
-clkIn => s_counter[18].CLK
-clkIn => s_counter[19].CLK
-clkIn => s_counter[20].CLK
-clkIn => s_counter[21].CLK
-clkIn => s_counter[22].CLK
-clkIn => s_counter[23].CLK
-clkIn => s_counter[24].CLK
-clkIn => s_counter[25].CLK
-clkIn => s_counter[26].CLK
-clkIn => s_counter[27].CLK
-clkIn => s_counter[28].CLK
-clkIn => s_counter[29].CLK
-clkIn => s_counter[30].CLK
-clkIn => clkOut~reg0.CLK
-clkOut <= clkOut~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|MainFSM_Demo|MainFSM:uut
+|MainFSM
 clk => PS~1.DATAIN
 reset => PS.OUTPUTSELECT
 reset => PS.OUTPUTSELECT
@@ -72,11 +20,11 @@ isActive => Selector1.IN1
 timeExp => NS.OUTPUTSELECT
 timeExp => NS.OUTPUTSELECT
 timeExp => Selector3.IN3
-ledCounter_En <= ledCounter_En.DB_MAX_OUTPUT_PORT_TYPE
-newTime <= newTime.DB_MAX_OUTPUT_PORT_TYPE
-ledGreen_En <= ledGreen_En.DB_MAX_OUTPUT_PORT_TYPE
-counter_En <= counter_En.DB_MAX_OUTPUT_PORT_TYPE
-hex_en <= hex_en.DB_MAX_OUTPUT_PORT_TYPE
-hex_error <= hex_error.DB_MAX_OUTPUT_PORT_TYPE
+ledCounter_En << ledCounter_En.DB_MAX_OUTPUT_PORT_TYPE
+newTime << newTime.DB_MAX_OUTPUT_PORT_TYPE
+ledGreen_En << ledGreen_En.DB_MAX_OUTPUT_PORT_TYPE
+counter_En << counter_En.DB_MAX_OUTPUT_PORT_TYPE
+hex_en << hex_en.DB_MAX_OUTPUT_PORT_TYPE
+hex_error << hex_error.DB_MAX_OUTPUT_PORT_TYPE
 
 

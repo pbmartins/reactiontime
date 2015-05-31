@@ -1,5 +1,5 @@
 
-State Machine - |MainFSM_Demo|MainFSM:uut|PS
+State Machine - |MainFSM|PS
 Name PS.G PS.F PS.E PS.D PS.C PS.B PS.A 
 PS.A 0 0 0 0 0 0 0 
 PS.B 0 0 0 0 0 1 1 

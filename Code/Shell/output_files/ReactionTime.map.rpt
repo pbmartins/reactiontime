@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ReactionTime
-Sat May 30 13:28:34 2015
+Sun May 31 20:39:03 2015
 Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
 
 
@@ -57,7 +57,7 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat May 30 13:28:34 2015      ;
+; Analysis & Synthesis Status        ; Successful - Sun May 31 20:39:02 2015      ;
 ; Quartus II 64-Bit Version          ; 14.1.0 Build 186 12/03/2014 SJ Web Edition ;
 ; Revision Name                      ; ReactionTime                               ;
 ; Top-level Entity Name              ; ReactionTime                               ;
@@ -175,12 +175,12 @@ agreement for further details.
 ; HexDisplay.vhd                   ; yes             ; User VHDL File          ; /home/pedro/reactiontime/Code/Shell/HexDisplay.vhd                                   ;         ;
 ; MainFSM.vhd                      ; yes             ; User VHDL File          ; /home/pedro/reactiontime/Code/Shell/MainFSM.vhd                                      ;         ;
 ; DebounceUnit.vhd                 ; yes             ; User VHDL File          ; /home/pedro/reactiontime/Code/Shell/DebounceUnit.vhd                                 ;         ;
-; CntBCDUp4.vhd                    ; yes             ; User VHDL File          ; /home/pedro/reactiontime/Code/Shell/CntBCDUp4.vhd                                    ;         ;
 ; LEDCounterFSM.vhd                ; yes             ; User VHDL File          ; /home/pedro/reactiontime/Code/Shell/LEDCounterFSM.vhd                                ;         ;
 ; TimerAuxFSM.vhd                  ; yes             ; User VHDL File          ; /home/pedro/reactiontime/Code/Shell/TimerAuxFSM.vhd                                  ;         ;
 ; ReactionTime.vhd                 ; yes             ; User VHDL File          ; /home/pedro/reactiontime/Code/Shell/ReactionTime.vhd                                 ;         ;
 ; Infrared_Core.vhd                ; yes             ; User VHDL File          ; /home/pedro/reactiontime/Code/Shell/Infrared_Core.vhd                                ;         ;
 ; Audio_Core.vhd                   ; yes             ; User VHDL File          ; /home/pedro/reactiontime/Code/Shell/Audio_Core.vhd                                   ;         ;
+; ReactionTimeCounter.vhd          ; yes             ; User VHDL File          ; /home/pedro/reactiontime/Code/Shell/ReactionTimeCounter.vhd                          ;         ;
 ; sld_signaltap_impl.vhd           ; yes             ; Encrypted Megafunction  ; /home/pedro/altera/14.1/quartus/libraries/megafunctions/sld_signaltap_impl.vhd       ;         ;
 ; sld_ela_control.vhd              ; yes             ; Encrypted Megafunction  ; /home/pedro/altera/14.1/quartus/libraries/megafunctions/sld_ela_control.vhd          ;         ;
 ; sld_mbpmg.vhd                    ; yes             ; Encrypted Megafunction  ; /home/pedro/altera/14.1/quartus/libraries/megafunctions/sld_mbpmg.vhd                ;         ;
@@ -243,7 +243,6 @@ agreement for further details.
 ;             |I2C_Controller:u1|             ; 45 (45)           ; 25 (25)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|Audio_Core:audio|AudioInterfaceCore:audio_interface|I2C_Audio_Config:u1|I2C_Controller:u1                           ; work         ;
 ;          |Reset_Delay:r1|                   ; 27 (27)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|Audio_Core:audio|AudioInterfaceCore:audio_interface|Reset_Delay:r1                                                  ; work         ;
 ;       |ROMSin16Pts:sin_rom|                 ; 21 (21)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|Audio_Core:audio|ROMSin16Pts:sin_rom                                                                                ; work         ;
-;    |CntBCDUp4:counter|                      ; 47 (47)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|CntBCDUp4:counter                                                                                                   ; work         ;
 ;    |DebounceUnit:key0_debounce|             ; 43 (43)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|DebounceUnit:key0_debounce                                                                                          ; work         ;
 ;    |DebounceUnit:key1_debounce|             ; 43 (43)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|DebounceUnit:key1_debounce                                                                                          ; work         ;
 ;    |FreqDivider:clkdivider_10000hz|         ; 48 (48)           ; 29 (29)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|FreqDivider:clkdivider_10000hz                                                                                      ; work         ;
@@ -262,6 +261,7 @@ agreement for further details.
 ;       |irda_nec_decoder:DECODER|            ; 88 (88)           ; 66 (66)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|Infrared_Core:infrared_dec|irda_nec_decoder:DECODER                                                                 ; work         ;
 ;    |LEDCounterFSM:ledcounter_fsm|           ; 5 (5)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|LEDCounterFSM:ledcounter_fsm                                                                                        ; work         ;
 ;    |MainFSM:main_fsm|                       ; 8 (8)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|MainFSM:main_fsm                                                                                                    ; work         ;
+;    |ReactionTimeCounter:counter|            ; 47 (47)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|ReactionTimeCounter:counter                                                                                         ; work         ;
 ;    |TimerAuxFSM:timeraux_fsm|               ; 63 (63)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|TimerAuxFSM:timeraux_fsm                                                                                            ; work         ;
 ;    |pseudo_random_generator:rnd_gen|        ; 178 (178)         ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|pseudo_random_generator:rnd_gen                                                                                     ; work         ;
 +---------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------+--------------+
@@ -2914,7 +2914,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -2924,7 +2924,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
-    Info: Processing started: Sat May 30 13:28:05 2015
+    Info: Processing started: Sun May 31 20:38:32 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ReactionTime -c ReactionTime
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file IrDA_nec_decoder.qxp
@@ -2937,9 +2937,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file ROMSin1
 Info (12021): Found 2 design units, including 1 entities, in source file pseudo_random_generator.vhd
     Info (12022): Found design unit 1: pseudo_random_generator-v1
     Info (12023): Found entity 1: pseudo_random_generator
-Info (12021): Found 2 design units, including 1 entities, in source file ReactionTimeCounter.vhd
-    Info (12022): Found design unit 1: ReactionTimeCounter-Behav
-    Info (12023): Found entity 1: ReactionTimeCounter
 Info (12021): Found 2 design units, including 1 entities, in source file FreqDivider.vhd
     Info (12022): Found design unit 1: FreqDivider-Behavioral
     Info (12023): Found entity 1: FreqDivider
@@ -2955,9 +2952,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file MainFSM
 Info (12021): Found 2 design units, including 1 entities, in source file DebounceUnit.vhd
     Info (12022): Found design unit 1: DebounceUnit-Behavioral
     Info (12023): Found entity 1: DebounceUnit
-Info (12021): Found 2 design units, including 1 entities, in source file CntBCDUp4.vhd
-    Info (12022): Found design unit 1: CntBCDUp4-Behavioral
-    Info (12023): Found entity 1: CntBCDUp4
 Info (12021): Found 2 design units, including 1 entities, in source file LEDCounterFSM.vhd
     Info (12022): Found design unit 1: LEDCounterFSM-Behavioral
     Info (12023): Found entity 1: LEDCounterFSM
@@ -2973,6 +2967,9 @@ Info (12021): Found 2 design units, including 1 entities, in source file Infrare
 Info (12021): Found 2 design units, including 1 entities, in source file Audio_Core.vhd
     Info (12022): Found design unit 1: Audio_Core-Structural
     Info (12023): Found entity 1: Audio_Core
+Info (12021): Found 2 design units, including 1 entities, in source file ReactionTimeCounter.vhd
+    Info (12022): Found design unit 1: ReactionTimeCounter-Behavioral
+    Info (12023): Found entity 1: ReactionTimeCounter
 Info (12127): Elaborating entity "ReactionTime" for the top level hierarchy
 Warning (10873): Using initial value X (don't care) for net "LEDR[6..3]" at ReactionTime.vhd(9)
 Info (12129): Elaborating entity "Infrared_Core" using architecture "A:behav" for hierarchy "Infrared_Core:infrared_dec"
@@ -2993,6 +2990,11 @@ Info (10041): Inferred latch for "dataOut[3]" at Infrared_Core.vhd(70)
 Info (10041): Inferred latch for "dataOut[4]" at Infrared_Core.vhd(70)
 Info (10041): Inferred latch for "dataOut[5]" at Infrared_Core.vhd(70)
 Info (12128): Elaborating entity "irda_nec_decoder" for hierarchy "Infrared_Core:infrared_dec|irda_nec_decoder:DECODER"
+Warning (137006): Ignored assignment ENABLE_INCREMENTAL_REUSE -- assignment no longer supported
+Warning (137006): Ignored assignment USE_QHD -- assignment no longer supported
+Warning (137006): Ignored assignment REGISTER_PACKING_CYCLONE -- assignment no longer supported
+Warning (137006): Ignored assignment REGISTER_PACKING -- assignment no longer supported
+Warning (137006): Ignored assignment REGISTER_PACKING_NEW -- assignment no longer supported
 Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "DebounceUnit:key0_debounce"
 Info (12129): Elaborating entity "pseudo_random_generator" using architecture "A:v1" for hierarchy "pseudo_random_generator:rnd_gen"
 Info (12129): Elaborating entity "FreqDivider" using architecture "A:behavioral" for hierarchy "FreqDivider:clkdivider_1hz"
@@ -3012,12 +3014,17 @@ Warning (10036): Verilog HDL or VHDL warning at Audio_Core.vhd(48): object "s_in
 Warning (10036): Verilog HDL or VHDL warning at Audio_Core.vhd(50): object "s_inLeftSample" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at Audio_Core.vhd(50): object "s_inRightSample" assigned a value but never read
 Info (12128): Elaborating entity "AudioInterfaceCore" for hierarchy "Audio_Core:audio|AudioInterfaceCore:audio_interface"
+Warning (137006): Ignored assignment ENABLE_INCREMENTAL_REUSE -- assignment no longer supported
+Warning (137006): Ignored assignment USE_QHD -- assignment no longer supported
+Warning (137006): Ignored assignment REGISTER_PACKING_CYCLONE -- assignment no longer supported
+Warning (137006): Ignored assignment REGISTER_PACKING -- assignment no longer supported
+Warning (137006): Ignored assignment REGISTER_PACKING_NEW -- assignment no longer supported
 Info (12129): Elaborating entity "ROMSin16Pts" using architecture "A:behavioral" for hierarchy "Audio_Core:audio|ROMSin16Pts:sin_rom"
 Info (12129): Elaborating entity "LEDCounterFSM" using architecture "A:behavioral" for hierarchy "LEDCounterFSM:ledcounter_fsm"
 Warning (10492): VHDL Process Statement warning at LEDCounterFSM.vhd(23): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12129): Elaborating entity "FreqDivider" using architecture "A:behavioral" for hierarchy "FreqDivider:clkdivider_10000hz"
-Info (12129): Elaborating entity "CntBCDUp4" using architecture "A:behavioral" for hierarchy "CntBCDUp4:counter"
-Warning (10492): VHDL Process Statement warning at CntBCDUp4.vhd(19): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12129): Elaborating entity "ReactionTimeCounter" using architecture "A:behavioral" for hierarchy "ReactionTimeCounter:counter"
+Warning (10492): VHDL Process Statement warning at ReactionTimeCounter.vhd(19): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12129): Elaborating entity "HexDisplay" using architecture "A:structural" for hierarchy "HexDisplay:hexdisplay"
 Info (12129): Elaborating entity "Bin7SegDecoder" using architecture "A:behavioral" for hierarchy "HexDisplay:hexdisplay|Bin7SegDecoder:disp_0_decoder"
 Warning (12240): Synthesis found one or more imported partitions that will be treated as black boxes for timing analysis during synthesis
@@ -3323,10 +3330,10 @@ Info (21057): Implemented 1126 device resources after synthesis - the final reso
     Info (21060): Implemented 4 bidirectional pins
     Info (21061): Implemented 1047 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 59 warnings
-    Info: Peak virtual memory: 953 megabytes
-    Info: Processing ended: Sat May 30 13:28:34 2015
-    Info: Elapsed time: 00:00:29
-    Info: Total CPU time (on all processors): 00:00:23
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 69 warnings
+    Info: Peak virtual memory: 970 megabytes
+    Info: Processing ended: Sun May 31 20:39:03 2015
+    Info: Elapsed time: 00:00:31
+    Info: Total CPU time (on all processors): 00:00:25
 
 

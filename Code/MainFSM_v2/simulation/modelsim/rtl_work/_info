@@ -1,0 +1,93 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/pedro/reactiontime/Code/MainFSM_v2/simulation/modelsim
+Emainfsm
+Z1 w1432842465
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8/home/pedro/reactiontime/Code/MainFSM_v2/MainFSM.vhd
+Z6 F/home/pedro/reactiontime/Code/MainFSM_v2/MainFSM.vhd
+l0
+L5
+VBJV3d7Bz7b[@Gg>h6c>103
+!s100 R5o;TX?WW5HJXgG8PmgzH3
+Z7 OV;C;10.3c;59
+31
+Z8 !s110 1433086495
+!i10b 1
+Z9 !s108 1433086495.592852
+Z10 !s90 -reportprogress|300|-93|-work|work|/home/pedro/reactiontime/Code/MainFSM_v2/MainFSM.vhd|
+Z11 !s107 /home/pedro/reactiontime/Code/MainFSM_v2/MainFSM.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1
+Abehav
+R2
+R3
+R4
+Z14 DEx4 work 7 mainfsm 0 22 BJV3d7Bz7b[@Gg>h6c>103
+l23
+L20
+VMmiD5UN>Iizmf96d6d_1a1
+!s100 H8<e3:D0R3GS<z5;h^G>n0
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Emainfsm_tb
+Z15 w1433087258
+R2
+R3
+R4
+R0
+Z16 8/home/pedro/reactiontime/Code/MainFSM_v2/MainFSM_Tb.vhd
+Z17 F/home/pedro/reactiontime/Code/MainFSM_v2/MainFSM_Tb.vhd
+l0
+L5
+V49fMN?JTjlRzzY0k235J?2
+!s100 i?iifdP=<J8[[glF84Gh^1
+R7
+32
+Z18 !s110 1433087300
+!i10b 1
+Z19 !s108 1433087300.443671
+Z20 !s90 -reportprogress|300|-work|work|/home/pedro/reactiontime/Code/MainFSM_v2/MainFSM_Tb.vhd|
+Z21 !s107 /home/pedro/reactiontime/Code/MainFSM_v2/MainFSM_Tb.vhd|
+!i113 1
+Z22 o-work work
+R13
+Astimulus
+R14
+R2
+R3
+R4
+Z23 DEx4 work 10 mainfsm_tb 0 22 49fMN?JTjlRzzY0k235J?2
+l10
+L8
+VfmQjncPFnjK7oF=0XVdDG2
+!s100 d]CeXUD`;@2`24iQ_Zk?S2
+R7
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R22
+R13
