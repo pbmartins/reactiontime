@@ -13,7 +13,7 @@
 # 
 # vcom -93 -work work {/home/pedro/reactiontime/Code/MainFSM_v2/MainFSM.vhd}
 # Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
-# Start time: 16:34:55 on May 31,2015
+# Start time: 22:45:34 on May 31,2015
 # vcom -reportprogress 300 -93 -work work /home/pedro/reactiontime/Code/MainFSM_v2/MainFSM.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -21,14 +21,14 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity MainFSM
 # -- Compiling architecture Behav of MainFSM
-# End time: 16:34:55 on May 31,2015, Elapsed time: 0:00:00
+# End time: 22:45:34 on May 31,2015, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # 
 # stdin: <EOF>
 vcom -reportprogress 300 -work work /home/pedro/reactiontime/Code/MainFSM_v2/MainFSM_Tb.vhd
 # Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
-# Start time: 16:35:06 on May 31,2015
+# Start time: 22:51:56 on May 31,2015
 # vcom -reportprogress 300 -work work /home/pedro/reactiontime/Code/MainFSM_v2/MainFSM_Tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -37,106 +37,21 @@ vcom -reportprogress 300 -work work /home/pedro/reactiontime/Code/MainFSM_v2/Mai
 # -- Compiling entity MainFSM_Tb
 # -- Compiling architecture Stimulus of MainFSM_Tb
 # -- Loading entity MainFSM
-# End time: 16:35:06 on May 31,2015, Elapsed time: 0:00:00
+# End time: 22:51:56 on May 31,2015, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vsim work.mainfsm_tb(stimulus)
 # vsim -i -l msim_transcript -do "MainFSM_run_msim_rtl_vhdl.do" 
-# Start time: 16:35:11 on May 31,2015
+# Start time: 22:52:01 on May 31,2015
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading work.mainfsm_tb(stimulus)
 # Loading work.mainfsm(behav)
+add wave -position end  sim:/mainfsm_tb/s_clk
 add wave -position end  sim:/mainfsm_tb/s_input
 add wave -position end  sim:/mainfsm_tb/s_reset
 add wave -position end  sim:/mainfsm_tb/s_timeExp
-add wave -position end  sim:/mainfsm_tb/s_clk
-add wave -position end  sim:/mainfsm_tb/s_final
-add wave -position end  sim:/mainfsm_tb/s_active
-add wave -position end  sim:/mainfsm_tb/s_newTime
-add wave -position end  sim:/mainfsm_tb/s_ledCounter_En
-add wave -position end  sim:/mainfsm_tb/s_counter_En
-add wave -position end  sim:/mainfsm_tb/s_hex_Error
-add wave -position end  sim:/mainfsm_tb/s_hex_En
-add wave -position end  sim:/mainfsm_tb/s_ledGreen_En
-add wave -position end  sim:/mainfsm_tb/uut/PS
-run
-vcom -reportprogress 300 -work work /home/pedro/reactiontime/Code/MainFSM_v2/MainFSM_Tb.vhd
-# Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
-# Start time: 16:43:43 on May 31,2015
-# vcom -reportprogress 300 -work work /home/pedro/reactiontime/Code/MainFSM_v2/MainFSM_Tb.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity MainFSM_Tb
-# -- Compiling architecture Stimulus of MainFSM_Tb
-# -- Loading entity MainFSM
-# End time: 16:43:43 on May 31,2015, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work /home/pedro/reactiontime/Code/MainFSM_v2/MainFSM_Tb.vhd
-# Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
-# Start time: 16:46:14 on May 31,2015
-# vcom -reportprogress 300 -work work /home/pedro/reactiontime/Code/MainFSM_v2/MainFSM_Tb.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity MainFSM_Tb
-# -- Compiling architecture Stimulus of MainFSM_Tb
-# -- Loading entity MainFSM
-# End time: 16:46:14 on May 31,2015, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim work.mainfsm_tb(stimulus)
-# vsim 
-# Start time: 16:46:18 on May 31,2015
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading work.mainfsm_tb(stimulus)
-# Loading work.mainfsm(behav)
-add wave -position end  sim:/mainfsm_tb/s_input
-add wave -position end  sim:/mainfsm_tb/s_reset
-add wave -position end  sim:/mainfsm_tb/s_timeExp
-add wave -position end  sim:/mainfsm_tb/s_clk
-add wave -position end  sim:/mainfsm_tb/s_final
-add wave -position end  sim:/mainfsm_tb/s_active
-add wave -position end  sim:/mainfsm_tb/s_newTime
-add wave -position end  sim:/mainfsm_tb/s_ledCounter_En
-add wave -position end  sim:/mainfsm_tb/s_counter_En
-add wave -position end  sim:/mainfsm_tb/s_hex_Error
-add wave -position end  sim:/mainfsm_tb/s_hex_En
-add wave -position end  sim:/mainfsm_tb/s_ledGreen_En
-add wave -position end  sim:/mainfsm_tb/uut/PS
-run
-vcom -reportprogress 300 -work work /home/pedro/reactiontime/Code/MainFSM_v2/MainFSM_Tb.vhd
-# Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
-# Start time: 16:48:20 on May 31,2015
-# vcom -reportprogress 300 -work work /home/pedro/reactiontime/Code/MainFSM_v2/MainFSM_Tb.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity MainFSM_Tb
-# -- Compiling architecture Stimulus of MainFSM_Tb
-# -- Loading entity MainFSM
-# End time: 16:48:20 on May 31,2015, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim work.mainfsm_tb(stimulus)
-# vsim 
-# Start time: 16:48:26 on May 31,2015
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading work.mainfsm_tb(stimulus)
-# Loading work.mainfsm(behav)
-add wave -position end  sim:/mainfsm_tb/s_input
-add wave -position end  sim:/mainfsm_tb/s_reset
-add wave -position end  sim:/mainfsm_tb/s_timeExp
-add wave -position end  sim:/mainfsm_tb/s_clk
 add wave -position end  sim:/mainfsm_tb/s_final
 add wave -position end  sim:/mainfsm_tb/s_active
 add wave -position end  sim:/mainfsm_tb/s_newTime
@@ -149,5 +64,7 @@ run
 restart -f
 add wave -position end  sim:/mainfsm_tb/uut/PS
 run
-# End time: 16:49:36 on May 31,2015, Elapsed time: 0:01:10
+restart -f
+run
+# End time: 22:55:54 on May 31,2015, Elapsed time: 0:03:53
 # Errors: 0, Warnings: 0

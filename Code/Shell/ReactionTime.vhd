@@ -3,11 +3,11 @@ use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 
 entity ReactionTime is
-	port (KEY      : in std_logic_vector(1 downto 0);
+	port (KEY      : in std_logic_vector(3 downto 0);
 			SW       : in std_logic_vector(1 downto 0);
 			CLOCK_50 : in std_logic;
-			LEDR     : out std_logic_vector(6 downto 0);
-			LEDG     : out std_logic_vector(0 downto 0);
+			LEDR     : out std_logic_vector(2 downto 0);
+			LEDG     : out std_logic_vector(8 downto 0);
 			HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7 : out std_logic_vector(6 downto 0);
 			-- Audio Serial Data Interface
 		  AUD_ADCLRCK	: inout std_logic;
@@ -24,24 +24,24 @@ entity ReactionTime is
 end ReactionTime;
 
 architecture Shell of ReactionTime is
-	signal key0, key1, clk50000hz, clk1hz, clk2hz, clk10000hz : std_logic;
+	signal key0, key1, key2, clk50000hz, clk1hz, clk2hz, clk10000hz : std_logic;
 	signal s_validOut, s_newTime, s_timeExp, s_ledCounterEN, s_active : std_logic;
 	signal s_final, s_counterEN, s_hexEN, s_hexERROR, s_audio : std_logic;
-	signal s_play, s_reset, s_mute, s_dataReady, s_defineRemote : std_logic;
-	signal rnd_number, s_commandData : std_logic_vector(5 downto 0);
+	signal s_play, s_reset, s_dataReady: std_logic;
+	signal rnd_number : std_logic_vector(5 downto 0);
 	signal s_count : std_logic_vector(31 downto 0);
 begin
 	-- Infrared Unit --
 	infrared_dec : entity work.Infrared_Core(Behav)
 		port map(clock_50     => CLOCK_50,
-					activeCount  => s_active,
 					play         => s_play,
 					reset        => s_reset,
-					mute         => s_mute,
-					definedValue => s_defineRemote,
-					dataOut      => s_commandData,
 					dataReady    => s_dataReady,
 					irda_rxd     => irda_rxd);
+					
+	-- Update signals --
+	LEDG(7) <= SW(1);
+	LEDG(8) <= SW(0);
 
 	-- Debounce Units from FPGA's inputs--
 	key0_debounce : entity work.DebounceUnit(Behavioral)
@@ -64,6 +64,16 @@ begin
 					dirtyIn		 => KEY(1),
 					pulsedOut	 => key1);
 					
+	key2_debounce : entity work.DebounceUnit(Behavioral)
+		generic map(clkFrekHz => 50000,
+						blindmSec => 100,
+						inPol		 => '0',
+						outPol	 => '1')
+		port map(reset			 => key1,
+					Clk		    => CLOCK_50,
+					dirtyIn		 => KEY(2),
+					pulsedOut	 => key2);
+					
 	-- Random Generator --
 	rnd_gen : entity work.pseudo_random_generator(v1)
 		generic map(n_output_bits => 6)
@@ -76,13 +86,11 @@ begin
 		port map(clkIn        => CLOCK_50,
 					clkOut       => clk1hz);
 					
-					
+	
 	timeraux_fsm : entity work.TimerAuxFSM(Behav)
 		port map(clk          => clk1hz,
 					reset        => key1 or (s_reset and s_dataReady),
-					defineSW     => SW(0),
-					defineRemote => s_defineRemote,
-					commandInput => s_commandData,
+					defineValue  => SW(0),
 					isActive     => s_active,
 					newTime      => s_newTime,
 					timerVal     => rnd_number,
@@ -111,7 +119,7 @@ begin
 	
 	audio : entity work.Audio_Core(Structural)
 		port map(reset        => key1 or (s_reset and s_dataReady),
-					enable       => s_audio and (SW(1) or s_mute),
+					enable       => s_audio and not SW(1),
 					CLOCK_50     => CLOCK_50,
 					-- Audio Serial Data Interface
 					AUD_ADCLRCK	=> AUD_ADCLRCK,

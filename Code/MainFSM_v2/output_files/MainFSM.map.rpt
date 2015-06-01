@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MainFSM
-Sun May 31 16:48:13 2015
+Sun May 31 22:44:14 2015
 Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
 
 
@@ -43,13 +43,13 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun May 31 16:48:12 2015      ;
+; Analysis & Synthesis Status        ; Successful - Sun May 31 22:44:14 2015      ;
 ; Quartus II 64-Bit Version          ; 14.1.0 Build 186 12/03/2014 SJ Web Edition ;
 ; Revision Name                      ; MainFSM                                    ;
 ; Top-level Entity Name              ; MainFSM                                    ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; 14                                         ;
-;     Total combinational functions  ; 14                                         ;
+; Total logic elements               ; 10                                         ;
+;     Total combinational functions  ; 10                                         ;
 ;     Dedicated logic registers      ; 7                                          ;
 ; Total registers                    ; 7                                          ;
 ; Total pins                         ; 12                                         ;
@@ -156,36 +156,36 @@ agreement for further details.
 +----------------------------------+-----------------+-----------------+------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 14          ;
-;                                             ;             ;
-; Total combinational functions               ; 14          ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 7           ;
-;     -- 3 input functions                    ; 2           ;
-;     -- <=2 input functions                  ; 5           ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 14          ;
-;     -- arithmetic mode                      ; 0           ;
-;                                             ;             ;
-; Total registers                             ; 7           ;
-;     -- Dedicated logic registers            ; 7           ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 12          ;
-;                                             ;             ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; reset~input ;
-; Maximum fan-out                             ; 9           ;
-; Total fan-out                               ; 76          ;
-; Average fan-out                             ; 1.69        ;
-+---------------------------------------------+-------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 10        ;
+;                                             ;           ;
+; Total combinational functions               ; 10        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 5         ;
+;     -- 3 input functions                    ; 1         ;
+;     -- <=2 input functions                  ; 4         ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 10        ;
+;     -- arithmetic mode                      ; 0         ;
+;                                             ;           ;
+; Total registers                             ; 7         ;
+;     -- Dedicated logic registers            ; 7         ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 12        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 7         ;
+; Total fan-out                               ; 70        ;
+; Average fan-out                             ; 1.71      ;
++---------------------------------------------+-----------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -193,7 +193,7 @@ agreement for further details.
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |MainFSM                   ; 14 (14)           ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 12   ; 0            ; |MainFSM            ; work         ;
+; |MainFSM                   ; 10 (10)           ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 12   ; 0            ; |MainFSM            ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -222,7 +222,7 @@ Encoding Type:  One-Hot
 ; Total registers                              ; 7     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 7     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
@@ -236,15 +236,15 @@ Encoding Type:  One-Hot
 +-----------------------+-----------------------------+
 ; boundary_port         ; 12                          ;
 ; cycloneiii_ff         ; 7                           ;
-;     plain             ; 7                           ;
-; cycloneiii_lcell_comb ; 14                          ;
-;     normal            ; 14                          ;
-;         2 data inputs ; 5                           ;
-;         3 data inputs ; 2                           ;
-;         4 data inputs ; 7                           ;
+;     CLR               ; 7                           ;
+; cycloneiii_lcell_comb ; 10                          ;
+;     normal            ; 10                          ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 5                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.70                        ;
+; Average LUT depth     ; 1.09                        ;
 +-----------------------+-----------------------------+
 
 
@@ -263,7 +263,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
-    Info: Processing started: Sun May 31 16:47:45 2015
+    Info: Processing started: Sun May 31 22:43:34 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MainFSM -c MainFSM
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file FreqDivider.vhd
@@ -279,14 +279,14 @@ Info (12127): Elaborating entity "MainFSM" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 26 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 22 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 6 output pins
-    Info (21061): Implemented 14 logic cells
+    Info (21061): Implemented 10 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 934 megabytes
-    Info: Processing ended: Sun May 31 16:48:13 2015
-    Info: Elapsed time: 00:00:28
-    Info: Total CPU time (on all processors): 00:00:21
+    Info: Peak virtual memory: 936 megabytes
+    Info: Processing ended: Sun May 31 22:44:14 2015
+    Info: Elapsed time: 00:00:40
+    Info: Total CPU time (on all processors): 00:00:23
 
 

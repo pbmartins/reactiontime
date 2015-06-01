@@ -6,9 +6,7 @@ entity TimerAuxFSM is
 	port(newTime      : in std_logic;
 		  clk          : in std_logic;
 		  reset        : in std_logic;
-		  defineSW     : in std_logic;
-		  defineRemote : in std_logic;
-		  commandInput : in std_logic_vector(5 downto 0);
+		  defineValue  : in std_logic;
 		  timerVal     : in std_logic_vector(5 downto 0);
 		  isActive     : out std_logic;
 		  currentValue : out std_logic_vector(5 downto 0);
@@ -26,12 +24,8 @@ begin
 			s_active <= '0';
 			s_timeExp <= '0';
 		elsif (newTime = '1' and s_active = '0') then
-			if (defineRemote = '1') then
-				s_counter <= unsigned(commandInput) - 1; -- Time selected by user in command 
-				s_timeExp <= '0';
-				s_active <= '1';
-			elsif (defineSW = '1') then
-				s_counter <= "000100"; -- 5 second of waiting 
+			if (defineValue = '1') then
+				s_counter <= "000101"; -- 5 second of waiting 
 				s_timeExp <= '0';
 				s_active <= '1';
 			elsif (unsigned(timerVal) > 4 and unsigned(timerVal) < 61) then
