@@ -113,7 +113,7 @@ Como foi implementado um descodificador de infravermelhos, pode utilizar-se tant
 
 Assim sendo, existe um botão (\texttt{KEY(0)}) na \ac{fpga} e outro no comando (botão de Play) para iniciar o jogo e que também terá como função parar o cronómetro que contabilizará o tempo de reação assim que o LED é ligado.
 
-Existirá também um botão que servirá para fazer \textit{Reset} ao sistema em qualquer ponto do seu funcionamento ( \texttt{KEY(0)} na \ac{fpga} e Return no comando), e um botão para parametrizar o tempo de espera antes de aparecer o LED verde, que simboliza o início da contagem do tempo de reação. Caso esteja ativo o \texttt{SW(0)} da \ac{fpga}, esse tempo será definido como 5 segundos, caso contrário será um valor aleatório. No entanto, existe um funcionalidade exclusiva ao comando de infravermelhos. Para além de se poder parametrizar o valor de espera, usando a tecla QUALQUERCOISA, também é possível escolher esse valor, desde que esteja no intervalo entre 1 e 9 segundos (utilizando para o efeito os botões de 1 a 9 disponíveis no comando).
+Existirá também um botão que servirá para fazer \textit{Reset} ao sistema em qualquer ponto do seu funcionamento ( \texttt{KEY(0)} na \ac{fpga} e Return no comando), e um botão para parametrizar o tempo de espera antes de aparecer o LED verde, que simboliza o início da contagem do tempo de reação. Caso esteja ativo o \texttt{SW(0)} da \ac{fpga} ou tenha sido pressionado o botão XPTO do comando de infravermelhos, esse tempo será definido como 5 segundos, caso contrário será um valor aleatório.
 
 Assim que o utilizador carrega no botão de iniciar o jogo, é gerado um número aleatório entre 5 e 60 (e validado), que será o tempo, em segundos, que demorará o LED a acender desde que se iniciou o jogo. De seguida, é utilizado um "semáforo de partida", onde a cada segundo, 3 LED vermelhos se apagam e onde é emitido um som, até que se inicia a contagem do tempo até o LED indicador se acender.
 
@@ -122,22 +122,32 @@ Se o utilizador carregar no botão de jogar antes de o LED acender, é impresso 
 \section{Arquitetura}
 
 \section{Arquitetura}
-A \autoref{figblocos} apresenta uma arquitetura do sistema em geral.
+A figura \autoref{figblocos} apresenta uma arquitetura do sistema em geral.
 
 %figura 1%
 \begin{figure}[h]
-\centerline{\includegraphics[scale=0.25]{Images/BlockDiagram}}
+\centerline{\includegraphics[scale=0.25]{Images/Blockdiagram}}
 \caption{Arquitetura do temporizador de reação.}
 \label{figblocos}
 \end{figure}
 
-\pagebreak
+O projeto é constituído por 13 blocos. A Main FSM é o bloco central que coordena todo o processo. O \textit{Infrared\_core} é o bloco que controla o comando de infravermelhos, este está ligado ao \texttt{CLOCK\_50} e à saída \texttt{isActive} do \textit{TimerAuxFSM}. 
+
+Usando operadores lógicos é feita a seguinte operação com as saídas do bloco dos infravermelhos (\texttt{reset} and \texttt{dataReady} or \texttt{KEY(1)}) e o valor desta operação vai ser passado para as entradas \texttt{Reset} do bloco do \textit{Led Counter} e do \textit{Counter}, ao \texttt{Reset} do \textit{TimerAuxFSD} assim como ao \texttt{RESET\_N} do bloco \textit{Audio Core}. 
+
+Também, usando portas lógicas é feito (\texttt{play} and \texttt{dataReady} or \texttt{KEY(0)}) e o resultado desta operação vai ser transmitido para a entrada \texttt{inputKey} da \textit{MainFSM}. Esta operação serve para ser possível tanto com o comando ou  as KEYS da FPGA o utilizador interagir com o projeto. Por último, as saídas \texttt{definedValue} e \texttt{dataOut} está respetivamente ligada ao \texttt{defineRemote} e ao \texttt{commandInput} do bloco \textit{TimerAuxFSM}.  A saída \texttt{LedCounter\_En} do bloco \textit{MainFSM} está ligado ao \texttt{Enable} do \textit{Led Counter}, assim como a saída \texttt{Final}. A saída \texttt{ledGreen\_En} está ligada ao \texttt{LEDG(0)} que é luz que verde que liga para depois ser calculado o tempo de reação. Para além destas saídas ainda tem a saida \texttt{Hex\_En} e a saída \texttt{Hex\_Error} ligadas ao bloco \textit{Hex Display}, a saida \texttt{newTime} ligada ao \textit{TimerAuxFSM} e a saída Counter\_En ligada ao bloco \textit{Counter}. Esta quando for ativada vai ativar o \textit{Counter} e registar o tempo de reação do utilizador. O \textit{Counter} tem uma saída Count que está ligada ao \textit{Hex Display} que tem nove entrada. Sete dessas entradas são do registo do tempo e as outras duas são as entradas Enable e o Error que estão como já dito ligadas á \textit{MainFSM}. As saídas deste bloco são os HEX que vão servir para representar a mensagem de erro ou o tempo de reação do utilizador. As entradas que ainda faltam referir do \textit{TimerAuxFSM} são o CLK que está ligado a um \textit{FreqDivider} de 1 Hz, a entrada defineSW que está ligada ao SW(0) e a entrada timerValue que está ligada ao \textit{pseudo\_random\_generator} que é o bloco que gera um numero aleatório. Este só tem como entrada o \texttt{CLK} que está ligada diretamente ao \texttt{CLOCK\_50}. Por ultimo, o bloco \textit{Audio Core} tem bastante entradas e saídas que são do CODEC do kit DE2-115 e estão definidos no ficheiro "DE\_115.qsf". A entrada que falta referir é a entrada \texttt{Enable} que está ligada á operação lógica ((\texttt{sw(1)} or \texttt{mute}) and \texttt{audioEnable}).
 
 \section{Implementação}
 
-Este projeto foi construído tendo como bases blocos lógicos simples, assim como máquinas de estados.
+Este projeto foi construído tendo como base do seu funcionamento blocos lógicos simples, assim como máquinas de estados.
 
-O "cérebro" de todo o projeto é a máquina de estados \textit{Main FSM}. É ela que ativa todos os blocos e máquinas de estados auxiliares, consoante as entradas (botões da \ac{fpga} e comando de infravermelhos), assim como os sinais provenientes dos restantes blocos.
+Primeiramente, é importante referir que os sinais proveniente dos botões \texttt{KEY} da \ac{fpga}, foram todos passados por um \textit{Debouncer} (bloco baseado num com a mesma função desenvolvido nas aulas), de modo a que não haja oscilações na altura do clique e seja enviado apenas um impulso.
+
+Por outro lado, o descodificador de infravermelhos também foi baseado no fornecido pelos docentes da disciplina. Foram modificados vários aspetos, nomeadamente as funções associadas a cada botão e um analisador de impulsos, para que o sinal não seja sempre contínuo (por exemplo, para o caso em que se clica no botão Play: se o sinal fosse contínuo, quando clicássemos nesse botão, ele ia estar sempre ativo e ia, mesmo antes de aparecer o LED indicador, ele dar a mensagem de error de clicar no botão de jogar antes de o LED acender).
+
+\subsection{\textit{Main FSM}}
+
+O "cérebro" de todo o projeto é a máquina de estados \textit{Main FSM}. É ela que gere as ativações de todos os blocos e máquinas de estados auxiliares, consoante as entradas do dispositivo (botões da \ac{fpga} e comando de infravermelhos), assim como consoante os sinais provenientes dos restantes blocos.
 
 %figura 5%
 \begin{figure}[h]
@@ -146,13 +156,15 @@ O "cérebro" de todo o projeto é a máquina de estados \textit{Main FSM}. É el
 \label{figmainfsm}
 \end{figure}
 
-\pagebreak
+\subsection{\textit{LEDCounter FSM}}
 
-Assim que é iniciado o jogo, é dado um sinal de partida, gerado pela \textit{LEDCounter FSM}. Esta máquina de estados recebe um sinal que a ativa, e, de seguida, a cada dois tiques de relógio (frequência 2Hz - 0.5 segundos), desliga um LED vermelho, para além de, a cada tique, ativar e desativar o bloco \textit{Audio_Core}, responsável pela geração de um som e comunicação com a \textit{blackbox} da interface áudio, que resultará na emissão de um som alternadamente ligado (nos dois primeiros LEDs) e continuamente ligado (no último LED), até que todos os LEDs sejam desligados.
+Assim que é iniciado o jogo, é dado um "sinal de partida", gerado pela \textit{LEDCounter FSM}. Esta máquina de estados, que tem um relógio de frequência 2Hz (0.5 segundos - gerado pelo bloco \textit{FreqDivider}), recebe um sinal que a ativa, ligando três LEDs vermelhos, e, a cada dois tiques de relógio, vai desligando-os um a um. Para além disso, a cada tique, envia um sinal de \texttt{enable}, que ativa e desativa o bloco \textit{Audio\_Core}, responsável pela geração de um som e comunicação com a \textit{blackbox} da interface áudio, que resultará na emissão de um som alternadamente ligado (nos dois primeiros LEDs) e continuamente ligado (no último LED), até que todos sejam desligados.
 
-Ou seja, esta máquina funciona como um "semáforo de partida" e que, quando desligados todos os LEDs e o som desapareça, inicia a contagem do tempo até que o LED verde (indicador) se acenda.
+O bloco \textit{Audio\_Core} é baseado no bloco \textit{AudioDemo} fornecido pelos professores como exemplo de interação com a interface áudio do kit Terasic DE2-115. Apenas foi modificado canal direito de saída, para este emitir o mesmo som que o da esquerda simultaneamente.
 
-No entanto, se o \texttt{SW(1)} na \ac{fpga} estiver ativo ou tiver sido pressionado o botão de Mute no comando, não será emitido qualquer som, apesar de a contagem nos LED estar na mesma ativa.
+Ou seja, esta máquina funciona como um "semáforo de partida" e que, quando desligados todos os LEDs, inicia a contagem do tempo até que o LED verde (indicador) se acenda.
+
+No entanto, se o \texttt{SW(1)} na \ac{fpga} estiver ativo ou tiver sido pressionado o botão de Mute no comando, não será emitido qualquer som, apesar de a contagem nos LEDs ser na mesma executada.
 
 O diagrama da \textit{LEDCounter FSM} pode ser observado na \autoref{figledcounterfsm}.
 
@@ -163,11 +175,13 @@ O diagrama da \textit{LEDCounter FSM} pode ser observado na \autoref{figledcount
 \label{figledcounterfsm}
 \end{figure}
 
-De seguida, assim que a máquina de estados anterior envie um sinal à \textit{Main FSM} de que terminou a sua ação, a máquina principal envia um outro sinal à \textit{TimerAux FSM}, para que se comece a contar o tempo até o LED indicador se acenda.
+\subsection{\textit{TimerAux FSM}}
 
-Esta máquina, para além de receber um sinal para iniciar a contagem, consoante as entradas \texttt{defineRemote} e \texttt{defineSW}, define se o tempo a contar é o selecionado no comando de infravermelhos ou 5 segundos, respetivamente, ou se é um número aleatório recebido do bloco \texttt{random_number_generator} (valor este que é validado, pois apenas são aceites números entre 5 e 60 segundos).
+De seguida, assim que a máquina de estados anterior envie um sinal à \textit{Main FSM} de que terminou a sua ação (através do sinal \texttt{final}), a máquina principal envia um outro sinal (\texttt{newTime}) à \textit{TimerAux FSM}, para que se comece a contar o tempo até o LED indicador se acender.
 
-Assim que a contagem chega a zero, a máquina envia um sinal a dizer que o tempo expirou e que já não está ativa (permite que os sinais relativamente ao comando de infravermelhos sejam atualizados).
+Esta máquina, para além de receber um sinal para iniciar a contagem, também recebe um sinal \texttt{defineValue} que, estando ativa, define se o tempo é parametrizado para 5 segundos, ou se, por outro lado, é um número aleatório recebido do bloco \texttt{random\_number\_generator} (valor este que é validado, pois apenas são aceites números entre 5 e 60 segundos).
+
+Assim que a contagem chega a zero, a máquina envia um sinal a dizer que o tempo expirou e que já não está ativa.
 
 O diagrama da \textit{LEDCounter FSM} pode ser observado na \autoref{figtimerfsm}.
 
@@ -178,57 +192,71 @@ O diagrama da \textit{LEDCounter FSM} pode ser observado na \autoref{figtimerfsm
 \label{figtimerfsm}
 \end{figure}
 
+Por fim, assim que a máquina de estados principal recebe o sinal \texttt{timeExp} ativo, acende o LED verde (indicador) e ativa o contador do tempo de reação (\textit{ReactionTimeCounter}), que funciona a uma frequência de 10000 Hz (também esta frequência foi gerada por um bloco \textit{FreqDivider}), isto é, irá apresentar o resultado até às décimas de milésimas. Ao mesmo tempo, também é ativado o bloco \textit{HexDisplay}, que interpreta o sinal vindo do contador e vai imprimindo nos ecrãs hexadecimais o tempo a percorrer.
 
-\pagebreak
+Quando o utilizador carrega no botão de jogo, o contador pára e é impresso nos ecrãs o seu tempo de reação. No entanto, se carregar depois do sinal de partida, mas antes de o LED verde se acender, é impresso nos ecrãs hexadecimais uma mensagem de erro.
 
-\section{Abordagem Faseada do Desenvolvimento}
-Como se pode verificar na \autoref{figblocos}, o "núcleo" de funcionamento do temporizador de reação assenta na parceria entre as duas máquinas de estados, a \textit{Main FSM} e a \textit{Timer Aux FSM}. Depois de construídas estas duas máquinas, serão também desenvolvidos os blocos do contador do tempo de reação, assim como o descodificador de binário para hexadecimal.
+\section{Validação}
 
-Primeiramente, serão implementados os \textit{debouncers} nas entradas do circuito (KEY(0) e KEY(1)), para evitar oscilações quando os botões são pressionados.
+Apesar dos diversos blocos construídos, como alguns eram apenas de lógica simples (tais como o \textit{ReactionTimeCounter}, um simples contador com \texttt{enable}, e o \textit{HexDisplay}, que apenas converte um número binário de 24 dígitos para um formato de ecrã hexadecimal), decidiu-se apenas para validação das máquinas de estados, isto é, apenas foram desenvolvidas TestBenches para os blocos \textit{Main FSM}, \textit{TimerAux FSM} e \textit{LEDCounter FSM}.
 
-Numa fase inicial, será ignorado o "semáforo de partida" e o gerador de números aleatórios. Logo, a entrada \textit{timeVal} na máquina de estados \textit{Timer Aux FSM} terá o valor 10 (10 segundos, isto é, 001010 em binário), enquanto que, em relação à \textit{Main FSM}, a saída \textit{LEDCounter\_En} será ignorada e a entrada \textit{Final} terá sempre o valor 1 ("salta" o "semáforo"). Serão também utilizados vários divisores de frequência para que os impulsos de relógio sejam a cada 1 segundo (\textit{Timer Aux FSM}), e a cada centésimo de segundo (\textit{ReactionTimeCounter}).
+\subsection{\textit{Main FSM}}
+A construção da TestBench da máquina de estados principal (\textit{Main FSM}), seguiu dois caminhos: um em que não eram cometidos quaisquer erros e outro onde era cometido um erro, isto é, considerava-se que o botão de jogar estava ativo antes de o LED indicador se acender, o que iria provocar um erro.
 
-Assim que realizados e validados os testes sobre a entidade acima descrita, adicionar-se-ão os restantes blocos, o \textit{LEDCounter FSM} ("semáforo de partida"), ao qual será ligado um divisor de frequência de 1Hz (impulsos a cada segundo) e o \textit{RandomGenerator}, ao qual será ligado um divisor de frequência de 50000 Hz.
+Segue-se o gráfico resultante:
 
-Por fim, serão executados novos testes para validar o funcionamento da entidade global do temporizador de reação.
+%figura 7%
+\begin{figure}[h]
+\centerline{\includegraphics[scale=0.33]{Images/MainFSMTB}}
+\caption{Gráfico da TestBench da \textit{Main FSM}.}
+\label{figmainfsmtb}
+\end{figure}
 
-\section{Divisão de Tarefas}
-Em seguida, apresenta-se a divisão de tarefas do projeto e quais os blocos que cada elemento deve construir.
+\subsection{\textit{TimerAux FSM}}
 
-Pedro Martins:
-\begin{itemize}
-\item \textit{Main FSM};
-\item \textit{Time Aux FSM};
-\item \textit{ReactionTimeCounter};
-\item \textit{Testbench} - unidade de testes.
-\end{itemize}
+O desenvolvimento da TestBench deste bloco exigiu a sua separação em 2 situações: quando o tempo de espera é parametrizado para 5 segundos pelo \texttt{SW(0)} ou pelo comando de infravermelhos, ou então sendo um valor aleatório entre 5 e 60 segundos.
 
-\pagebreak
+A primeira situação foi do valor aleatório. Como estava ligado à entrada \texttt{timerVal} a saída do bloco \texttt{random\_number\_generator}, seria gerado um número aleatório a uma frequência de 50 MHz, e enquanto esse valor não fosse aceite (não estivesse no intervalo 5 a 60), a máquina não vai começar a subtrair o valor. Logo, neste teste, primeiro é fornecido um valor não válido e só depois um valido.
 
-Pedro Santos:
-\begin{itemize}
-\item \textit{Debouncer};
-\item \textit{FreqDivider};
-\item \textit{LEDCounter FSM};
-\item \textit{HexDisplaysDecoder};
-\item \textit{Testbench} - unidade de testes.
-\end{itemize}
+Por último, é testada a função de parametrizar o tempo.
+
+Segue-se o gráfico resultante:
+
+%figura 8%
+\begin{figure}[h]
+\centerline{\includegraphics[scale=0.33]{Images/TimerAuxFSMTB}}
+\caption{Gráfico da TestBench da \textit{TimerAux FSM}.}
+\label{figtimerfsmtb}
+\end{figure}
+
+\subsection{\textit{LEDCounter FSM}}
+
+Finalmente, esta máquina de estados apenas tem uma entrada, que é a de ativação. Logo, apenas esta foi variada.
+
+%figura 9%
+\begin{figure}[h]
+\centerline{\includegraphics[scale=0.33]{Images/LEDCounterFSMTB}}
+\caption{Gráfico da TestBench da \textit{LEDCounter FSM}.}
+\label{figledcounterfsmtb}
+\end{figure}
 
 \section{Manual de Instruções}
 Para medir o seu tempo de reação, deve seguir os seguintes passos:
 \begin{itemize}
 \item Certificar-se que a \ac{fpga} está corretamente ligada e programada;
-\item Pressionar o botão KEY(0), para iniciar o jogo;
+\item Pressionar o botão \texttt{KEY(0)} (Play no comando de infravermelhos), para iniciar o jogo;
+\item Pode desligar o som da placa ativando o \texttt{SW(1)} ou clicando no botão de Mute do comando de infravermelhos;
+\item Pode também parametrizar o tempo que demora a acender o LED verde (5 segundos), acionando o \texttt{SW(1)} ou o botão XPTO do comando de infravermelhos;
 \item Aguardar que os três LED vermelhos se apaguem;
-\item Clicar no botão KEY(0) logo depois de o LED verde se acender;
+\item Clicar no botão \texttt{KEY(0)} (ou Play no comando de infravermelhos), logo depois de o LED verde se acender;
 \item Será impresso no ecrã hexadecimal o seu tempo de reação;
-\item Para reiniciar o jogo, tem de clicar no botão KEY(1) e repetir todos os passos acima descritos.
+\item Para reiniciar o jogo, basta pressionar \texttt{KEY(1)} (ou Return no comando de infravermelhos) e repetir todos os passos acima descritos.
 \end{itemize}
 
 
 \chapter{Conclusões}
 \label{chap.conclusao}
-Em suma, depois de estabelecida a arquitetura do sistema, os vários diagramas de estados e a divisão de tarefas, é possível passar à prática e programar o circuito.
+Em suma, para realizar este projeto foi necessário criar vários blocos com o objetivo de calcular o tempo de reação do utilizador. Para além disso, para complementar o projeto foram implementados dois blocos o do som e o bloco dos infravermelhos. Assim, é possível interagir com o projeto usando o comando de infravermelhos e se for pretendido o Countdown que indica o inicio do jogo é acompanhado com som, podendo este ser omitido caso seja desejado. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
