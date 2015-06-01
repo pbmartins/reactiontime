@@ -181,7 +181,7 @@ De seguida, assim que a máquina de estados anterior envie um sinal à \textit{M
 
 Esta máquina, para além de receber um sinal para iniciar a contagem, também recebe um sinal \texttt{defineValue} que, estando ativa, define se o tempo é parametrizado para 5 segundos, ou se, por outro lado, é um número aleatório recebido do bloco \texttt{random\_number\_generator} (valor este que é validado, pois apenas são aceites números entre 5 e 60 segundos).
 
-Assim que a contagem chega a zero, a máquina envia um sinal a dizer que o tempo expirou e que já não está ativa (este último sinal permite que os sinais relativamente ao comando de infravermelhos sejam atualizados).
+Assim que a contagem chega a zero, a máquina envia um sinal a dizer que o tempo expirou e que já não está ativa.
 
 O diagrama da \textit{LEDCounter FSM} pode ser observado na \autoref{figtimerfsm}.
 
