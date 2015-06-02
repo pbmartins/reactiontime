@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ReactionTime
-Sun May 31 20:39:03 2015
+Mon Jun  1 21:28:17 2015
 Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
 
 
@@ -23,14 +23,16 @@ Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
  15. Source assignments for Audio_Core:audio|AudioInterfaceCore:audio_interface
  16. Parameter Settings for User Entity Instance: DebounceUnit:key0_debounce
  17. Parameter Settings for User Entity Instance: DebounceUnit:key1_debounce
- 18. Parameter Settings for User Entity Instance: pseudo_random_generator:rnd_gen
- 19. Parameter Settings for User Entity Instance: FreqDivider:clkdivider_1hz
- 20. Parameter Settings for User Entity Instance: FreqDivider:clkdivider_2hz
- 21. Parameter Settings for User Entity Instance: FreqDivider:clkdivider_10000hz
- 22. Port Connectivity Checks: "TimerAuxFSM:timeraux_fsm"
- 23. Post-Synthesis Netlist Statistics for Top Partition
- 24. Elapsed Time Per Partition
- 25. Analysis & Synthesis Messages
+ 18. Parameter Settings for User Entity Instance: DebounceUnit:key2_debounce
+ 19. Parameter Settings for User Entity Instance: pseudo_random_generator:rnd_gen
+ 20. Parameter Settings for User Entity Instance: FreqDivider:clkdivider_1hz
+ 21. Parameter Settings for User Entity Instance: FreqDivider:clkdivider_2hz
+ 22. Parameter Settings for User Entity Instance: FreqDivider:clkdivider_10000hz
+ 23. Port Connectivity Checks: "TimerAuxFSM:timeraux_fsm"
+ 24. Port Connectivity Checks: "DebounceUnit:key2_debounce"
+ 25. Post-Synthesis Netlist Statistics for Top Partition
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
 
 
 
@@ -57,16 +59,16 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun May 31 20:39:02 2015      ;
+; Analysis & Synthesis Status        ; Successful - Mon Jun  1 21:28:17 2015      ;
 ; Quartus II 64-Bit Version          ; 14.1.0 Build 186 12/03/2014 SJ Web Edition ;
 ; Revision Name                      ; ReactionTime                               ;
 ; Top-level Entity Name              ; ReactionTime                               ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; 1,033                                      ;
-;     Total combinational functions  ; 966                                        ;
+; Total logic elements               ; 1,009                                      ;
+;     Total combinational functions  ; 942                                        ;
 ;     Dedicated logic registers      ; 482                                        ;
 ; Total registers                    ; 482                                        ;
-; Total pins                         ; 78                                         ;
+; Total pins                         ; 84                                         ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0                                          ;
 ; Embedded Multiplier 9-bit elements ; 0                                          ;
@@ -197,23 +199,23 @@ agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 1,033          ;
+; Estimated Total logic elements              ; 1,009          ;
 ;                                             ;                ;
-; Total combinational functions               ; 966            ;
+; Total combinational functions               ; 942            ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 507            ;
-;     -- 3 input functions                    ; 121            ;
-;     -- <=2 input functions                  ; 338            ;
+;     -- 4 input functions                    ; 493            ;
+;     -- 3 input functions                    ; 107            ;
+;     -- <=2 input functions                  ; 342            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 735            ;
+;     -- normal mode                          ; 711            ;
 ;     -- arithmetic mode                      ; 231            ;
 ;                                             ;                ;
 ; Total registers                             ; 482            ;
 ;     -- Dedicated logic registers            ; 482            ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
-; I/O pins                                    ; 78             ;
+; I/O pins                                    ; 84             ;
 ;                                             ;                ;
 ; Embedded Multiplier 9-bit elements          ; 0              ;
 ;                                             ;                ;
@@ -222,8 +224,8 @@ agreement for further details.
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 331            ;
-; Total fan-out                               ; 4709           ;
-; Average fan-out                             ; 2.93           ;
+; Total fan-out                               ; 4626           ;
+; Average fan-out                             ; 2.90           ;
 +---------------------------------------------+----------------+
 
 
@@ -232,7 +234,7 @@ agreement for further details.
 +---------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                  ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                               ; Library Name ;
 +---------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |ReactionTime                               ; 966 (6)           ; 482 (0)      ; 0           ; 0            ; 0       ; 0         ; 78   ; 0            ; |ReactionTime                                                                                                                     ; work         ;
+; |ReactionTime                               ; 942 (4)           ; 482 (0)      ; 0           ; 0            ; 0       ; 0         ; 84   ; 0            ; |ReactionTime                                                                                                                     ; work         ;
 ;    |Audio_Core:audio|                       ; 202 (5)           ; 140 (4)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|Audio_Core:audio                                                                                                    ; work         ;
 ;       |AudioInterfaceCore:audio_interface|  ; 176 (0)           ; 136 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|Audio_Core:audio|AudioInterfaceCore:audio_interface                                                                 ; work         ;
 ;          |Audio_PLL:p1|                     ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|Audio_Core:audio|AudioInterfaceCore:audio_interface|Audio_PLL:p1                                                    ; work         ;
@@ -245,8 +247,8 @@ agreement for further details.
 ;       |ROMSin16Pts:sin_rom|                 ; 21 (21)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|Audio_Core:audio|ROMSin16Pts:sin_rom                                                                                ; work         ;
 ;    |DebounceUnit:key0_debounce|             ; 43 (43)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|DebounceUnit:key0_debounce                                                                                          ; work         ;
 ;    |DebounceUnit:key1_debounce|             ; 43 (43)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|DebounceUnit:key1_debounce                                                                                          ; work         ;
-;    |FreqDivider:clkdivider_10000hz|         ; 48 (48)           ; 29 (29)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|FreqDivider:clkdivider_10000hz                                                                                      ; work         ;
-;    |FreqDivider:clkdivider_1hz|             ; 57 (57)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|FreqDivider:clkdivider_1hz                                                                                          ; work         ;
+;    |FreqDivider:clkdivider_10000hz|         ; 49 (49)           ; 29 (29)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|FreqDivider:clkdivider_10000hz                                                                                      ; work         ;
+;    |FreqDivider:clkdivider_1hz|             ; 58 (58)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|FreqDivider:clkdivider_1hz                                                                                          ; work         ;
 ;    |FreqDivider:clkdivider_2hz|             ; 57 (57)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|FreqDivider:clkdivider_2hz                                                                                          ; work         ;
 ;    |HexDisplay:hexdisplay|                  ; 88 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|HexDisplay:hexdisplay                                                                                               ; work         ;
 ;       |Bin7SegDecoder:disp_0_decoder|       ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|HexDisplay:hexdisplay|Bin7SegDecoder:disp_0_decoder                                                                 ; work         ;
@@ -257,12 +259,12 @@ agreement for further details.
 ;       |Bin7SegDecoder:disp_5_decoder|       ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|HexDisplay:hexdisplay|Bin7SegDecoder:disp_5_decoder                                                                 ; work         ;
 ;       |Bin7SegDecoder:disp_6_decoder|       ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|HexDisplay:hexdisplay|Bin7SegDecoder:disp_6_decoder                                                                 ; work         ;
 ;       |Bin7SegDecoder:disp_7_decoder|       ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|HexDisplay:hexdisplay|Bin7SegDecoder:disp_7_decoder                                                                 ; work         ;
-;    |Infrared_Core:infrared_dec|             ; 121 (33)          ; 68 (2)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|Infrared_Core:infrared_dec                                                                                          ; work         ;
+;    |Infrared_Core:infrared_dec|             ; 100 (12)          ; 68 (2)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|Infrared_Core:infrared_dec                                                                                          ; work         ;
 ;       |irda_nec_decoder:DECODER|            ; 88 (88)           ; 66 (66)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|Infrared_Core:infrared_dec|irda_nec_decoder:DECODER                                                                 ; work         ;
-;    |LEDCounterFSM:ledcounter_fsm|           ; 5 (5)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|LEDCounterFSM:ledcounter_fsm                                                                                        ; work         ;
+;    |LEDCounterFSM:ledcounter_fsm|           ; 6 (6)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|LEDCounterFSM:ledcounter_fsm                                                                                        ; work         ;
 ;    |MainFSM:main_fsm|                       ; 8 (8)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|MainFSM:main_fsm                                                                                                    ; work         ;
 ;    |ReactionTimeCounter:counter|            ; 47 (47)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|ReactionTimeCounter:counter                                                                                         ; work         ;
-;    |TimerAuxFSM:timeraux_fsm|               ; 63 (63)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|TimerAuxFSM:timeraux_fsm                                                                                            ; work         ;
+;    |TimerAuxFSM:timeraux_fsm|               ; 59 (59)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|TimerAuxFSM:timeraux_fsm                                                                                            ; work         ;
 ;    |pseudo_random_generator:rnd_gen|        ; 178 (178)         ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionTime|pseudo_random_generator:rnd_gen                                                                                     ; work         ;
 +---------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -301,21 +303,15 @@ Encoding Type:  One-Hot
 +------+------+------+------+------+------+------+------+
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                            ;
-+----------------------------------------------------+----------------------------------+------------------------+
-; Latch Name                                         ; Latch Enable Signal              ; Free of Timing Hazards ;
-+----------------------------------------------------+----------------------------------+------------------------+
-; Infrared_Core:infrared_dec|mute                    ; Infrared_Core:infrared_dec|Mux6  ; yes                    ;
-; Infrared_Core:infrared_dec|reset                   ; Infrared_Core:infrared_dec|Mux6  ; yes                    ;
-; Infrared_Core:infrared_dec|play                    ; Infrared_Core:infrared_dec|Mux6  ; yes                    ;
-; Infrared_Core:infrared_dec|definedValue            ; Infrared_Core:infrared_dec|Mux10 ; yes                    ;
-; Infrared_Core:infrared_dec|dataOut[3]              ; Infrared_Core:infrared_dec|Mux0  ; yes                    ;
-; Infrared_Core:infrared_dec|dataOut[2]              ; Infrared_Core:infrared_dec|Mux0  ; yes                    ;
-; Infrared_Core:infrared_dec|dataOut[1]              ; Infrared_Core:infrared_dec|Mux0  ; yes                    ;
-; Infrared_Core:infrared_dec|dataOut[0]              ; Infrared_Core:infrared_dec|Mux0  ; yes                    ;
-; Number of user-specified and inferred latches = 8  ;                                  ;                        ;
-+----------------------------------------------------+----------------------------------+------------------------+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; Infrared_Core:infrared_dec|reset                   ; GND                 ; yes                    ;
+; Infrared_Core:infrared_dec|play                    ; GND                 ; yes                    ;
+; Number of user-specified and inferred latches = 2  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
@@ -360,8 +356,8 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; pseudo_random_generator:rnd_gen|state[0]                                                                ; 11      ;
 ; pseudo_random_generator:rnd_gen|state[1]                                                                ; 10      ;
 ; pseudo_random_generator:rnd_gen|state[2]                                                                ; 10      ;
-; pseudo_random_generator:rnd_gen|state[3]                                                                ; 10      ;
-; pseudo_random_generator:rnd_gen|state[5]                                                                ; 9       ;
+; pseudo_random_generator:rnd_gen|state[5]                                                                ; 11      ;
+; pseudo_random_generator:rnd_gen|state[3]                                                                ; 11      ;
 ; TimerAuxFSM:timeraux_fsm|s_counter[5]~_emulated                                                         ; 1       ;
 ; TimerAuxFSM:timeraux_fsm|s_counter[4]~_emulated                                                         ; 1       ;
 ; TimerAuxFSM:timeraux_fsm|s_counter[3]~_emulated                                                         ; 1       ;
@@ -412,12 +408,11 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
-; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |ReactionTime|DebounceUnit:key1_debounce|s_debounceCnt[20] ;
-; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |ReactionTime|DebounceUnit:key0_debounce|s_debounceCnt[25] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |ReactionTime|HexDisplay:hexdisplay|s_registerOut[21]      ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |ReactionTime|TimerAuxFSM:timeraux_fsm|s_active            ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |ReactionTime|TimerAuxFSM:timeraux_fsm|s_counter           ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |ReactionTime|Infrared_Core:infrared_dec|Mux2              ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |ReactionTime|DebounceUnit:key1_debounce|s_debounceCnt[15] ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |ReactionTime|DebounceUnit:key0_debounce|s_debounceCnt[16] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |ReactionTime|HexDisplay:hexdisplay|s_registerOut[8]       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |ReactionTime|TimerAuxFSM:timeraux_fsm|s_active            ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |ReactionTime|TimerAuxFSM:timeraux_fsm|s_counter           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
 
 
@@ -2829,6 +2824,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DebounceUnit:key2_debounce ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; clkfrekhz      ; 50000 ; Signed Integer                                 ;
+; blindmsec      ; 100   ; Signed Integer                                 ;
+; inpol          ; '0'   ; Enumerated                                     ;
+; outpol         ; '1'   ; Enumerated                                     ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-----------------------------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: pseudo_random_generator:rnd_gen                        ;
 +----------------+------------------------------------------------------------------+-----------------+
@@ -2879,6 +2887,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DebounceUnit:key2_debounce"                                                              ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; pulsedout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-------------------------------------------+---------+
@@ -2887,25 +2904,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; blackbox                                  ; 2       ;
 ;         udioInterfaceCore:audio_interface ; 1       ;
 ;         rda_nec_decoder:DECODER           ; 1       ;
-; boundary_port                             ; 78      ;
+; boundary_port                             ; 84      ;
 ; cycloneiii_ff                             ; 280     ;
 ;     CLR                                   ; 28      ;
 ;     CLR SLD                               ; 62      ;
 ;     ENA CLR                               ; 31      ;
 ;     plain                                 ; 159     ;
-; cycloneiii_lcell_comb                     ; 711     ;
+; cycloneiii_lcell_comb                     ; 688     ;
 ;     arith                                 ; 158     ;
-;         2 data inputs                     ; 155     ;
-;         3 data inputs                     ; 3       ;
-;     normal                                ; 553     ;
+;         2 data inputs                     ; 156     ;
+;         3 data inputs                     ; 2       ;
+;     normal                                ; 530     ;
 ;         0 data inputs                     ; 1       ;
-;         1 data inputs                     ; 24      ;
-;         2 data inputs                     ; 75      ;
-;         3 data inputs                     ; 83      ;
-;         4 data inputs                     ; 370     ;
+;         1 data inputs                     ; 26      ;
+;         2 data inputs                     ; 77      ;
+;         3 data inputs                     ; 70      ;
+;         4 data inputs                     ; 356     ;
 ;                                           ;         ;
 ; Max LUT depth                             ; 5.00    ;
-; Average LUT depth                         ; 3.08    ;
+; Average LUT depth                         ; 3.07    ;
 +-------------------------------------------+---------+
 
 
@@ -2924,7 +2941,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
-    Info: Processing started: Sun May 31 20:38:32 2015
+    Info: Processing started: Mon Jun  1 21:27:45 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ReactionTime -c ReactionTime
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file IrDA_nec_decoder.qxp
@@ -2971,54 +2988,30 @@ Info (12021): Found 2 design units, including 1 entities, in source file Reactio
     Info (12022): Found design unit 1: ReactionTimeCounter-Behavioral
     Info (12023): Found entity 1: ReactionTimeCounter
 Info (12127): Elaborating entity "ReactionTime" for the top level hierarchy
-Warning (10873): Using initial value X (don't care) for net "LEDR[6..3]" at ReactionTime.vhd(9)
+Warning (10036): Verilog HDL or VHDL warning at ReactionTime.vhd(27): object "key2" assigned a value but never read
+Warning (10873): Using initial value X (don't care) for net "LEDG[6..1]" at ReactionTime.vhd(10)
 Info (12129): Elaborating entity "Infrared_Core" using architecture "A:behav" for hierarchy "Infrared_Core:infrared_dec"
-Warning (10492): VHDL Process Statement warning at Infrared_Core.vhd(95): signal "activeCount" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10631): VHDL Process Statement warning at Infrared_Core.vhd(70): inferring latch(es) for signal or variable "dataOut", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at Infrared_Core.vhd(70): inferring latch(es) for signal or variable "play", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at Infrared_Core.vhd(70): inferring latch(es) for signal or variable "reset", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at Infrared_Core.vhd(70): inferring latch(es) for signal or variable "mute", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at Infrared_Core.vhd(70): inferring latch(es) for signal or variable "definedValue", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "definedValue" at Infrared_Core.vhd(70)
-Info (10041): Inferred latch for "mute" at Infrared_Core.vhd(70)
-Info (10041): Inferred latch for "reset" at Infrared_Core.vhd(70)
-Info (10041): Inferred latch for "play" at Infrared_Core.vhd(70)
-Info (10041): Inferred latch for "dataOut[0]" at Infrared_Core.vhd(70)
-Info (10041): Inferred latch for "dataOut[1]" at Infrared_Core.vhd(70)
-Info (10041): Inferred latch for "dataOut[2]" at Infrared_Core.vhd(70)
-Info (10041): Inferred latch for "dataOut[3]" at Infrared_Core.vhd(70)
-Info (10041): Inferred latch for "dataOut[4]" at Infrared_Core.vhd(70)
-Info (10041): Inferred latch for "dataOut[5]" at Infrared_Core.vhd(70)
+Warning (10631): VHDL Process Statement warning at Infrared_Core.vhd(66): inferring latch(es) for signal or variable "play", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Infrared_Core.vhd(66): inferring latch(es) for signal or variable "reset", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "reset" at Infrared_Core.vhd(66)
+Info (10041): Inferred latch for "play" at Infrared_Core.vhd(66)
 Info (12128): Elaborating entity "irda_nec_decoder" for hierarchy "Infrared_Core:infrared_dec|irda_nec_decoder:DECODER"
-Warning (137006): Ignored assignment ENABLE_INCREMENTAL_REUSE -- assignment no longer supported
-Warning (137006): Ignored assignment USE_QHD -- assignment no longer supported
-Warning (137006): Ignored assignment REGISTER_PACKING_CYCLONE -- assignment no longer supported
-Warning (137006): Ignored assignment REGISTER_PACKING -- assignment no longer supported
-Warning (137006): Ignored assignment REGISTER_PACKING_NEW -- assignment no longer supported
 Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "DebounceUnit:key0_debounce"
 Info (12129): Elaborating entity "pseudo_random_generator" using architecture "A:v1" for hierarchy "pseudo_random_generator:rnd_gen"
 Info (12129): Elaborating entity "FreqDivider" using architecture "A:behavioral" for hierarchy "FreqDivider:clkdivider_1hz"
 Info (12129): Elaborating entity "TimerAuxFSM" using architecture "A:behav" for hierarchy "TimerAuxFSM:timeraux_fsm"
-Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(28): signal "s_active" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(29): signal "defineRemote" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(30): signal "commandInput" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(33): signal "defineSW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(37): signal "timerVal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(38): signal "timerVal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(42): signal "s_active" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(26): signal "s_active" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(27): signal "defineValue" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(31): signal "timerVal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(32): signal "timerVal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TimerAuxFSM.vhd(36): signal "s_active" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12129): Elaborating entity "MainFSM" using architecture "A:behav" for hierarchy "MainFSM:main_fsm"
-Warning (10492): VHDL Process Statement warning at MainFSM.vhd(26): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12129): Elaborating entity "FreqDivider" using architecture "A:behavioral" for hierarchy "FreqDivider:clkdivider_2hz"
 Info (12129): Elaborating entity "Audio_Core" using architecture "A:structural" for hierarchy "Audio_Core:audio"
 Warning (10036): Verilog HDL or VHDL warning at Audio_Core.vhd(48): object "s_inSampleValid" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at Audio_Core.vhd(50): object "s_inLeftSample" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at Audio_Core.vhd(50): object "s_inRightSample" assigned a value but never read
 Info (12128): Elaborating entity "AudioInterfaceCore" for hierarchy "Audio_Core:audio|AudioInterfaceCore:audio_interface"
-Warning (137006): Ignored assignment ENABLE_INCREMENTAL_REUSE -- assignment no longer supported
-Warning (137006): Ignored assignment USE_QHD -- assignment no longer supported
-Warning (137006): Ignored assignment REGISTER_PACKING_CYCLONE -- assignment no longer supported
-Warning (137006): Ignored assignment REGISTER_PACKING -- assignment no longer supported
-Warning (137006): Ignored assignment REGISTER_PACKING_NEW -- assignment no longer supported
 Info (12129): Elaborating entity "ROMSin16Pts" using architecture "A:behavioral" for hierarchy "Audio_Core:audio|ROMSin16Pts:sin_rom"
 Info (12129): Elaborating entity "LEDCounterFSM" using architecture "A:behavioral" for hierarchy "LEDCounterFSM:ledcounter_fsm"
 Warning (10492): VHDL Process Statement warning at LEDCounterFSM.vhd(23): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
@@ -3028,22 +3021,6 @@ Warning (10492): VHDL Process Statement warning at ReactionTimeCounter.vhd(19): 
 Info (12129): Elaborating entity "HexDisplay" using architecture "A:structural" for hierarchy "HexDisplay:hexdisplay"
 Info (12129): Elaborating entity "Bin7SegDecoder" using architecture "A:behavioral" for hierarchy "HexDisplay:hexdisplay|Bin7SegDecoder:disp_0_decoder"
 Warning (12240): Synthesis found one or more imported partitions that will be treated as black boxes for timing analysis during synthesis
-Warning (13012): Latch Infrared_Core:infrared_dec|mute has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Infrared_Core:infrared_dec|DECODER.decoded_data[18]
-Warning (13012): Latch Infrared_Core:infrared_dec|reset has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Infrared_Core:infrared_dec|DECODER.decoded_data[16]
-Warning (13012): Latch Infrared_Core:infrared_dec|play has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Infrared_Core:infrared_dec|DECODER.decoded_data[17]
-Warning (13012): Latch Infrared_Core:infrared_dec|definedValue has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Infrared_Core:infrared_dec|DECODER.decoded_data[16]
-Warning (13012): Latch Infrared_Core:infrared_dec|dataOut[3] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Infrared_Core:infrared_dec|DECODER.decoded_data[19]
-Warning (13012): Latch Infrared_Core:infrared_dec|dataOut[2] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Infrared_Core:infrared_dec|DECODER.decoded_data[18]
-Warning (13012): Latch Infrared_Core:infrared_dec|dataOut[1] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Infrared_Core:infrared_dec|DECODER.decoded_data[17]
-Warning (13012): Latch Infrared_Core:infrared_dec|dataOut[0] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Infrared_Core:infrared_dec|DECODER.decoded_data[16]
 Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
     Warning (13310): Register "TimerAuxFSM:timeraux_fsm|s_timeExp" is converted into an equivalent circuit using register "TimerAuxFSM:timeraux_fsm|s_timeExp~_emulated" and latch "TimerAuxFSM:timeraux_fsm|s_timeExp~1"
     Warning (13310): Register "TimerAuxFSM:timeraux_fsm|s_counter[5]" is converted into an equivalent circuit using register "TimerAuxFSM:timeraux_fsm|s_counter[5]~_emulated" and latch "TimerAuxFSM:timeraux_fsm|s_counter[5]~1"
@@ -3059,10 +3036,12 @@ Warning (13009): TRI or OPNDRN buffers permanently enabled
     Warning (13010): Node "AUD_BCLK~synth"
     Warning (13010): Node "I2C_SDAT~synth"
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[3]" is stuck at GND
-    Warning (13410): Pin "LEDR[4]" is stuck at GND
-    Warning (13410): Pin "LEDR[5]" is stuck at GND
-    Warning (13410): Pin "LEDR[6]" is stuck at GND
+    Warning (13410): Pin "LEDG[1]" is stuck at GND
+    Warning (13410): Pin "LEDG[2]" is stuck at GND
+    Warning (13410): Pin "LEDG[3]" is stuck at GND
+    Warning (13410): Pin "LEDG[4]" is stuck at GND
+    Warning (13410): Pin "LEDG[5]" is stuck at GND
+    Warning (13410): Pin "LEDG[6]" is stuck at GND
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
 Info (35026): Attempting to remove 206 I/O cell(s) that do not connect to top-level pins or have illegal connectivity
     Info (35027): Removed I/O cell "Audio_Core:audio|AudioInterfaceCore:audio_interface|IN_SAMPLE_VALID~output"
@@ -3273,7 +3252,7 @@ Info (35026): Attempting to remove 206 I/O cell(s) that do not connect to top-le
     Info (35027): Removed I/O cell "Infrared_Core:infrared_dec|irda_nec_decoder:DECODER|ir_data"
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (35003): Optimize away 146 nodes that do not fanout to OUTPUT or BIDIR pins
+Info (35003): Optimize away 147 nodes that do not fanout to OUTPUT or BIDIR pins
     Info (35004): Node: "Audio_Core:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|oCH_L_IN_SAMPLE[0]"
     Info (35004): Node: "Audio_Core:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|oCH_L_IN_SAMPLE[1]"
     Info (35004): Node: "Audio_Core:audio|AudioInterfaceCore:audio_interface|Audio_SerDes:u2|oCH_L_IN_SAMPLE[2]"
@@ -3322,18 +3301,20 @@ Info (35003): Optimize away 146 nodes that do not fanout to OUTPUT or BIDIR pins
     Info (35004): Node: "Infrared_Core:infrared_dec|irda_nec_decoder:DECODER|data[13]"
     Info (35004): Node: "Infrared_Core:infrared_dec|irda_nec_decoder:DECODER|data[14]"
     Info (35004): Node: "Infrared_Core:infrared_dec|irda_nec_decoder:DECODER|data[15]"
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "AUD_ADCDAT"
-Info (21057): Implemented 1126 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 7 input pins
-    Info (21059): Implemented 67 output pins
+    Warning (15610): No output dependent on input pin "KEY[2]"
+    Warning (15610): No output dependent on input pin "KEY[3]"
+Info (21057): Implemented 1108 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
+    Info (21059): Implemented 71 output pins
     Info (21060): Implemented 4 bidirectional pins
-    Info (21061): Implemented 1047 logic cells
+    Info (21061): Implemented 1023 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 69 warnings
-    Info: Peak virtual memory: 970 megabytes
-    Info: Processing ended: Sun May 31 20:39:03 2015
-    Info: Elapsed time: 00:00:31
-    Info: Total CPU time (on all processors): 00:00:25
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 41 warnings
+    Info: Peak virtual memory: 960 megabytes
+    Info: Processing ended: Mon Jun  1 21:28:17 2015
+    Info: Elapsed time: 00:00:32
+    Info: Total CPU time (on all processors): 00:00:23
 
 

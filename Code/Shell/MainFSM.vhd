@@ -21,7 +21,7 @@ architecture Behav of MainFSM is
 	type State is (A, B, C, D, E, F, G);
 	signal PS, NS : State := A;
 begin
-	clock_proc : process(clk)
+	clock_proc : process(clk, reset)
 	begin
 		if (reset = '1') then
 			PS <= A;

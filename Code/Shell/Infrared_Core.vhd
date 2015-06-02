@@ -15,13 +15,9 @@ use IEEE.NUMERIC_STD.all;
 
 entity Infrared_Core is
   port(clock_50    : in  std_logic;  -- 50 MHz clock
-		 activeCount : in std_logic;
        -- commands
 	    play        : out std_logic;
 	    reset       : out std_logic;
-	    mute        : out std_logic;
-		 definedValue: out std_logic;
-       dataOut     : out std_logic_vector(5 downto 0); -- value of waiting
 	    dataReady   : out std_logic;
        -- IrDA
       irda_rxd     : in  std_logic);                     -- IrDA remote control signal
@@ -69,42 +65,12 @@ begin
 	info <= data(23 downto 16);
 	process(info)
 	begin
-	case info is
-		when "00010110" =>
-			dataOut <= "000000";
+		if (info = "00010110") then -- play
 			play <= '1';
 			reset <= '0';
-			mute <= '0';
-			definedValue <= '0';
-			
-		when "00001100" =>
-			dataOut <= "000000";
-			play <= '0';
-			reset <= '0';
-			mute <= '1';
-			definedValue <= '0';
-			
-		when "00010111" =>
-			dataOut <= "000000";
+		elsif (info = "00010111") then --reset
 			play <= '0';
 			reset <= '1';
-			mute <= '0';
-			definedValue <= '0';
-			
-		when "00010000" => --loadButton
-			if (activeCount = '1') then
-				definedValue <= '0';
-			else
-				definedValue <= '1';
-			end if;
-		
-		when others =>
-			if (info(7 downto 4) = "0000" and unsigned(info(3 downto 0)) > 0) then
-				dataOut <= "00" & info(3 downto 0);
-			else
-				dataOut <= "000000";
-			end if;
-			
-	end case;
+		end if;
 	end process;
 end Behav;

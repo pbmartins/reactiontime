@@ -21,14 +21,12 @@ architecture Behav of MainFSM is
 	type State is (A, B, C, D, E, F, G);
 	signal PS, NS : State := A;
 begin
-	clock_proc : process(clk)
+	clock_proc : process(clk, reset)
 	begin
-		if (rising_edge(clk)) then
-			if (reset = '1') then
-				PS <= A;
-			else
-				PS <= NS;
-			end if;
+		if (reset = '1') then
+			PS <= A;
+		elsif (rising_edge(clk)) then
+			PS <= NS;
 		end if;
 	end process;
 	
