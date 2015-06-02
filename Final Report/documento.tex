@@ -109,11 +109,11 @@ Para avaliação da componente prática da disciplina de Laboratórios de Sistem
 \label{chap.analise}
 O mini-projeto em análise consiste na implementação de um temporizador de reação. A ideia pode traduzir-se como, depois de aceso um LED, medir o tempo que o utilizador demora a carregar num botão pré-definido, registando o tempo decorrido entre ambos. 
 
-Como foi implementado um descodificador de infravermelhos, pode utilizar-se tanto o comando (desde que este envie informação no formato NEC), como os botões e \textit{switches} da \ac{fpga}. 
+Como foi implementado um descodificador de infravermelhos, pode utilizar-se tanto o comando (desde que este envie informação no formato NEC), como os botões e \textit{switches} da \ac{fpga}, no entanto, esta plataforma tem funcionalidades reduzidas.
 
 Assim sendo, existe um botão (\texttt{KEY(0)}) na \ac{fpga} e outro no comando (botão de Play) para iniciar o jogo e que também terá como função parar o cronómetro que contabilizará o tempo de reação assim que o LED é ligado.
 
-Existirá também um botão que servirá para fazer \textit{Reset} ao sistema em qualquer ponto do seu funcionamento ( \texttt{KEY(0)} na \ac{fpga} e Return no comando), e um botão para parametrizar o tempo de espera antes de aparecer o LED verde, que simboliza o início da contagem do tempo de reação. Caso esteja ativo o \texttt{SW(0)} da \ac{fpga} ou tenha sido pressionado o botão XPTO do comando de infravermelhos, esse tempo será definido como 5 segundos, caso contrário será um valor aleatório.
+Existirá também um botão que servirá para fazer \textit{Reset} ao sistema em qualquer ponto do seu funcionamento ( \texttt{KEY(0)} na \ac{fpga} e Return no comando), e um botão para parametrizar o tempo de espera antes de aparecer o LED verde, que simboliza o início da contagem do tempo de reação. Caso esteja ativo o \texttt{SW(0)} da \ac{fpga}, esse tempo será definido como 5 segundos, caso contrário será um valor aleatório.
 
 Assim que o utilizador carrega no botão de iniciar o jogo, é gerado um número aleatório entre 5 e 60 (e validado), que será o tempo, em segundos, que demorará o LED a acender desde que se iniciou o jogo. De seguida, é utilizado um "semáforo de partida", onde a cada segundo, 3 LED vermelhos se apagam e onde é emitido um som, até que se inicia a contagem do tempo até o LED indicador se acender.
 
@@ -126,12 +126,26 @@ A figura \autoref{figblocos} apresenta uma arquitetura do sistema em geral.
 
 %figura 1%
 \begin{figure}[h]
-\centerline{\includegraphics[scale=0.25]{Images/Blockdiagram}}
+\centerline{\includegraphics[scale=0.25]{Images/BlockDiagram}}
 \caption{Arquitetura do temporizador de reação.}
 \label{figblocos}
 \end{figure}
 
-O projeto é constituído por 13 blocos. A Main FSM é o bloco central que coordena todo o processo. O \textit{Infrared\_core} é o bloco que controla o comando de infravermelhos, este está ligado ao \texttt{CLOCK\_50} e à saída \texttt{isActive} do \textit{TimerAuxFSM}. 
+O projeto é constituído por 13 blocos.
+
+O \textit{Infrared\_Core} é o bloco que controla o comando de infravermelhos (com ligação à interface da \ac{fpga}) e o \textit{Audio\_Core} (com ligações às entradas e saídas de áudio da \ac{fpga}) é o que controla a interface áudio. Ambos têm ligações diretas ao relógio de 50 MHz e são blocos construídos tendo como uma base \textit{blackboxes} fornecidas pelos docentes da disciplina.
+
+As entradas de sinais para o circuito são controladas pelos blocos de \textit{debounce} e pelo controlador de infravermelhos, daí a existência de lógica simples entre as saídas das \textit{DebounceUnit}, para que, caso uma das entradas seja ativada (quer no comando ou nos botões da \ac{fpga}), possa ser interpretada a sua ativação.
+
+Excetuando o \textit{pseudo\_random\_generator}, o \textit{HexDisplay} e os blocos \textit{FreqDivider} (divisores de frequência de relógio), todos os restantes blocos têm uma entrada de \textit{reset} ligada ao sinal \texttt{key1} (resultante do impulso do clique num botão ou no comando de infravermelhos).
+
+A \textit{Main FSM} é o bloco central que coordena todo o processo. Recebe um sinal \texttt{key0} (botão de jogar, quer na placa, quer no comando de infravermelhos), para além de outros provenientes de outros blocos e máquina de estados. 
+
+A máquina principal comunica com outra máquina de estados, \textit{LEDCounter FSM}, através da saída \texttt{LedCounter\_En} e da entrada \texttt{final}. Esta última tem, para além destas entradas e do \texttt{reset}, está associada a um \textit{FreqDivider} que exporta um relógio de frequência 2 Hz.
+
+Assim que recebe um sinal de que a \textit{LEDCounter FSM} acabou a sua execução (\texttt{final}), ativa a saída \texttt{ledGreen\_En}.
+
+Esta máquina principal também comunica com a \textit{TimerAux FSM}( que além do sinal de \textit{reset}, está ligada a um \textit{FreqDivider} que exporta um relógio de 1 Hz) através da saída \texttt{newTime} e das entradas \texttt{isActive} e \texttt{timeExp}.
 
 Usando operadores lógicos é feita a seguinte operação com as saídas do bloco dos infravermelhos (\texttt{reset} and \texttt{dataReady} or \texttt{KEY(1)}) e o valor desta operação vai ser passado para as entradas \texttt{Reset} do bloco do \textit{Led Counter} e do \textit{Counter}, ao \texttt{Reset} do \textit{TimerAuxFSD} assim como ao \texttt{RESET\_N} do bloco \textit{Audio Core}. 
 
@@ -245,8 +259,8 @@ Para medir o seu tempo de reação, deve seguir os seguintes passos:
 \begin{itemize}
 \item Certificar-se que a \ac{fpga} está corretamente ligada e programada;
 \item Pressionar o botão \texttt{KEY(0)} (Play no comando de infravermelhos), para iniciar o jogo;
-\item Pode desligar o som da placa ativando o \texttt{SW(1)} ou clicando no botão de Mute do comando de infravermelhos;
-\item Pode também parametrizar o tempo que demora a acender o LED verde (5 segundos), acionando o \texttt{SW(1)} ou o botão XPTO do comando de infravermelhos;
+\item Pode desligar o som da placa ativando o \texttt{SW(1)} (não tem opção no comando);
+\item Pode também parametrizar o tempo que demora a acender o LED verde (5 segundos), acionando o \texttt{SW(1)} (não tem opção no comando);
 \item Aguardar que os três LED vermelhos se apaguem;
 \item Clicar no botão \texttt{KEY(0)} (ou Play no comando de infravermelhos), logo depois de o LED verde se acender;
 \item Será impresso no ecrã hexadecimal o seu tempo de reação;
