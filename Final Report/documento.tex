@@ -1,4 +1,5 @@
 \documentclass[a4paper,11pt,onecolumn]{report}
+\usepackage[margin=0.7in]{geometry}
 \usepackage[T1]{fontenc} % Fontes T1
 \usepackage[utf8]{inputenc} % Input UTF8
 \usepackage[backend=biber, style=ieee]{biblatex} % para usar bibliografia
@@ -117,7 +118,7 @@ Existirá também um botão que servirá para fazer \textit{Reset} ao sistema em
 
 Assim que o utilizador carrega no botão de iniciar o jogo, é gerado um número aleatório entre 5 e 60 (e validado), que será o tempo, em segundos, que demorará o LED a acender desde que se iniciou o jogo. De seguida, é utilizado um "semáforo de partida", onde a cada segundo, 3 LED vermelhos se apagam e onde é emitido um som (caso o som esteja ativado), até que se inicia a contagem do tempo até o LED indicador se acender.
 
-Se o utilizador carregar no botão de jogar antes de o LED acender, é impresso nos ecrãs hexadecimais uma mensagem de erro. Caso o utilizador apenas clique no botão depois de aceso, é imprimido nos ecrãs hexadecimais o tempo percorrido desde que o LED acendeu até o utilizador carregar no botão. A \ac{fpga} manter-se-á neste estado até que se reinicie o jogo, isto é, clicar no botão de \textit{Reset}, onde todos os painéis hexadecimais e todos os LED serão apagados.
+Se o utilizador carregar no botão de jogar antes de o LED acender, é impresso nos ecrãs de 7 segmentos uma mensagem de erro. Caso o utilizador apenas clique no botão depois de aceso, é imprimido nos ecrãs de 7 segmentos o tempo percorrido desde que o LED acendeu até o utilizador carregar no botão. A \ac{fpga} manter-se-á neste estado até que se reinicie o jogo, isto é, clicar no botão de \textit{Reset}, onde todos os painéis de 7 segmentos e todos os LED serão apagados.
 
 \section{Arquitetura}
 
@@ -141,15 +142,13 @@ Excetuando o \textit{pseudo\_random\_generator}, o \textit{HexDisplay} e os bloc
 
 A \textit{Main FSM} é o bloco central que coordena todo o processo. Recebe um sinal \texttt{key0} (botão de jogar, quer na placa, quer no comando de infravermelhos), para além de outros provenientes de outros blocos e máquina de estados. 
 
-A máquina principal comunica com outra máquina de estados, \textit{LEDCounter FSM}, através da saída \texttt{LedCounter\_En} e da entrada \texttt{final}. Esta última tem, para além destas entradas e do \texttt{reset}, está associada a um \textit{FreqDivider} que exporta um relógio de frequência 2 Hz.
+A máquina principal comunica com outra máquina de estados, \textit{LEDCounter FSM}, através da saída \texttt{LedCounter\_En} e da entrada \texttt{final}. Esta última, para além destas entradas e do \texttt{reset}, está associada a um \textit{FreqDivider} que exporta um relógio de frequência 2 Hz. Para além disso, também comunica com o bloco de áudio, pois é esta máquina que envia sinais intermitentes de ativação a este último (consoante o \texttt{SW(1)}, \textit{mute}, esteja ativo ou não), através da saída \texttt{audioEnable}.
 
-Assim que recebe um sinal de que a \textit{LEDCounter FSM} acabou a sua execução (\texttt{final}), ativa a saída \texttt{ledGreen\_En}.
+Assim que recebe um sinal de que a \textit{LEDCounter FSM} acabou a sua execução (\texttt{final}), ativa a saída \texttt{ledGreen\_En}, que está diretamente ligada à saída \texttt{LEDG(0)} da \ac{fpga}.
 
-Esta máquina principal também comunica com a \textit{TimerAux FSM}( que além do sinal de \textit{reset}, está ligada a um \textit{FreqDivider} que exporta um relógio de 1 Hz) através da saída \texttt{newTime} e das entradas \texttt{isActive} e \texttt{timeExp}.
+Esta máquina principal também comunica com a \textit{TimerAux FSM} (que além do sinal de \textit{reset}, está ligada a um \textit{FreqDivider} que exporta um relógio de 1 Hz) através da saída \texttt{newTime} e das entradas \texttt{isActive} e \texttt{timeExp}. Esta última máquina de estados tem também uma entrada ligada ao \textit{pseudo\_random\_generator}, um gerador pseudo-aleatório de números, que definirá o tempo a ser decrementado na máquina (caso o pretendido pelo utilizador seja um tempo de espera aleatório).
 
-Usando operadores lógicos é feita a seguinte operação com as saídas do bloco dos infravermelhos (\texttt{reset} and \texttt{dataReady} or \texttt{KEY(1)}) e o valor desta operação vai ser passado para as entradas \texttt{Reset} do bloco do \textit{Led Counter} e do \textit{Counter}, ao \texttt{Reset} do \textit{TimerAuxFSD} assim como ao \texttt{RESET\_N} do bloco \textit{Audio Core}. 
-
-Também, usando portas lógicas é feito (\texttt{play} and \texttt{dataReady} or \texttt{KEY(0)}) e o resultado desta operação vai ser transmitido para a entrada \texttt{inputKey} da \textit{MainFSM}. Esta operação serve para ser possível tanto com o comando ou  as KEYS da FPGA o utilizador interagir com o projeto. Por último, as saídas \texttt{definedValue} e \texttt{dataOut} está respetivamente ligada ao \texttt{defineRemote} e ao \texttt{commandInput} do bloco \textit{TimerAuxFSM}.  A saída \texttt{LedCounter\_En} do bloco \textit{MainFSM} está ligado ao \texttt{Enable} do \textit{Led Counter}, assim como a saída \texttt{Final}. A saída \texttt{ledGreen\_En} está ligada ao \texttt{LEDG(0)} que é luz que verde que liga para depois ser calculado o tempo de reação. Para além destas saídas ainda tem a saida \texttt{Hex\_En} e a saída \texttt{Hex\_Error} ligadas ao bloco \textit{Hex Display}, a saida \texttt{newTime} ligada ao \textit{TimerAuxFSM} e a saída Counter\_En ligada ao bloco \textit{Counter}. Esta quando for ativada vai ativar o \textit{Counter} e registar o tempo de reação do utilizador. O \textit{Counter} tem uma saída Count que está ligada ao \textit{Hex Display} que tem nove entrada. Sete dessas entradas são do registo do tempo e as outras duas são as entradas Enable e o Error que estão como já dito ligadas á \textit{MainFSM}. As saídas deste bloco são os HEX que vão servir para representar a mensagem de erro ou o tempo de reação do utilizador. As entradas que ainda faltam referir do \textit{TimerAuxFSM} são o CLK que está ligado a um \textit{FreqDivider} de 1 Hz, a entrada defineSW que está ligada ao SW(0) e a entrada timerValue que está ligada ao \textit{pseudo\_random\_generator} que é o bloco que gera um numero aleatório. Este só tem como entrada o \texttt{CLK} que está ligada diretamente ao \texttt{CLOCK\_50}. Por ultimo, o bloco \textit{Audio Core} tem bastante entradas e saídas que são do CODEC do kit DE2-115 e estão definidos no ficheiro "DE\_115.qsf". A entrada que falta referir é a entrada \texttt{Enable} que está ligada á operação lógica ((\texttt{sw(1)} or \texttt{mute}) and \texttt{audioEnable}).
+Quando o sinal \texttt{timeExp} está ativo, significa que a máquina de tempo auxiliar acabou a sua execução, ativando as saídas \texttt{counter\_En}, que está ligada diretamente ao bloco \textit{ReactionTimeCounter} (que funciona a uma frequência de 10000 Hz), e \texttt{hex\_En}, ligada ao bloco \texttt{HexDisplay}, que ativa e mostra nos ecrãs de 7 segmentos o tempo do contador do tempo de reação, pois recebe um vetor de 32 \textit{bits}, e os descodifica para mostrá-los nos 8 ecrãs de 7 segmentos. A máquina principal também tem uma ligação com este último bloco (\texttt{hex\_Error}), que é ativado em caso de erro no sistema.
 
 \section{Implementação}
 
@@ -206,9 +205,9 @@ O diagrama da \textit{LEDCounter FSM} pode ser observado na \autoref{figtimerfsm
 \label{figtimerfsm}
 \end{figure}
 
-Por fim, assim que a máquina de estados principal recebe o sinal \texttt{timeExp} ativo, acende o LED verde (indicador) e ativa o contador do tempo de reação (\textit{ReactionTimeCounter}), que funciona a uma frequência de 10000 Hz (também esta frequência foi gerada por um bloco \textit{FreqDivider}), isto é, irá apresentar o resultado até às décimas de milésimas. Ao mesmo tempo, também é ativado o bloco \textit{HexDisplay}, que interpreta o sinal vindo do contador e vai imprimindo nos ecrãs hexadecimais o tempo a percorrer.
+Por fim, assim que a máquina de estados principal recebe o sinal \texttt{timeExp} ativo, acende o LED verde (indicador) e ativa o contador do tempo de reação (\textit{ReactionTimeCounter}), que funciona a uma frequência de 10000 Hz (também esta frequência foi gerada por um bloco \textit{FreqDivider}), isto é, irá apresentar o resultado até às décimas de milésimas. Ao mesmo tempo, também é ativado o bloco \textit{HexDisplay}, que interpreta o sinal vindo do contador e vai imprimindo nos ecrãs de 7 segmentos o tempo a percorrer.
 
-Quando o utilizador carrega no botão de jogo, o contador pára e é impresso nos ecrãs o seu tempo de reação. No entanto, se carregar depois do sinal de partida, mas antes de o LED verde se acender, é impresso nos ecrãs hexadecimais uma mensagem de erro.
+Quando o utilizador carrega no botão de jogo, o contador pára e é impresso nos ecrãs o seu tempo de reação. No entanto, se carregar depois do sinal de partida, mas antes de o LED verde se acender, é impresso nos ecrãs de 7 segmentos uma mensagem de erro.
 
 \section{Validação}
 
