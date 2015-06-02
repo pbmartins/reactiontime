@@ -177,7 +177,7 @@ O bloco \textit{Audio\_Core} é baseado no bloco \textit{AudioDemo} fornecido pe
 
 Ou seja, esta máquina funciona como um "semáforo de partida" e que, quando desligados todos os LEDs, inicia a contagem do tempo até que o LED verde (indicador) se acenda.
 
-No entanto, se o \texttt{SW(1)} na \ac{fpga} estiver ativo ou tiver sido pressionado o botão de Mute no comando, não será emitido qualquer som, apesar de a contagem nos LEDs ser na mesma executada.
+No entanto, se o \texttt{SW(1)} na \ac{fpga} estiver ativo, não será emitido qualquer som, apesar de a contagem nos LEDs ser na mesma executada.
 
 O diagrama da \textit{LEDCounter FSM} pode ser observado na \autoref{figledcounterfsm}.
 
@@ -269,7 +269,7 @@ Para medir o seu tempo de reação, deve seguir os seguintes passos:
 
 \chapter{Conclusões}
 \label{chap.conclusao}
-Em suma, para realizar este projeto foi necessário criar vários blocos com o objetivo de calcular o tempo de reação do utilizador. Para além disso, para complementar o projeto foram implementados dois blocos o do som e o bloco dos infravermelhos. Assim, é possível interagir com o projeto usando o comando de infravermelhos e se for pretendido o Countdown que indica o inicio do jogo é acompanhado com som, podendo este ser omitido caso seja desejado. 
+Em suma, para realizar este projeto foi necessário criar vários blocos com o objetivo de calcular o tempo de reação do utilizador. Para além disso, para complementar o projeto foram implementados dois blocos, um do som e outro do bloco dos infravermelhos. Assim, é possível interagir com o projeto usando o comando de infravermelhos. Se pretendido o LedCounter que indica o inicio do jogo é acompanhado com som, podendo este ser omitido caso seja desejado. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
